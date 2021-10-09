@@ -13,6 +13,7 @@
     <link href="{{asset('front/assets/plugins/highcharts/css/highcharts.css')}}" rel="stylesheet"/>
     <link href="{{asset('front/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
     <link href="{{asset('front/assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet"/>
+    <link href="{{asset('front/assets/plugins/datatable/css/dataTables.bootstrap5.min.css')}}" rel="stylesheet" />
     <!-- loader-->
     <link href="{{asset('front/assets/css/pace.min.css')}}" rel="stylesheet"/>
     <script src="{{asset('front/assets/js/pace.min.js')}}"></script>
@@ -26,6 +27,8 @@
     <link rel="stylesheet" href="{{asset('front/assets/css/dark-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/assets/css/semi-dark.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/assets/css/header-colors.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
     <title>EFFITECH</title>
 </head>
 
@@ -39,7 +42,7 @@
                 <img src="{{asset('local/logo.png')}}" class="logo-icon" alt="logo icon">
             </div>
             <div>
-                <h4 class="logo-text">EFFITECH</h4>
+                <a href="{{route('home')}}"> <h4 class="logo-text">EFFITECH</h4></a>
             </div>
             <div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
             </div>
@@ -56,13 +59,13 @@
                 <ul>
                     <li> <a href="{{route('client.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Clients</a>
                     </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
+                    <li> <a href="{{route('client.professional')}}"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
                     </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
+                    <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
                     </li>
                 </ul>
             </li>
-            <li>
+<!--            <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-spa'></i>
                     </div>
@@ -76,7 +79,7 @@
                     <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
                     </li>
                 </ul>
-            </li>
+            </li>-->
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-command' ></i>
@@ -84,9 +87,9 @@
                     <div class="menu-title">Sous Traitant</div>
                 </a>
                 <ul>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ajouter Sous Traitant</a>
+                    <li> <a href="{{route('traitant.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Sous Traitant</a>
                     </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Traitant</a>
+                    <li> <a href="{{route('traitant.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Traitant</a>
                     </li>
                 </ul>
             </li>
@@ -221,7 +224,57 @@
 <script src="{{asset('front/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
 <script src="{{asset('front/assets/js/index2.js')}}"></script>
 <!--app JS-->
+<script src="{{asset('front/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('front/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
 <script src="{{asset('front/assets/js/app.js')}}"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "language": {
+                "sProcessing": "Traitement en cours ...",
+                "sLengthMenu": "Spectacle _MENU_ entrées",
+                // "sZeroRecords": "Aucun résultat trouvé",
+                "sEmptyTable": "Aucune donnée disponible",
+                // "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+                "sInfoEmpty": "Aucune ligne affichée",
+                "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+                "sInfoPostFix": "",
+                "sSearch": "Rechercher:",
+                "sUrl": "",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Chargement...",
+                "oPaginate": {
+                    "sFirst": "Premier", "sLast": "Dernier", "sNext": "Suivant", "sPrevious": "Précédent"
+                },
+                "oAria": {
+                    "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+                }
+            },
+            "responsive": true, "lengthChange": true, "autoWidth": false,
+        });
+    } );
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
 <script>
     new PerfectScrollbar('.customers-list');
     new PerfectScrollbar('.store-metrics');

@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->string('type')->nullable();
+            $table->string('company')->nullable();
+            $table->string('siret')->nullable();
             $table->string('image')->default('local/avatar.jpg');
             $table->rememberToken();
             $table->timestamps();

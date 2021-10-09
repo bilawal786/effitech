@@ -21,3 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
+Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
+Route::post('/client/store', 'Admin\ClientController@store')->name('client.store');
+Route::get('/client/particular', 'Admin\ClientController@particular')->name('client.particular');
+
+Route::get('/traitant/create', 'Admin\ClientController@traitantCreate')->name('traitant.create');
+Route::get('/traitant/index', 'Admin\ClientController@traitantIndex')->name('traitant.index');

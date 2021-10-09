@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
+            'image' => 'local/avatar.jpg'
         ]);
         User::create([
             'fname' => 'Client',
@@ -30,6 +31,8 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
+            'image' => 'local/avatar.jpg',
+            'siret' => '12345678'
         ]);
         User::create([
             'fname' => 'Traitant',
@@ -39,6 +42,8 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
+            'image' => 'local/avatar.jpg',
+            'siret' => '12345678'
         ]);
         User::create([
             'fname' => 'Commercial',
@@ -48,6 +53,8 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
+            'image' => 'local/avatar.jpg',
+            'siret' => '12345678'
         ]);
         User::create([
             'fname' => 'Conducteur',
@@ -57,6 +64,8 @@ class UserSeeder extends Seeder
             'phone' => '00000000',
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
+            'image' => 'local/avatar.jpg',
+            'siret' => '12345678'
         ]);
     }
 }

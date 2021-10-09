@@ -4,7 +4,7 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Clients</div>
+                <div class="breadcrumb-title pe-3">Traitant</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
@@ -25,7 +25,7 @@
                             <div class="card-title d-flex align-items-center">
                                 <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
                                 </div>
-                                <h5 class="mb-0 text-danger">Ajouter un nouveau client</h5>
+                                <h5 class="mb-0 text-danger">Ajouter un nouveau Traitant</h5>
                             </div>
                             @error('email')
                             <strong>Le couriel a déja été pris en compte.</strong>
@@ -75,17 +75,7 @@
                                         <input type="number" name="siret" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Siret" />
                                     </div>
                                 </div>
-                                <input type="hidden" name="role" value="1">
-                                <div class="col-12">
-                                    <label for="inputChoosePassword" class="form-label">Taper</label>
-                                    <div class="input-group">
-                                        <select name="type" class="form-control" id="" required>
-                                            <option>Sélectionnez le type de client</option>
-                                            <option value="Professionnel">Professionnel</option>
-                                            <option value="Particular">Particular</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="role" value="2">
                                 <div class="col-12">
                                     <label for="inputAddress3" class="form-label">Adresse</label>
                                     <textarea required name="address" class="form-control" id="inputAddress3" placeholder="Adresse" rows="3"></textarea>
@@ -103,4 +93,4 @@
 
         </div>
     </div>
-    @endsection
+@endsection
