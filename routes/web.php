@@ -27,3 +27,9 @@ Route::get('/client/particular', 'Admin\ClientController@particular')->name('cli
 
 Route::get('/traitant/create', 'Admin\ClientController@traitantCreate')->name('traitant.create');
 Route::get('/traitant/index', 'Admin\ClientController@traitantIndex')->name('traitant.index');
+
+Route::get('/commercial/create', 'Admin\ClientController@commercialCreate')->name('commercial.create');
+Route::get('/commercial/index', 'Admin\ClientController@commercialIndex')->name('commercial.index');
+
+Route::get('/conducteur/create', 'Admin\ClientController@conducteurCreate')->name('conducteur.create');
+Route::get('/conducteur/index', 'Admin\ClientController@conducteurIndex')->name('conducteur.index');

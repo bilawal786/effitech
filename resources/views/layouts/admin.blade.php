@@ -100,7 +100,9 @@
                     <div class="menu-title">Commerciaux</div>
                 </a>
                 <ul>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ajouter un commercial</a>
+                    <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un commercial</a>
+                    </li>
+                    <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous commercial</a>
                     </li>
                     <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Factures</a>
                     </li>
@@ -115,7 +117,9 @@
                     <div class="menu-title">Conducteur de Travaux</div>
                 </a>
                 <ul>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ajouter Conducteur de Travaux</a>
+                    <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Conducteur de Travaux</a>
+                    </li>
+                    <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Conducteur</a>
                     </li>
                     <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Factures</a>
                     </li>

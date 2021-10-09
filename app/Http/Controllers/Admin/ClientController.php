@@ -51,4 +51,18 @@ class ClientController extends Controller
         $users = User::where('role', '2')->get();
         return view('admin.traitant.index', compact('users'));
     }
+    public function commercialCreate(){
+        return view('admin.commercial.create');
+    }
+    public function commercialIndex(){
+        $users = User::where('role', '3')->get();
+        return view('admin.commercial.index', compact('users'));
+    }
+    public function conducteurCreate(){
+        return view('admin.conducteur.create');
+    }
+    public function conducteurIndex(){
+        $users = User::where('role', '4')->get();
+        return view('admin.conducteur.index', compact('users'));
+    }
 }
