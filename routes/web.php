@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::get('/', 'Front\FrontendController@index')->name('front.index');
+Route::get('/admin/login', 'Front\FrontendController@admin')->name('admin.login');
+Route::get('/contact', 'Front\FrontendController@contact')->name('front.contact');
+
 
 Auth::routes();
+
+Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
@@ -33,3 +36,11 @@ Route::get('/commercial/index', 'Admin\ClientController@commercialIndex')->name(
 
 Route::get('/conducteur/create', 'Admin\ClientController@conducteurCreate')->name('conducteur.create');
 Route::get('/conducteur/index', 'Admin\ClientController@conducteurIndex')->name('conducteur.index');
+
+});
+
+Route::group(['middleware' => ['auth', 'web']], function() {
+
+    Route::get('/user/dashboard', 'Front\FrontendController@clientDashboard')->name('client.dashboard');
+
+});
