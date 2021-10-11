@@ -67,7 +67,7 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <input type="hidden" value="1" name="role">
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmez le mot de passe') }}</label>
 
