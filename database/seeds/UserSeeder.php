@@ -67,5 +67,12 @@ class UserSeeder extends Seeder
             'image' => 'local/avatar.jpg',
             'siret' => '12345678'
         ]);
+        \App\Category::create([
+            'name' => "Test Category"
+        ]);
+        \App\SubCategory::create([
+            'category_id' => '1',
+            'name' => "Test Sub Category"
+        ]);
     }
 }

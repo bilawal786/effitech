@@ -1,4 +1,4 @@
-@extends('layouts.user-dashboard')
+@extends('layouts.client-dashboard')
 @section('content')
     <!--**********************************
         Content body start

@@ -8,9 +8,14 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('user/images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('user/vendor/chartist/css/chartist.min.css')}}">
+    <link href="{{asset('user/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+
     <link href="{{asset('user/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('user/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+
     <link href="{{asset('user/css/style.css')}}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -207,15 +212,7 @@
                                 <div class="header-info">
                                     <span class="text-black"><strong>{{Auth::user()->fname}} {{Auth::user()->lname}}</strong></span>
                                     <p class="fs-12 mb-0">
-                                    @if(Auth::user()->role == 1)
                                         Client
-                                    @elseif(Auth::user()->role == 2)
-                                      Sous-Traitant
-                                    @elseif(Auth::user()->role == 3)
-                                            Superviseur
-                                    @elseif(Auth::user()->role == 4)
-                                        conducteur
-                                    @endif
                                     </p>
                                 </div>
                             </a>
@@ -258,8 +255,8 @@
                         <span class="nav-text">Problèmes</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">Ajouter un nouveau problème</a></li>
-                        <li><a href="#">Afficher tous les problèmes</a></li>
+                        <li><a href="{{route('problem.create')}}">Ajouter un nouveau problème</a></li>
+                        <li><a href="{{route('problem.index')}}">Afficher tous les problèmes</a></li>
                     </ul>
                 </li>
                 <li>
@@ -335,6 +332,10 @@
 
 <!-- Dashboard 1 -->
 <script src="{{asset('user/js/dashboard/dashboard-1.js')}}"></script>
+
+<!-- Datatable -->
+<script src="{{asset('user/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('user/js/plugins-init/datatables.init.js')}}"></script>
 <script>
     function carouselReview(){
         /*  testimonial one function by = owl.carousel.js */
@@ -374,6 +375,28 @@
             carouselReview();
         }, 1000);
     });
+</script>
+<script>
+    function categorychange(elem){
+        $('.subcategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
+        event.preventDefault();
+        let id = elem.value;
+        let _token   = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "{{route('fetchsubcategory')}}",
+            type:"POST",
+            data:{
+                id:id,
+                _token: _token
+            },
+            success:function(response){
+                $.each(response, function(i, item) {
+                    $('.subcategory').append('<option value="'+item.id+'">'+item.name+'</option>');
+                });
+            },
+        });
+    }
 </script>
 </body>
 </html>

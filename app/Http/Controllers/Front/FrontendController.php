@@ -11,6 +11,9 @@ class FrontendController extends Controller
     public function admin(){
         return view('auth.admin');
     }
+    public function provider(){
+        return view('auth.provider');
+    }
     public function index(){
         return view('front.index');
     }
@@ -19,5 +22,8 @@ class FrontendController extends Controller
     }
     public function clientDashboard(){
         return view('client.dashboard');
+    }
+    public function providerDashboard(){
+        return view('provider.dashboard');
     }
 }

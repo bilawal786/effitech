@@ -53,6 +53,16 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Taper') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="type" class="form-control" id="">
+                                    <option value="Professionnel">Professionnel</option>
+                                    <option value="Particular">Particular</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>

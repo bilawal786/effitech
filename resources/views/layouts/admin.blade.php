@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="{{asset('front/assets/css/semi-dark.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/assets/css/header-colors.css')}}"/>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>EFFITECH</title>
 </head>
@@ -54,6 +55,19 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-home'></i>
                     </div>
+                    <div class="menu-title">Catégories</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('category.index')}}"><i class="bx bx-right-arrow-alt"></i>Catégorie principale</a>
+                    </li>
+                    <li> <a href="{{route('subcategory.index')}}"><i class="bx bx-right-arrow-alt"></i>Sous-catégorie</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-home'></i>
+                    </div>
                     <div class="menu-title">Clients</div>
                 </a>
                 <ul>
@@ -65,21 +79,6 @@
                     </li>
                 </ul>
             </li>
-<!--            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-spa'></i>
-                    </div>
-                    <div class="menu-title">Chantier</div>
-                </a>
-                <ul>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Ajouter Clients</a>
-                    </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
-                    </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
-                    </li>
-                </ul>
-            </li>-->
             <li>
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-command' ></i>
@@ -137,17 +136,7 @@
                 <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
                 </div>
                 <div class="top-menu-left d-none d-lg-block">
-                    @if(Auth::user()->role == 0)
                      <h5>Bienvenue dans le tableau de bord d'administration</h5>
-                    @elseif(Auth::user()->role == 1)
-                        <h5>Bienvenue dans le tableau de bord client</h5>
-                    @elseif(Auth::user()->role == 2)
-                        <h5>Bienvenue dans le tableau de bord traitant</h5>
-                    @elseif(Auth::user()->role == 3)
-                        <h5>Bienvenue dans le tableau de bord commercial</h5>
-                    @elseif(Auth::user()->role == 4)
-                        <h5>Bienvenue dans le tableau de bord conducteur</h5>
-                    @endif
                 </div>
                 <div class="search-bar flex-grow-1">
                     <div class="position-relative search-bar-box">
@@ -278,6 +267,49 @@
             break;
     }
     @endif
+</script>
+<script>
+    $(document).on("click", "#delete", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        swal({
+            title: "Voulez-vous supprimer?",
+            text: "Une fois supprimé, ce sera définitivement supprimé!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Données sécurisées!");
+                }
+            });
+    });
+
+</script>
+<script>
+    function categorychange(elem){
+        $('.subcategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
+        event.preventDefault();
+        let id = elem.value;
+        let _token   = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "{{route('fetchsubcategory')}}",
+            type:"POST",
+            data:{
+                id:id,
+                _token: _token
+            },
+            success:function(response){
+                $.each(response, function(i, item) {
+                    $('.subcategory').append('<option value="'+item.id+'">'+item.name+'</option>');
+                });
+            },
+        });
+    }
 </script>
 <script>
     new PerfectScrollbar('.customers-list');

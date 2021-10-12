@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -35,6 +36,8 @@ class ClientController extends Controller
         $user->company = $request->company;
         $user->siret = $request->siret;
         $user->role = $request->role;
+        $user->category_id = $request->category_id;
+        $user->subcategory_id = $request->subcategory_id;
         $user->password = Hash::make($request->password);
         $user->save();
         $notification = array(
@@ -45,21 +48,24 @@ class ClientController extends Controller
     }
 
     public function traitantCreate(){
-        return view('admin.traitant.create');
+        $categories = Category::all();
+        return view('admin.traitant.create', compact('categories'));
     }
     public function traitantIndex(){
         $users = User::where('role', '2')->get();
         return view('admin.traitant.index', compact('users'));
     }
     public function commercialCreate(){
-        return view('admin.commercial.create');
+        $categories = Category::all();
+        return view('admin.commercial.create', compact('categories'));
     }
     public function commercialIndex(){
         $users = User::where('role', '3')->get();
         return view('admin.commercial.index', compact('users'));
     }
     public function conducteurCreate(){
-        return view('admin.conducteur.create');
+        $categories = Category::all();
+        return view('admin.conducteur.create', compact('categories'));
     }
     public function conducteurIndex(){
         $users = User::where('role', '4')->get();

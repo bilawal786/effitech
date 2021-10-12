@@ -99,8 +99,6 @@
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
                             @guest
                             <li><a href="{{route('login')}}">Connexion client</a></li>
-                            <li><a href="{{route('login')}}">Sous-traitant</a></li>
-                            <li><a href="{{route('login')}}">Superviseur</a></li>
                             @endguest
                             @auth
                                 <li><a href="{{route('client.dashboard')}}">Espace Client</a></li>

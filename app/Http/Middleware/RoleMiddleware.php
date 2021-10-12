@@ -16,9 +16,12 @@ class RoleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->role == '1' || Auth::user()->role == '2' || Auth::user()->role == '3'){
+        if (Auth::user()->role == '1'){
             return redirect()->route('client.dashboard');
-        }else{
+        }elseif (Auth::user()->role == '2' || Auth::user()->role == '3' || Auth::user()->role == '4'){
+            return redirect()->route('provider.dashboard');
+        }
+        else{
             return $next($request);
         }
     }

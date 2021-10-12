@@ -46,9 +46,9 @@ let dataSet = [
     var table = $('#example').DataTable({
         createdRow: function ( row, data, index ) {
            $(row).addClass('selected')
-        } 
+        }
     });
-      
+
     table.on('click', 'tbody tr', function() {
     var $row = table.row(this).nodes().to$();
     var hasClass = $row.hasClass('selected');
@@ -58,7 +58,7 @@ let dataSet = [
         $row.addClass('selected')
     }
     })
-    
+
     table.rows().every(function() {
     this.nodes().to$().removeClass('selected')
     });
@@ -85,15 +85,37 @@ let dataSet = [
             $row.addClass('selected')
         }
     })
-        
+
     table2.rows().every(function() {
         this.nodes().to$().removeClass('selected')
     });
-	
-	// 
-	var table = $('#example3, #example4, #example5').DataTable();
+
+	//
+	var table = $('#example3, #example4, #example5').DataTable({
+        "language": {
+            "sProcessing": "Traitement en cours ...",
+            "sLengthMenu": "Spectacle _MENU_ entrées",
+            // "sZeroRecords": "Aucun résultat trouvé",
+            "sEmptyTable": "Aucune donnée disponible",
+            // "sInfo": "Lignes _START_ à _END_ sur _TOTAL_",
+            "sInfoEmpty": "Aucune ligne affichée",
+            "sInfoFiltered": "(Filtrer un maximum de_MAX_)",
+            "sInfoPostFix": "",
+            "sSearch": "Rechercher:",
+            "sUrl": "",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Chargement...",
+            "oPaginate": {
+                "sFirst": "Premier", "sLast": "Dernier", "sNext": "Suivant", "sPrevious": "Précédent"
+            },
+            "oAria": {
+                "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
+            }
+        },
+        "responsive": true, "lengthChange": true, "autoWidth": false,
+    });
 	$('#example tbody').on('click', 'tr', function () {
 		var data = table.row( this ).data();
 	});
-   
+
 })(jQuery);
