@@ -100,7 +100,7 @@ $gs = App\Content::find(1);
                     <nav>
                         <ul id="mainmenu">
                             <li><a href="{{route('front.index')}}">Accueil</a></li>
-                            <li><a href="{{route('front.index')}}#section-features-2">Services</a></li>
+{{--                            <li><a href="{{route('front.index')}}#section-features-2">Services</a></li>--}}
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
                             @guest
                             <li><a href="{{route('login')}}">Connexion client</a></li>
