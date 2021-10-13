@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Content;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class FrontendController extends Controller
         return view('auth.provider');
     }
     public function index(){
-        return view('front.index');
+        $gs = Content::find(1);
+        return view('front.index', compact('gs'));
     }
     public function contact(){
         return view('front.contact');

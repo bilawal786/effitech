@@ -39,4 +39,15 @@ class ClientController extends Controller
         $problems = Problem::where('client_id', Auth::user()->id)->get();
         return view('client.problem.index', compact('problems'));
     }
+    public function problemView($id){
+        $problem = Problem::find($id);
+        return view('client.problem.view', compact('problem'));
+    }
+    public function problemQuote_status($id, $status){
+        $problem = Problem::find($id);
+        $problem->quote_status = $status;
+        $problem->update();
+        Session::flash('message', 'Le statut de votre problème est update. Ladministrateur vous attribuera bientôt un fournisseur daffaires.');
+        return redirect()->back();
+    }
 }

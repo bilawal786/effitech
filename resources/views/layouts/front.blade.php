@@ -8,7 +8,9 @@
     <meta name="keywords" content="construction,multipurpose,onepage,responsive,minimal,bootstrap,theme">
     <meta name="author" content="BrixalBuilding">
 
-
+<?php
+$gs = App\Content::find(1);
+?>
 <!--[if lt IE 9]>
     <script src="{{asset('web/js/html5shiv.js')}}"></script>
     <![endif]-->
@@ -34,7 +36,10 @@
     <!-- RS5.0 Layers and Navigation Styles -->
     <link rel="stylesheet" type="text/css" href="{{asset('web/revolution/css/layers.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('web/revolution/css/navigation.css')}}">
+    <style>
+        #explore-1.side-bg .background-image {background:url({{asset($gs->timage)}}) top;}
 
+    </style>
 </head>
 <body id="homepage" class="side-content side-layout">
 <div id="wrapper">
@@ -127,11 +132,7 @@
                     <div class="col-md-6 text-right">
                         <div class="social-icons">
                             <a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-rss fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-google-plus fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-skype fa-lg"></i></a>
-                            <a href="#"><i class="fa fa-dribbble fa-lg"></i></a>
+                            <a href="#"><i class="fa fa-instagram fa-lg"></i></a>
                         </div>
                     </div>
                 </div>

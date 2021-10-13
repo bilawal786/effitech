@@ -9,7 +9,7 @@
                 <ul>
                     <li data-transition="fade" data-slotamount="10" data-masterspeed="default" data-thumb="">
                         <!--  BACKGROUND IMAGE -->
-                        <img src="{{asset('web/images-slider/wide1.jpg')}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
+                        <img src="{{asset($gs->image1)}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
 
                         <div class="tp-caption ultra-big-white customin customout start"
                              data-x="['center']" data-hoffset="['0']"
@@ -21,7 +21,7 @@
                              data-transform_out="opacity:0;s:400;e:Power3.easeOut;"
                              data-start="600"
                              data-end="1600">
-                            Construction<span class="id-color">.</span>
+                            {{$gs->h1}}<span class="id-color">.</span>
                         </div>
 
                         <div class="tp-caption ultra-big-white customin customout start"
@@ -34,7 +34,7 @@
                              data-transform_out="opacity:0;s:400;e:Power3.easeOut;"
                              data-start="1600"
                              data-end="2600">
-                            Planification<span class="id-color">.</span>
+                            {{$gs->h2}}<span class="id-color">.</span>
                         </div>
 
                         <div class="tp-caption ultra-big-white customin customout start"
@@ -46,13 +46,13 @@
                              data-transform_in="opacity:0;scaleX:2;scaleY:2;s:400;e:Power3.easeOut;"
                              data-transform_out="opacity:0;s:400;e:Power3.easeOut;"
                              data-start="2600">
-                            Rénovation<span class="id-color">.</span>
+                            {{$gs->h3}}<span class="id-color">.</span>
                         </div>
                     </li>
 
                     <li data-transition="fade" data-slotamount="10" data-masterspeed="default" data-thumb="">
                         <!--  BACKGROUND IMAGE -->
-                        <img src="{{asset('web/images-slider/wide2.jpg')}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
+                        <img src="{{asset($gs->image2)}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
 
 
                         <div class="tp-caption ultra-big-white customin customout start"
@@ -64,14 +64,14 @@
                              data-transform_in="opacity:0;scaleX:2;scaleY:2;s:400;e:Power3.easeOut;"
                              data-transform_out="opacity:0;s:400;e:Power3.easeOut;"
                              data-start="600">
-                            Ton rêve<span class="id-color">.</span>
+                           {{$gs->h4}}<span class="id-color">.</span>
                         </div>
 
                     </li>
 
                     <li data-transition="fade" data-slotamount="10" data-masterspeed="default" data-thumb="">
                         <!--  BACKGROUND IMAGE -->
-                        <img src="{{asset('web/images-slider/wide16.jpg')}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
+                        <img src="{{asset($gs->image3)}}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" />
 
 
                         <div class="tp-caption ultra-big-white customin customout start"
@@ -83,10 +83,8 @@
                              data-transform_in="opacity:0;scaleX:2;scaleY:2;s:400;e:Power3.easeOut;"
                              data-transform_out="opacity:0;s:400;e:Power3.easeOut;"
                              data-start="600">
-                            Partenaire<span class="id-color">.</span>
+                            {{$gs->h5}}<span class="id-color">.</span>
                         </div>
-
-
                     </li>
 
                 </ul>
@@ -158,8 +156,8 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Personnel professionnel</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                                <h3>{{$gs->st1}}</h3>
+                                {{$gs->sd1}}
                             </div>
                         </div>
                     </div>
@@ -170,8 +168,8 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Économisez du temps et de l'argent</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                                <h3>{{$gs->st2}}</h3>
+                                {{$gs->sd2}}
                             </div>
                         </div>
                     </div>
@@ -182,9 +180,9 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Estimé détaillé</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            </div>
+                                <h3>{{$gs->st3}}</h3>
+                                {{$gs->sd3}}
+                              </div>
                         </div>
                     </div>
                     <!-- feature box close -->
@@ -196,8 +194,8 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Achèvement à temps</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                                <h3>{{$gs->st4}}</h3>
+                                {{$gs->sd4}}
                             </div>
                         </div>
                     </div>
@@ -208,8 +206,8 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Aucun coût caché</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                                <h3>{{$gs->st5}}</h3>
+                                {{$gs->sd5}}
                             </div>
                         </div>
                     </div>
@@ -220,9 +218,9 @@
                         <div class="inner">
                             <span class="icon"><i class="icon_box-checked"></i></span>
                             <div class="text">
-                                <h3>Zéro réclamation</h3>
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
-                            </div>
+                                <h3>{{$gs->st6}}</h3>
+                                {{$gs->sd6}}
+                             </div>
                         </div>
                     </div>
                     <!-- feature box close -->
@@ -245,11 +243,11 @@
                         <h2>Ce qu'ils disent<span class="tiny-border"></span></h2>
 
                         <ul class="testimonial-list wow fadeIn" data-wow-delay=".25s">
-                            <li>Ils étaient très sympathiques et c'était un plaisir d'accomplir mes tâches. Je suis très satisfait des services qu'ils ont fournis. Je recommanderai cette entreprise à ma famille et mes amis. Leurs travaux sont professionnels et leur prix était compétitif.
-                                <span>Paul, Client</span>
+                            <li>{{$gs->review1}}
+                                <span>{{$gs->rg1}}</span>
                             </li>
-                            <li>Un travail merveilleux, merci! La meilleure entreprise de construction de la ville comme le prouve la qualité des travaux et des services. Leurs services me rendent si spécial. J'aime toujours venir ici, je reviendrais certainement pour de futurs projets.
-                                <span>Alex, Client</span>
+                            <li>{{$gs->review2}}
+                                <span>{{$gs->rg2}}</span>
                             </li>
                         </ul>
 
@@ -261,160 +259,6 @@
         </section>
         <!-- section close -->
 
-        <!-- section begin -->
-        <section id="section-portfolio" class="no-bottom" aria-label="section-portfolio">
-            <div class="container">
-                <h2>Travaux récents<span class="tiny-border"></span></h2>
-
-
-                <!-- portfolio filter begin -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul id="filters">
-                            <li><a href="#" data-filter=".commercial">Commercial</a></li>
-                            <li><a href="#" data-filter=".education">Education</a></li>
-                            <li><a href="#" data-filter=".hospitaly">Hospitaly</a></li>
-                            <li><a href="#" data-filter=".office">Office</a></li>
-                            <li><a href="#" data-filter=".residential">Residential</a></li>
-                            <li class="pull-right"><a href="#" data-filter="*" class="selected">All Projects</a></li>
-                        </ul>
-
-                    </div>
-                </div>
-                <!-- portfolio filter close -->
-
-            </div>
-
-            <div id="gallery" class="gallery invert full-gallery de-gallery pf_full_width">
-
-                <!-- gallery item -->
-                <div class="item residential">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-1.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Green House</span>
-                                    </span>
-                                </span>
-                        </a>
-                        <img src="images/portfolio/pf%20(1).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item commercial education">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-2.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Contemporary Building</span>
-                                    </span>
-                                </span>
-                        </a>
-
-                        <img src="images/portfolio/pf%20(2).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item commercial hospitaly">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-3.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Twin Tower</span>
-                                    </span>
-                                </span>
-                        </a>
-
-                        <img src="images/portfolio/pf%20(3).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item commercial hospitaly">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-4.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Modern Skyline</span>
-                                    </span>
-                                </span>
-                        </a>
-                        <img src="images/portfolio/pf%20(4).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item office commercial">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-5.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Modern Office</span>
-                                    </span>
-                                </span>
-                        </a>
-                        <img src="images/portfolio/pf%20(5).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item residential">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-1.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Country Side House</span>
-                                    </span>
-                                </span>
-                        </a>
-                        <img src="images/portfolio/pf%20(6).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item office education">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-2.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">Cube Office</span>
-                                    </span>
-                                </span>
-                        </a>
-
-                        <img src="images/portfolio/pf%20(7).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-                <!-- gallery item -->
-                <div class="item residential">
-                    <div class="picframe">
-                        <a href="sidenav_project-details-3.html">
-                                <span class="overlay">
-                                    <span class="pf_text">
-                                        <span class="project-name">London Luxury House</span>
-                                    </span>
-                                </span>
-                        </a>
-
-                        <img src="images/portfolio/pf%20(8).jpg" alt="" />
-                    </div>
-                </div>
-                <!-- close gallery item -->
-
-            </div>
-
-        </section>
-        <!-- section close -->
 
 
 

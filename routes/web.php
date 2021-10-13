@@ -23,8 +23,17 @@ Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->n
 Auth::routes();
 //Admin routes
 Route::group(['middleware' => ['auth', 'web', 'role']], function() {
-
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::prefix('admin')->group(function () {
+
+    Route::get('/general/slider', 'Admin\WebsiteController@slider')->name('general.slider');
+    Route::get('/general/testimonial', 'Admin\WebsiteController@testimonial')->name('general.testimonial');
+    Route::get('/general/services', 'Admin\WebsiteController@services')->name('general.services');
+    Route::post('/slider/store', 'Admin\WebsiteController@sliderStore')->name('slider.store');
+    Route::post('/service/store', 'Admin\WebsiteController@serviceStore')->name('service.store');
+    Route::post('/testimonial/store', 'Admin\WebsiteController@testimonialStore')->name('testimonial.store');
+
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
     Route::post('/client/store', 'Admin\ClientController@store')->name('client.store');
@@ -47,7 +56,13 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/subcategory/delete/{id}', 'Admin\CategoryController@subcategorydelete')->name('subcategory.delete');
     Route::post('/subcategory/store', 'Admin\CategoryController@subcategorystore')->name('subcategory.store');
 
+    Route::get('/problem/index', 'Admin\ClientController@problems')->name('admin.problems.index');
+    Route::get('/problem/quote', 'Admin\ClientController@problemsQuote')->name('admin.problems.quote');
+    Route::get('/problem/accept', 'Admin\ClientController@problemsAccept')->name('admin.problems.accept');
+    Route::get('/problem/view/{id}', 'Admin\ClientController@problemView')->name('admin.problem.view');
+    Route::post('/problem/quote{id}', 'Admin\ClientController@problemQuote')->name('admin.problem.quote');
 
+    });
 });
 //Client routes
 Route::group(['middleware' => ['auth', 'web', 'client']], function() {
@@ -57,6 +72,8 @@ Route::group(['middleware' => ['auth', 'web', 'client']], function() {
         Route::get('/problem/create', 'Client\ClientController@problemCreate')->name('problem.create');
         Route::get('/problem/index', 'Client\ClientController@problemIndex')->name('problem.index');
         Route::post('/problem/store', 'Client\ClientController@problemStore')->name('problem.store');
+        Route::get('/problem/view/{id}', 'Client\ClientController@problemView')->name('problem.view');
+        Route::get('/problem/quote/status/{id}/{status}', 'Client\ClientController@problemQuote_status')->name('problem.quote_status');
     });
 });
 //Provider routes

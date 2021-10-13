@@ -9,6 +9,8 @@
     <link rel="icon" href="{{asset('front/assets/images/favicon-32x32.png')}}" type="image/png"/>
     <!--plugins-->
     <link href="{{asset('front/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
+    <link href="{{asset('front/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
+    <link href="{{asset('front/assets/plugins/select2/css/select2-bootstrap4.css')}}" rel="stylesheet" />
     <link href="{{asset('front/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
     <link href="{{asset('front/assets/plugins/highcharts/css/highcharts.css')}}" rel="stylesheet"/>
     <link href="{{asset('front/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
@@ -55,6 +57,21 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-home'></i>
                     </div>
+                    <div class="menu-title">Réglages généraux</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('general.slider')}}"><i class="bx bx-right-arrow-alt"></i>Carrousel</a>
+                    </li>
+                    <li> <a href="{{route('general.services')}}"><i class="bx bx-right-arrow-alt"></i>Services</a>
+                    </li>
+                    <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignage</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-home'></i>
+                    </div>
                     <div class="menu-title">Catégories</div>
                 </a>
                 <ul>
@@ -76,6 +93,12 @@
                     <li> <a href="{{route('client.professional')}}"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
                     </li>
                     <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
+                    </li>
+                    <li> <a href="{{route('admin.problems.index')}}"><i class="bx bx-right-arrow-alt"></i>Nouveaux problèmes</a>
+                    </li>
+                    <li> <a href="{{route('admin.problems.quote')}}"><i class="bx bx-right-arrow-alt"></i>Envoyer des devis</a>
+                    </li>
+                    <li> <a href="{{route('admin.problems.accept')}}"><i class="bx bx-right-arrow-alt"></i>Devis acceptés</a>
                     </li>
                 </ul>
             </li>
@@ -154,7 +177,7 @@
                 </div>
                 <div class="user-box dropdown">
                     <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{Auth::user()->image}}" class="user-img" alt="user avatar">
+                        <img src="{{asset(Auth::user()->image)}}" class="user-img" alt="user avatar">
                         <div class="user-info ps-3">
                             <p class="user-name mb-0">{{Auth::user()->fname}} {{Auth::user()->lname}}</p>
                         </div>
@@ -217,8 +240,23 @@
 <script src="{{asset('front/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
 <script src="{{asset('front/assets/js/index2.js')}}"></script>
 <!--app JS-->
+<script src="{{asset('front/assets/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('front/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('front/assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
+<script>
+    $('.single-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+    $('.multiple-select').select2({
+        theme: 'bootstrap4',
+        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+        placeholder: $(this).data('placeholder'),
+        allowClear: Boolean($(this).data('allow-clear')),
+    });
+</script>
 <script src="{{asset('front/assets/js/app.js')}}"></script>
 <script>
     $(document).ready(function() {

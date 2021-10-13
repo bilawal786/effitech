@@ -50,7 +50,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Photos</label>
-                                                <input type="file" multiple class="form-control" name="photos">
+                                                <input type="file" multiple class="form-control" name="photos[]">
                                             </div>
                                         </div>
                                     </div>

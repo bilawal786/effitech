@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Problem;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -70,5 +71,33 @@ class ClientController extends Controller
     public function conducteurIndex(){
         $users = User::where('role', '4')->get();
         return view('admin.conducteur.index', compact('users'));
+    }
+    public function problems(){
+        $problems = Problem::where('quote_status', 0)->get();
+        return view('admin.client.problems', compact('problems'));
+    }
+    public function problemsQuote(){
+        $problems = Problem::where('quote_status', 3)->get();
+        return view('admin.client.problems', compact('problems'));
+    }
+    public function problemsAccept(){
+        $problems = Problem::where('quote_status', 1)->get();
+        return view('admin.client.problems', compact('problems'));
+    }
+    public function problemView($id){
+        $problem = Problem::find($id);
+        return view('admin.client.problemView', compact('problem'));
+    }
+    public function problemQuote(Request $request, $id){
+        $problem = Problem::find($id);
+        $problem->price = $request->price;
+        $problem->service_date = $request->service_date;
+        $problem->quote_status = 3;
+        $problem->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
     }
 }
