@@ -18,4 +18,16 @@ class Problem extends Model
     {
         return $this->belongsTo(User::class, 'client_id');
     }
+    public function subcontractor()
+    {
+        return $this->belongsTo(User::class, 'contractor_id');
+    }
+    public function supervisor()
+    {
+        return $this->belongsTo(User::class, 'supervisor_id');
+    }
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

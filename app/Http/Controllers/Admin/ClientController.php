@@ -85,14 +85,29 @@ class ClientController extends Controller
         return view('admin.client.problems', compact('problems'));
     }
     public function problemView($id){
+        $subcontractor = User::where('role', 2)->get();
+        $supervisor = User::where('role', 3)->get();
+        $owner = User::where('role', 4)->get();
         $problem = Problem::find($id);
-        return view('admin.client.problemView', compact('problem'));
+        return view('admin.client.problemView', compact('problem', 'subcontractor', 'supervisor', 'owner'));
     }
     public function problemQuote(Request $request, $id){
         $problem = Problem::find($id);
         $problem->price = $request->price;
         $problem->service_date = $request->service_date;
         $problem->quote_status = 3;
+        $problem->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function problemAssign(Request $request, $id){
+        $problem = Problem::find($id);
+        $problem->contractor_id = $request->contractor_id;
+        $problem->supervisor_id = $request->supervisor_id;
+        $problem->owner_id = $request->owner_id;
         $problem->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',

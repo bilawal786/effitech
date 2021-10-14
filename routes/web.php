@@ -61,6 +61,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/problem/accept', 'Admin\ClientController@problemsAccept')->name('admin.problems.accept');
     Route::get('/problem/view/{id}', 'Admin\ClientController@problemView')->name('admin.problem.view');
     Route::post('/problem/quote{id}', 'Admin\ClientController@problemQuote')->name('admin.problem.quote');
+    Route::post('/assign/problem/{id}', 'Admin\ClientController@problemAssign')->name('admin.assign.problem');
 
     });
 });
@@ -80,5 +81,10 @@ Route::group(['middleware' => ['auth', 'web', 'client']], function() {
 Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
     Route::prefix('provider')->group(function () {
         Route::get('/dashboard', 'Front\FrontendController@providerDashboard')->name('provider.dashboard');
+
+        Route::get('/problems/assign', 'Provider\ProviderController@assignProblems')->name('provider.problems.assign');
+        Route::get('/problems/complete', 'Provider\ProviderController@completeProblems')->name('provider.problems.complete');
+        Route::get('/problem/view/{id}', 'Provider\ProviderController@problemView')->name('provider.problem.view');
+        Route::get('/problem/status/{id}', 'Provider\ProviderController@problemStatus')->name('provider.problem.status');
     });
 });

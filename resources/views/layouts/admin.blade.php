@@ -354,6 +354,14 @@
     new PerfectScrollbar('.store-metrics');
     new PerfectScrollbar('.product-list');
 </script>
+<script>
+
+    $(document).ready(function() {
+        $(".single-select").select2({
+            dropdownParent: $("#exampleModal1")
+        });
+    });
+</script>
 </body>
 
 </html>

@@ -19,7 +19,7 @@
     <link href="{{asset('provider/assets/plugins/perfectscroll/perfect-scrollbar.css')}}" rel="stylesheet">
     <link href="{{asset('provider/assets/plugins/apexcharts/apexcharts.css')}}" rel="stylesheet">
 
-
+    <link href="{{asset('provider/assets/plugins/DataTables/datatables.min.css')}}" rel="stylesheet">
     <!-- Theme Styles -->
     <link href="{{asset('provider/assets/css/main.min.css')}}" rel="stylesheet">
     <link href="{{asset('provider/assets/css/custom.css')}}" rel="stylesheet">
@@ -163,25 +163,35 @@
     <div class="page-sidebar">
         <ul class="list-unstyled accordion-menu">
             <li class="sidebar-title">
-                Main
+                Principal
             </li>
             <li class="active-page">
-                <a href="{{route('provider.dashboard')}}"><i data-feather="home"></i>Dashboard</a>
+                <a href="{{route('provider.dashboard')}}"><i data-feather="home"></i>Tableau de bord</a>
             </li>
             <li class="sidebar-title">
                 Apps
             </li>
             <li>
-                <a href="email.html"><i data-feather="inbox"></i>Email</a>
+                <a href="{{route('provider.problems.assign')}}"><i data-feather="inbox"></i>Nouveau Problèmes</a>
             </li>
             <li>
+                <a href="{{route('provider.problems.complete')}}"><i data-feather="user"></i>Problèmes complets</a>
+            </li>
+            @if(Auth::user()->role == 2)
+
+            @elseif(Auth::user()->role == 3)
+
+            @elseif(Auth::user()->role == 4)
+
+            @endif
+<!--            <li>
                 <a href="calendar.html"><i data-feather="calendar"></i>Calendar</a>
             </li>
             <li>
                 <a href="social.html"><i data-feather="user"></i>Social</a>
             </li><li>
                 <a href="file-manager.html"><i data-feather="message-circle"></i>File Manager</a>
-            </li>
+            </li>-->
 
         </ul>
     </div>
@@ -195,7 +205,29 @@
 <script src="https://unpkg.com/feather-icons"></script>
 <script src="{{asset('provider/assets/plugins/perfectscroll/perfect-scrollbar.min.js')}}"></script>
 <script src="{{asset('provider/assets/plugins/apexcharts/apexcharts.min.js')}}"></script>
-<script src="{{asset('provider/assets/js/main.min.js')}}"></script>
 <script src="{{asset('provider/assets/js/pages/dashboard.js')}}"></script>
+<script src="{{asset('provider/assets/plugins/DataTables/datatables.min.js')}}"></script>
+<script src="{{asset('provider/assets/js/main.min.js')}}"></script>
+<script src="{{asset('provider/assets/js/pages/datatables.js')}}"></script>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
 </body>
 </html>

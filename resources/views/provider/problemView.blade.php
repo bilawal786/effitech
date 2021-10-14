@@ -1,17 +1,8 @@
-@extends('layouts.client-dashboard')
+@extends('layouts.provider-dashboard')
 @section('content')
-    <div class="content-body">
-        <!-- row -->
-        <div class="container-fluid">
+    <div class="page-content">
+        <div class="main-wrapper">
             <div class="row">
-                @if(Session::has('message'))
-                    <div class="alert alert-success alert-dismissible fade show">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                        <strong>Succès! </strong> {{ Session::get('message') }}
-                        <button type="button" class="close h-100" data-dismiss="alert" aria-label="Close"><span><i class="mdi mdi-close"></i></span>
-                        </button>
-                    </div>
-                @endif
                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 row-cols-xl-3">
                     <div class="col">
                         <div class="card">
@@ -59,29 +50,13 @@
                                     <h5 class="card-title">Chantier Photos</h5>
                                     <hr>
                                 </div>
-                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
-                                        </li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        @foreach(json_decode($problem->photos, true) as $key => $images )
-                                            @if($key == 0)
-                                                <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="{{asset('photos/'.$images)}}" alt="First slide">
-                                                </div>
-                                            @else
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="{{asset('photos/'.$images)}}" alt="First slide">
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    </div><a class="carousel-control-prev" href="#carouselExampleIndicators" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span
-                                            class="sr-only">Previous</span> </a><a class="carousel-control-next" href="#carouselExampleIndicators" data-slide="next"><span
-                                            class="carousel-control-next-icon"></span>
-                                        <span class="sr-only">Next</span></a>
+                                <div class="w3-content w3-display-container">
+                                    @foreach(json_decode($problem->photos, true) as $key => $images )
+                                    <img class="mySlides" src="{{asset('photos/'.$images)}}" style="width:100%">
+                                    @endforeach
+                                        <br>
+                                    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                                    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +79,9 @@
                                         <a href="{{route('problem.quote_status', ['id' => $problem->id, 'status' => '1'])}}"><button class="btn btn-success btn-sm">Accepter</button></a>
                                         <a href="{{route('problem.quote_status', ['id' => $problem->id, 'status' => '2'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
                                     @elseif($problem->quote_status == 1)
-                                        <span class="badge badge-pill badge-success">Devis Accepter</span>
+                                        <span class="badge bg-success">Devis Accepter</span>
                                     @else
-                                        <span class="badge badge-pill badge-danger">Devis Rejeter</span>
+                                        <span class="badge bg-danger">Devis Rejeter</span>
                                     @endif
                                 </div>
                             </div>
@@ -123,14 +98,64 @@
                                     <b>Sous-traitant</b>: {{$problem->subcontractor->fname}} {{$problem->subcontractor->lname}}<br>
                                     <b>Superviseur de travail</b>: {{$problem->supervisor->fname}} {{$problem->supervisor->lname}}<br>
                                     <b>Propriétaire d'entreprise</b>: {{$problem->owner->fname}} {{$problem->owner->lname}}<br>
-
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div>
+                                        <h5 class="card-title">Validation</h5>
+                                        <hr>
+                                    </div>
+                                    <b>Valider le travail lorsqu'il est terminé</b><br>
+                                    <b>Statut</b>:
+
+                                    @if (Auth::user()->role == 2)
+                                        @if($problem->contractor_status == 0)
+                                            <span class="badge bg-warning">In Process</span>
+                                        @elseif($problem->contractor_status == 1)
+                                            <span class="badge bg-success">Complete</span>
+                                        @endif
+                                        <br>
+                                        <br>
+                                        @if($problem->contractor_status == 0)
+                                            <a href="{{route('provider.problem.status', ['id' => $problem])}}"><button class="btn btn-primary">Validate</button></a>
+                                        @endif
+                                    @elseif (Auth::user()->role == 3)
+                                        @if($problem->supervisor_status == 0)
+                                            <span class="badge bg-warning">In Process</span>
+                                        @elseif($problem->supervisor_status == 1)
+                                            <span class="badge bg-success">Complete</span>
+                                        @endif
+                                        <br>
+                                        <br>
+                                        @if($problem->supervisor_status == 0)
+                                            <a href="{{route('provider.problem.status', ['id' => $problem])}}"><button class="btn btn-primary">Validate</button></a>
+                                        @endif
+                                    @elseif (Auth::user()->role == 4)
+                                        @if($problem->owner_status == 0)
+                                            <span class="badge bg-warning">In Process</span>
+                                        @elseif($problem->owner_status == 1)
+                                            <span class="badge bg-success">Complete</span>
+                                        @endif
+                                        <br>
+                                        <br>
+                                        @if($problem->owner_status == 0)
+                                            <a href="{{route('provider.problem.status', ['id' => $problem])}}"><button class="btn btn-primary">Validate</button></a>
+                                        @endif
+                                    @endif
+
+
+                                 </div>
                             </div>
                         </div>
                     @endif
                 </div>
             </div>
         </div>
+
     </div>
 
 @endsection
+
