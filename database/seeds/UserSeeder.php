@@ -1,5 +1,6 @@
 <?php
 
+use App\Page;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -113,6 +114,38 @@ class UserSeeder extends Seeder
             'logo' => 'local/logo.png',
             'facebook' => 'www.facebook.com',
             'instagram' => 'www.instagram.com',
+        ]);
+        Page::create([
+            'h1' => 'Notre vision',
+            'h2' => 'Notre mission',
+            'd1' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. ',
+            'd2' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. ',
+
+            'video' => 'rwvmru5JmXk',
+            'vimage' => 'web/images/misc/pic_5.jpg',
+
+            'image1' => 'web/images/misc/pic_6.jpg',
+            'title1' => 'Construire',
+            'de1' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.',
+            'image2' => 'web/images/misc/pic_7.jpg',
+            'title2' => 'Planification',
+            'de2' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.',
+
+            'rh1' => 'Notre vision',
+            'rh2' => 'Notre mission',
+            'rd1' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. ',
+            'rd2' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. ',
+
+            'rvideo' => 'rwvmru5JmXk',
+            'rvimage' => 'web/images/misc/pic_5.jpg',
+
+            'rimage1' => 'web/images/misc/pic_6.jpg',
+            'rtitle1' => 'Construire',
+            'rde1' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.',
+            'rimage2' => 'web/images/misc/pic_7.jpg',
+            'rtitle2' => 'Planification',
+            'rde2' => 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.',
+
         ]);
     }
 }

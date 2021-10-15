@@ -29,10 +29,10 @@
                                     <div class="col-md-6">
 
                                         <address class="address-style-2">
-                                            <span><strong>Adresse:</strong>Collins Street West, Victoria 8007 Australia</span>
-                                            <span><strong>Telephone:</strong>(208) 333 9296</span>
-                                            <span><strong>Fax:</strong>(208) 333 9298</span>
-                                            <span><strong>Email:</strong><a href="mailto:info@example.com">info@example.com</a></span>
+                                            <span><strong>Adresse:</strong>{{$gs->address}}</span>
+                                            <span><strong>Telephone:</strong>{{$gs->phone}}</span>
+                                            <span><strong>Fax:</strong>{{$gs->fax}}</span>
+                                            <span><strong>Email:</strong><a href="mailto:{{$gs->email}}">{{$gs->email}}</a></span>
                                         </address>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                         <h3>Envoyez-nous un message
                             <span class="tiny-border"></span>
                         </h3>
-                        <form name="contactForm" id='contact_form' method="post" action='email.php'>
+                        <form name="contactForm" id='contact_form' method="post" >
                             <div class="row">
                                 <div class="col-md-12">
                                     <div id='name_error' class='error'>S'il vous plaît entrez votre nom.</div>
@@ -73,16 +73,10 @@
                                     <div>
 
                                         <select class="form-control" name="select-service">
-                                            <option value="Select Service">Sélectionnez le service</option>
-                                            <option value="Building Construction">Building Construction</option>
-                                            <option value="House Roomodel">House Roomodel</option>
-                                            <option value="Interior Design">Interior Design</option>
-                                            <option value="Renovation">Renovation</option>
-                                            <option value="OutField Digging">OutField Digging</option>
-                                            <option value="Road Construction">Road Construction</option>
-                                            <option value="Floors &amp; Roofs">Floors &amp; Roofs</option>
-                                            <option value="Plumbing">Plumbing</option>
-                                            <option value="Electricity">Electricity</option>
+                                            <option>Sélectionnez le service</option>
+                                         @foreach($categories as $row)
+                                                <option value="{{$row->name}}">{{$row->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <br>

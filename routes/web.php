@@ -17,6 +17,8 @@ Route::get('/', 'Front\FrontendController@index')->name('front.index');
 Route::get('/admin/login', 'Front\FrontendController@admin')->name('admin.login');
 Route::get('/provider/login', 'Front\FrontendController@provider')->name('provider.login');
 Route::get('/contact', 'Front\FrontendController@contact')->name('front.contact');
+Route::get('/renovation', 'Front\FrontendController@renovation')->name('front.renovation');
+Route::get('/construction', 'Front\FrontendController@construction')->name('front.construction');
 
 Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->name('fetchsubcategory');
 
@@ -27,12 +29,18 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
     Route::prefix('admin')->group(function () {
 
+    Route::get('/general/construction', 'Admin\WebsiteController@construction')->name('general.construction');
+    Route::get('/general/settings', 'Admin\WebsiteController@settings')->name('general.settings');
+    Route::get('/general/renovation', 'Admin\WebsiteController@renovation')->name('general.renovation');
     Route::get('/general/slider', 'Admin\WebsiteController@slider')->name('general.slider');
     Route::get('/general/testimonial', 'Admin\WebsiteController@testimonial')->name('general.testimonial');
     Route::get('/general/services', 'Admin\WebsiteController@services')->name('general.services');
     Route::post('/slider/store', 'Admin\WebsiteController@sliderStore')->name('slider.store');
     Route::post('/service/store', 'Admin\WebsiteController@serviceStore')->name('service.store');
     Route::post('/testimonial/store', 'Admin\WebsiteController@testimonialStore')->name('testimonial.store');
+    Route::post('/construction/store', 'Admin\WebsiteController@constructionStore')->name('construction.store');
+    Route::post('/renovation/store', 'Admin\WebsiteController@renovationStore')->name('renovation.store');
+    Route::post('/settings/store', 'Admin\WebsiteController@settingsStore')->name('settings.store');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');

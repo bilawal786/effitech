@@ -66,6 +66,12 @@
                     </li>
                     <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignage</a>
                     </li>
+                    <li> <a href="{{route('general.construction')}}"><i class="bx bx-right-arrow-alt"></i>Construction</a>
+                    </li>
+                    <li> <a href="{{route('general.renovation')}}"><i class="bx bx-right-arrow-alt"></i>Rénovation</a>
+                    </li>
+                    <li> <a href="{{route('general.settings')}}"><i class="bx bx-right-arrow-alt"></i>Réglages</a>
+                    </li>
                 </ul>
             </li>
             <li>
