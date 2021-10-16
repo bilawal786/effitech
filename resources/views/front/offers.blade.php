@@ -9,7 +9,7 @@
                 <div class="col-md-4 col-sm-6 mb30">
                     <figure class="pic-hover hover-scale mb20">
                             <span class="center-xy">
-                                <a href="">
+                                <a href="{{route('offer.details', ['id' => $row->id])}}">
                                     <i class="fa fa-plus btn-action btn-action-hide"></i></a>
                             </span>
                         <span class="bg-overlay"></span>
