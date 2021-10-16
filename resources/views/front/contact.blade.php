@@ -21,8 +21,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="map-container">
-
-                                            <iframe style="width:100%; height:500px; border:0" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d19905.696399556287!2d-0.3007084089960577!3d51.417531259591925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s2334+Peterson+Street+Kingston+UK+London+H14D!5e0!3m2!1sen!2s!4v1546697086219" width="600" height="450" ></iframe>
+                                            <iframe style="width:100%; height:500px; border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3830.305250613524!2d-61.514562985138994!3d16.256118488765715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c1348a06117f067%3A0x4b7536893402ea4d!2s34%2C%2097139%20ZA%20de%20Petit%20P%C3%A9rou%2C%20Les%20Abymes%2C%20Guadeloupe!5e0!3m2!1sen!2s!4v1634375015611!5m2!1sen!2s" width="600" height="450"  allowfullscreen="" loading="lazy"></iframe>
+{{--                                            <iframe style="width:100%; height:500px; border:0" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d19905.696399556287!2d-0.3007084089960577!3d51.417531259591925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1s2334+Peterson+Street+Kingston+UK+London+H14D!5e0!3m2!1sen!2s!4v1546697086219" width="600" height="450" ></iframe>--}}
                                         </div>
                                     </div>
 
@@ -31,7 +31,7 @@
                                         <address class="address-style-2">
                                             <span><strong>Adresse:</strong>{{$gs->address}}</span>
                                             <span><strong>Telephone:</strong>{{$gs->phone}}</span>
-                                            <span><strong>Fax:</strong>{{$gs->fax}}</span>
+                                            <span><strong>Bureau:</strong>{{$gs->fax}}</span>
                                             <span><strong>Email:</strong><a href="mailto:{{$gs->email}}">{{$gs->email}}</a></span>
                                         </address>
                                     </div>
@@ -55,17 +55,17 @@
                                 <div class="col-md-12">
                                     <div id='name_error' class='error'>S'il vous plaît entrez votre nom.</div>
                                     <div>
-                                        <input type='text' name='name' id='name' class="form-control" placeholder="Votr Nom">
+                                        <input type='text' name='name' id='name' class="form-control" placeholder="Nom">
                                     </div>
 
                                     <div id='email_error' class='error'>Veuillez entrer votre identifiant e-mail valide.</div>
                                     <div>
-                                        <input type='text' name='email' id='email' class="form-control" placeholder="Votre Email">
+                                        <input type='text' name='email' id='email' class="form-control" placeholder="Email">
                                     </div>
 
                                     <div id='phone_error' class='error'>Veuillez entrer votre numéro de téléphone.</div>
                                     <div>
-                                        <input type='text' name='phone' id='phone' class="form-control" placeholder="Votre Telephone">
+                                        <input type='text' name='phone' id='phone' class="form-control" placeholder="Téléphone">
                                     </div>
                                     <br>
 
@@ -82,7 +82,7 @@
                                     <br>
                                     <div id='message_error' class='error'>Veuillez saisir votre message.</div>
                                     <div>
-                                        <textarea name='message' id='message' class="form-control" placeholder="Votre Un message"></textarea>
+                                        <textarea name='message' id='message' class="form-control" placeholder="Message"></textarea>
                                     </div>
                                 </div>
 

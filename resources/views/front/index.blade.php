@@ -135,11 +135,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h3 class="mt10">Vous cherchez le meilleur partenaire pour vos prochains travaux de construction ?</h3>
+                        <h3 class="mt10">Vous cherchez le meilleur partenaire pour vos prochains travaux de construction  ou rénovation ?</h3>
                     </div>
 
                     <div class="col-md-4 text-right">
-                        <a href="#" class="btn btn-line-black btn-fx wow fadeIn">Engagez-nous maintenant</a>
+                        <a href="{{route('front.contact')}}" class="btn btn-line-black btn-fx wow fadeIn">Engagez-nous maintenant</a>
                     </div>
                 </div>
             </div>
@@ -248,6 +248,12 @@
                             </li>
                             <li>{{$gs->review2}}
                                 <span>{{$gs->rg2}}</span>
+                            </li>
+                            <li>{{$gs->review3}}
+                                <span>{{$gs->rg3}}</span>
+                            </li>
+                            <li>{{$gs->review4}}
+                                <span>{{$gs->rg4}}</span>
                             </li>
                         </ul>
 

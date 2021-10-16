@@ -430,7 +430,15 @@ $gs = App\Content::find(1);
             margin-right: -8px;
             margin-bottom: -4px;
         }
-
+        .de_count {
+            text-align: center;
+            padding: 10px 0 10px 0;
+            background: none;
+            background-size: auto;
+        }
+        .container .col-md-3 {
+            margin-bottom: 0px;
+        }
     </style>
 </head>
 <div id='whatsapp-chat' class='hide'>
@@ -536,6 +544,8 @@ $gs = App\Content::find(1);
                             <li><a href="{{route('front.index')}}">Accueil</a></li>
                             <li><a href="{{route('front.renovation')}}">Rénovation</a></li>
                             <li><a href="{{route('front.construction')}}">Construction</a></li>
+                            <li><a href="{{route('front.offers')}}">Offers</a></li>
+                            <li><a href="{{route('front.gallery')}}">Gallerie</a></li>
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
                             @guest
                             <li><a href="{{route('login')}}">Connexion client</a></li>
@@ -684,6 +694,24 @@ $gs = App\Content::find(1);
         });
 
 </script>
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
 
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
 </body>
 </html>

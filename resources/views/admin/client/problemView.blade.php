@@ -343,4 +343,12 @@
             </div>
         </div>
     </div>
+    <script>
+
+        $(document).ready(function() {
+            $(".single-select").select2({
+                dropdownParent: $("#exampleModal1")
+            });
+        });
+    </script>
 @endsection

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Content;
+use App\Gallery;
 use App\Http\Controllers\Controller;
+use App\Offers;
 use App\Page;
 use Illuminate\Http\Request;
 
@@ -115,8 +117,12 @@ class WebsiteController extends Controller
         }
         $gs->review1 = $request->review1;
         $gs->review2 = $request->review2;
+        $gs->review3 = $request->review3;
+        $gs->review4 = $request->review4;
         $gs->rg1 = $request->rg1;
         $gs->rg2 = $request->rg2;
+        $gs->rg3 = $request->rg3;
+        $gs->rg4 = $request->rg4;
         $gs->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
@@ -206,6 +212,90 @@ class WebsiteController extends Controller
             $page->rimage2 = 'allimages/' . $name2;
         }
         $page->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function gallery(){
+        $gallery = Gallery::all();
+        return view('admin.settings.gallery', compact('gallery'));
+    }
+    public function galleryStore(Request $request){
+        $gallery = new Gallery();
+        $gallery->description = $request->description;
+        if ($request->hasfile('photo')) {
+            $image2 = $request->file('photo');
+            $name2 = time() . 'allimages' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image2->move($destinationPath, $name2);
+            $gallery->photo = 'allimages/' . $name2;
+        }
+        $gallery->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function gallerydelete($id){
+        $gallery = Gallery::find($id);
+        $gallery->delete();
+        $notification = array(
+            'messege' => 'Supreme!',
+            'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function offers(){
+        $offers = Offers::all();
+        return view('admin.settings.offers.index', compact('offers'));
+    }
+    public function offeredit($id){
+        $offer = Offers::find($id);
+        return view('admin.settings.offers.edit', compact('offer'));
+    }
+    public function offerUpdate(Request $request, $id){
+        $offer = Offers::find($id);
+        $offer->price = $request->price;
+        $offer->title = $request->title;
+        $offer->details = $request->details;
+        if ($request->hasfile('photo')) {
+            $image2 = $request->file('photo');
+            $name2 = time() . 'allimages' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image2->move($destinationPath, $name2);
+            $offer->photo = 'allimages/' . $name2;
+        }
+        if($request->hasfile('gallery')){
+            foreach($request->file('gallery') as $image)
+            {
+                $name = time().'photos'.'.'.$image->getClientOriginalName();
+                $destinationPath ='photos/';
+                $image->move($destinationPath, $name);
+                $data9[] = $name;
+                $offer->gallery = json_encode($data9);
+            }
+        }
+            foreach($request->nom as $nom)
+            {
+                $data[] = $nom;
+                $offer->nom = json_encode($data);
+            }
+            foreach($request->surface as $surface)
+            {
+                $data2[] = $surface;
+                $offer->surface = json_encode($data2);
+            }
+        if ($request->hasfile('diagram')) {
+            $image3 = $request->file('diagram');
+            $name3 = time() . 'allimages' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image3->move($destinationPath, $name3);
+            $offer->diagram = 'allimages/' . $name3;
+        }
+        $offer->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'

@@ -41,8 +41,12 @@ class CreateContentsTable extends Migration
             $table->string('timage');
             $table->longText('review1');
             $table->longText('review2');
+            $table->longText('review3');
+            $table->longText('review4');
             $table->string('rg1');
             $table->string('rg2');
+            $table->string('rg3');
+            $table->string('rg4');
 
             $table->string('logo');
             $table->string('address');

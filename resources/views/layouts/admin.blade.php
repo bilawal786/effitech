@@ -72,6 +72,10 @@
                     </li>
                     <li> <a href="{{route('general.settings')}}"><i class="bx bx-right-arrow-alt"></i>Réglages</a>
                     </li>
+                    <li> <a href="{{route('general.gallery')}}"><i class="bx bx-right-arrow-alt"></i>Gallerie</a>
+                    </li>
+                    <li> <a href="{{route('general.offers')}}"><i class="bx bx-right-arrow-alt"></i>Offres</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -105,6 +109,19 @@
                     <li> <a href="{{route('admin.problems.quote')}}"><i class="bx bx-right-arrow-alt"></i>Envoyer des devis</a>
                     </li>
                     <li> <a href="{{route('admin.problems.accept')}}"><i class="bx bx-right-arrow-alt"></i>Devis acceptés</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-home'></i>
+                    </div>
+                    <div class="menu-title">Chantier</div>
+                </a>
+                <ul>
+                    <li> <a href="{{route('site.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Nouveau</a>
+                    </li>
+                    <li> <a href="{{route('site.index')}}"><i class="bx bx-right-arrow-alt"></i>Tout chantier</a>
                     </li>
                 </ul>
             </li>
@@ -355,19 +372,13 @@
         });
     }
 </script>
+@yield('script')
 <script>
     new PerfectScrollbar('.customers-list');
     new PerfectScrollbar('.store-metrics');
     new PerfectScrollbar('.product-list');
 </script>
-<script>
 
-    $(document).ready(function() {
-        $(".single-select").select2({
-            dropdownParent: $("#exampleModal1")
-        });
-    });
-</script>
 </body>
 
 </html>

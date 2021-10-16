@@ -19,6 +19,10 @@ Route::get('/provider/login', 'Front\FrontendController@provider')->name('provid
 Route::get('/contact', 'Front\FrontendController@contact')->name('front.contact');
 Route::get('/renovation', 'Front\FrontendController@renovation')->name('front.renovation');
 Route::get('/construction', 'Front\FrontendController@construction')->name('front.construction');
+Route::get('/offers', 'Front\FrontendController@offers')->name('front.offers');
+Route::get('/offers/details/{id}', 'Front\FrontendController@offersDetails')->name('offer.details');
+Route::get('/gallery', 'Front\FrontendController@gallery')->name('front.gallery');
+Route::get('/gallery/view/{id}', 'Front\FrontendController@galleryView')->name('gallery.view');
 
 Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->name('fetchsubcategory');
 
@@ -29,6 +33,11 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
     Route::prefix('admin')->group(function () {
 
+    Route::get('/general/gallery/delete/{id}', 'Admin\WebsiteController@gallerydelete')->name('gallery.delete');
+    Route::get('/general/gallery', 'Admin\WebsiteController@gallery')->name('general.gallery');
+    Route::get('/general/offers', 'Admin\WebsiteController@offers')->name('general.offers');
+    Route::get('/general/edit/{id}', 'Admin\WebsiteController@offeredit')->name('offer.edit');
+    Route::post('/general/update/{id}', 'Admin\WebsiteController@offerUpdate')->name('offer.update');
     Route::get('/general/construction', 'Admin\WebsiteController@construction')->name('general.construction');
     Route::get('/general/settings', 'Admin\WebsiteController@settings')->name('general.settings');
     Route::get('/general/renovation', 'Admin\WebsiteController@renovation')->name('general.renovation');
@@ -41,6 +50,12 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::post('/construction/store', 'Admin\WebsiteController@constructionStore')->name('construction.store');
     Route::post('/renovation/store', 'Admin\WebsiteController@renovationStore')->name('renovation.store');
     Route::post('/settings/store', 'Admin\WebsiteController@settingsStore')->name('settings.store');
+    Route::post('/gallery/store', 'Admin\WebsiteController@galleryStore')->name('gallery.store');
+
+    Route::get('/site/create', 'Admin\SiteController@createSite')->name('site.create');
+    Route::get('/site/index', 'Admin\SiteController@indexSite')->name('site.index');
+    Route::get('/site/view/{id}', 'Admin\SiteController@viewSite')->name('site.view');
+    Route::post('/site/store', 'Admin\SiteController@storeSite')->name('site.store');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');

@@ -72,6 +72,38 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">Review 3</label>
+                                        <div class="input-group">
+                                            <textarea name="review3" class="form-control" id="" cols="30" rows="5">{{$gs->review3}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">CLient Nom</label>
+                                        <div class="input-group">
+                                            <input type="text" value="{{$gs->rg3}}" class="form-control" name="rg3">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">Review 4</label>
+                                        <div class="input-group">
+                                            <textarea name="review4" class="form-control" id="" cols="30" rows="5">{{$gs->review4}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">CLient Nom</label>
+                                        <div class="input-group">
+                                            <input type="text" value="{{$gs->rg4}}" class="form-control" name="rg4">
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-danger px-5">Sauvegarder</button>
