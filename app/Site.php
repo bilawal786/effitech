@@ -18,4 +18,8 @@ class Site extends Model
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
+    public function steps()
+    {
+        return $this->hasMany(Steps::class, 'site_id')->orderBy('id', 'DESC');
+    }
 }

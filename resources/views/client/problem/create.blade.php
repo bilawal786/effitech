@@ -44,7 +44,12 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Chantier *</label>
-                                                <input type="text" class="form-control" placeholder="Chantier" name="site" required>
+                                                <select name="site" class="form-control" required id="">
+                                                    <option value="">Sélectionner Chantier</option>
+                                                    @foreach($sites as $site)
+                                                        <option value="{{$site->id}}">{{$site->title}}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

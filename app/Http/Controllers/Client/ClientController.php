@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Problem;
+use App\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -12,7 +13,8 @@ class ClientController extends Controller
 {
     public function problemCreate(){
         $categories = Category::all();
-        return view('client.problem.create', compact('categories'));
+        $sites = Site::where('client_id', Auth::user()->id)->get();
+        return view('client.problem.create', compact('categories', 'sites'));
     }
     public function problemStore(Request $request){
         $problem = new Problem();
@@ -49,5 +51,17 @@ class ClientController extends Controller
         $problem->update();
         Session::flash('message', 'Le statut de votre problème est update. Ladministrateur vous attribuera bientôt un fournisseur daffaires.');
         return redirect()->back();
+    }
+    public function sites(){
+        $sites = Site::where('client_id', Auth::user()->id)->get();
+        return view('client.site.index', compact('sites'));
+    }
+    public function siteView($id){
+        $site = Site::find($id);
+        return view('client.site.view', compact('site'));
+    }
+    public function profile(){
+        $user = Auth::user();
+        return view('client.profile', compact('user'));
     }
 }

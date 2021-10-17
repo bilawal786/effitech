@@ -153,70 +153,60 @@ class UserSeeder extends Seeder
 
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(1).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634472272allimages.jpg',
+            'description' => 'Réalisation faux plafond'
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(2).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634472293allimages.jpg',
+            'description' => 'Réalisation faux plafond'
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(3).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634472597allimages.jpg',
+            'description' => 'Mise aux norme dun système dépuration- PETIT CANAL'
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(4).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634473160allimages.jpg',
+            'description' => 'Habillage plafond, poutres, poteaux, murs.'
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(5).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634473333allimages.jpg',
+            'description' => 'Aménagement intérieur- pose de placo anti feu'
         ]);
         Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(6).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
-        ]);
-        Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(7).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
-        ]);
-        Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(8).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
-        ]);
-        Gallery::create([
-            'photo' => 'web/images/portfolio/pf%20(9).jpg',
-            'description' => 'In the modern industrialized world, construction usually involves the translation of designs into reality. A formal design team may be assembled to plan the physical proceedings, and to integrate those proceedings with the other parts. The design usually consists of drawings and specifications, usually prepared by a design team including Architect, civil engineers, mechanical engineers, electrical engineers, structural engineers, fire protection engineers, planning consultants, architectural consultants, and archaeological consultants. The design team is most commonly employed by (i.e. in contract with) the property owner. Under this system, once the design is completed by the design team, a number of construction companies or construction management companies may then be asked to make a bid for the work, either based directly on the design, or on the basis of drawings and a bill of quantities provided by a quantity surveyor. Following evaluation of bids, the owner typically awards a contract to the most cost efficient bidder.'
+            'photo' => 'allimages/1634474348allimages.jpg',
+            'description' => '10 sur 152
+Aménagement intérieur locale commercial Ste Rose'
         ]);
         Offers::create([
-            'title' => 'Demo Titre 1',
-            'photo' => 'web/images/portfolio/pf%20(1).jpg',
-            'gallery' => '["web/images/portfolio/pf%20(1).jpg","web/images/portfolio/pf%20(2).jpg","web/images/portfolio/pf%20(3).jpg"]',
-            'nom' => '["1","2","3"]',
-            'surface' => '["surface 1","surface 2"," surface3"]',
-            'diagram' => 'web/images/portfolio/pf%20(1).jpg',
-            'price' => '38000',
-            'details' => 'Pour limiter le nombre d’interlocuteurs sur un chantier, l’entreprise générale de travaux, appelée aussi entreprise tous corps d’état, peut être une solution intéressante.'
+            'title' => 'Noëline',
+            'photo' => 'allimages/1634442160allimages.jpg',
+            'gallery' => '["1634442192photos.DESSIN.jpg"]',
+            'nom' => '["S\u00e9jour","Wc","Salle de bain","Chambre"]',
+            'surface' => '["12 m2","4 m2","6 m2","10 m2"]',
+            'diagram' => 'allimages/1634442113allimages.jpg',
+            'price' => 'à partir de 38000',
+            'details' => 'Votre villa Noëline et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc. La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
         Offers::create([
-            'title' => 'Demo Titre 2',
-            'photo' => 'web/images/portfolio/pf%20(2).jpg',
-            'gallery' => '["web/images/portfolio/pf%20(1).jpg","web/images/portfolio/pf%20(2).jpg","web/images/portfolio/pf%20(3).jpg"]',
-            'nom' => '["1","2","3"]',
-            'surface' => '["surface 1","surface 2"," surface3"]',
-            'diagram' => 'web/images/portfolio/pf%20(1).jpg',
-            'price' => '38000',
-            'details' => 'Pour limiter le nombre d’interlocuteurs sur un chantier, l’entreprise générale de travaux, appelée aussi entreprise tous corps d’état, peut être une solution intéressante.'
+            'title' => 'Kendlyne',
+            'photo' => 'allimages/1634442471allimages.jpg',
+            'gallery' => '["1634442429photos.DESSIN.jpg","1634442429photos.PLAN.jpg","1634442429photos.PRINCIPALE.jpg","1634442429photos.PRINCIPALEO2.jpg","1634442429photos.PRINCIPALEO3.jpg"]',
+            'nom' => '["Sejour","Cuisine","Wc","Salle de bain","Chambre principale","Chambre enfant","V\u00e9randa","TOTAL"]',
+            'surface' => '["13 m2","9 m2","4 m2","6 m2","14 m2","10 m2","18 m2","60 m2"]',
+            'diagram' => 'allimages/1634442351allimages.jpg',
+            'price' => 'à partir de 38000',
+            'details' => 'Votre villa Kendlyne et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc.
+La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
         Offers::create([
-            'title' => 'Demo Titre 2',
-            'photo' => 'web/images/portfolio/pf%20(3).jpg',
-            'gallery' => '["web/images/portfolio/pf%20(1).jpg","web/images/portfolio/pf%20(2).jpg","web/images/portfolio/pf%20(3).jpg"]',
-            'nom' => '["1","2","3"]',
-            'surface' => '["surface 1","surface 2"," surface3"]',
-            'diagram' => 'web/images/portfolio/pf%20(1).jpg',
-            'price' => '38000',
-            'details' => 'Pour limiter le nombre d’interlocuteurs sur un chantier, l’entreprise générale de travaux, appelée aussi entreprise tous corps d’état, peut être une solution intéressante.'
+            'title' => 'Kannel',
+            'photo' => 'allimages/1634471175allimages.jpg',
+            'gallery' => '["1634471211photos.DESSIN.jpg","1634471211photos.PLAN.jpg","1634471211photos.PRINCIPALE.jpg","1634471211photos.PRINCIPALE02.jpg","1634471211photos.PRINCIPALE03.jpg"]',
+            'nom' => '["S\u00e9jour","Cuisine","Salle de bain","Wc","Chambre principal","Chambre enfant","v\u00e9renda"]',
+            'surface' => '["S\u00e9jour","Cuisine","Salle de bain","Wc","Chambre principal","Chambre enfant","v\u00e9renda"]',
+            'diagram' => 'allimages/1634471110allimages.jpg',
+            'price' => 'à partir de 38000',
+            'details' => 'Votre villa Kannel et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc. La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
     }
 }

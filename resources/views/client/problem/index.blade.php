@@ -32,7 +32,7 @@
                                     <tbody>
                                     @foreach($problems as $row)
                                         <tr>
-                                           <td>{{$row->site}}</td>
+                                           <td>{{\App\Site::where('id', $row->site)->first()->title}}</td>
                                             <td>{{empty($row->category->name) ? 'Supprimé' : $row->category->name}}</td>
                                             <td>{{empty($row->subcategory->name) ? 'Supprimé' : $row->subcategory->name}}</td>
                                             <td>

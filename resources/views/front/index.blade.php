@@ -135,7 +135,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <h3 class="mt10">Vous cherchez le meilleur partenaire pour vos prochains travaux de construction  ou rénovation ?</h3>
+                        <h3 class="mt10">Vous cherchez le meilleur partenaire pour vos prochains travaux de construction  ou de rénovation ?</h3>
                     </div>
 
                     <div class="col-md-4 text-right">

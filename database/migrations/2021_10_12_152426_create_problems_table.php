@@ -22,7 +22,7 @@ class CreateProblemsTable extends Migration
             $table->integer('category_id');
             $table->integer('subcategory_id');
             $table->longText('photos')->nullable();
-            $table->string('site')->nullable();
+            $table->integer('site');
             $table->longText('description')->nullable();
             $table->integer('quote_status')->default(0); // customer quote accept or reject first
             $table->string('price')->nullable();

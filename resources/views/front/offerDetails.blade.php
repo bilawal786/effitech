@@ -50,7 +50,7 @@
                     <table class="table table-bordered" style="text-align: center">
                         <thead >
                         <tr>
-                            <th style="text-align: center" colspan="3">Suurfaces Des Pieces par niveau</th>
+                            <th style="text-align: center" colspan="3">Surfaces Des Pieces</th>
                         </tr>
                         <tr>
                             <th style="text-align: center">Nom</th>

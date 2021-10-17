@@ -217,7 +217,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="#" class="dropdown-item ai-icon">
+                                <a href="{{route('client.profile')}}" class="dropdown-item ai-icon">
                                     <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                                     <span class="ml-2">Profil </span>
                                 </a>
@@ -251,21 +251,21 @@
             <ul class="metismenu" id="menu">
                 <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                        <i class="flaticon-381-television"></i>
+                        <span class="nav-text">Chantier</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{route('client.site.index')}}">Toutes les Chantier</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-networking"></i>
                         <span class="nav-text">Problèmes</span>
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="{{route('problem.create')}}">Ajouter un nouveau problème</a></li>
                         <li><a href="{{route('problem.index')}}">Afficher tous les problèmes</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                        <i class="flaticon-381-television"></i>
-                        <span class="nav-text">Devis</span>
-                    </a>
-                    <ul aria-expanded="false">
-                        <li><a href="#">Toutes les citations</a></li>
                     </ul>
                 </li>
                 <li>

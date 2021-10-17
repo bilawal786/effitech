@@ -15,6 +15,14 @@ class CreateStepsTable extends Migration
     {
         Schema::create('steps', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('site_id');
+            $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
+            $table->string('title');
+            $table->longtext('details');
+            $table->string('start_date');
+            $table->string('end_date');
+            $table->integer('work_status')->default('0');
+
             $table->timestamps();
         });
     }

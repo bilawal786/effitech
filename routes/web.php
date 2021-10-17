@@ -25,6 +25,7 @@ Route::get('/gallery', 'Front\FrontendController@gallery')->name('front.gallery'
 Route::get('/gallery/view/{id}', 'Front\FrontendController@galleryView')->name('gallery.view');
 
 Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->name('fetchsubcategory');
+Route::post('/profileupdate', 'Front\FrontendController@profileupdate')->name('profileupdate');
 
 Auth::routes();
 //Admin routes
@@ -56,6 +57,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/site/index', 'Admin\SiteController@indexSite')->name('site.index');
     Route::get('/site/view/{id}', 'Admin\SiteController@viewSite')->name('site.view');
     Route::post('/site/store', 'Admin\SiteController@storeSite')->name('site.store');
+    Route::post('/site/step/store', 'Admin\SiteController@stepSiteStore')->name('site.steps.store');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
@@ -98,6 +100,11 @@ Route::group(['middleware' => ['auth', 'web', 'client']], function() {
         Route::post('/problem/store', 'Client\ClientController@problemStore')->name('problem.store');
         Route::get('/problem/view/{id}', 'Client\ClientController@problemView')->name('problem.view');
         Route::get('/problem/quote/status/{id}/{status}', 'Client\ClientController@problemQuote_status')->name('problem.quote_status');
+
+        Route::get('/client/profile', 'Client\ClientController@profile')->name('client.profile');
+
+        Route::get('/site/index', 'Client\ClientController@sites')->name('client.site.index');
+        Route::get('/site/view/{id}', 'Client\ClientController@siteView')->name('client.site.view');
     });
 });
 //Provider routes
