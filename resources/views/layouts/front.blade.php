@@ -544,7 +544,7 @@ $gs = App\Content::find(1);
                             <li><a href="{{route('front.index')}}">Accueil</a></li>
                             <li><a href="{{route('front.renovation')}}">Rénovation</a></li>
                             <li><a href="{{route('front.construction')}}">Construction</a></li>
-                            <li><a href="{{route('front.offers')}}">Offers</a></li>
+                            <li><a href="{{route('front.offers')}}">Les Offres</a></li>
                             <li><a href="{{route('front.gallery')}}">Gallerie</a></li>
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
                             @guest
