@@ -82,7 +82,7 @@
                                         <select name="type" class="form-control" id="" required>
                                             <option>Sélectionnez le type de client</option>
                                             <option value="Professionnel">Professionnel</option>
-                                            <option value="Particular">Particular</option>
+                                            <option value="Particulier">Particulier</option>
                                         </select>
                                     </div>
                                 </div>

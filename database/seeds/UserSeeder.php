@@ -185,6 +185,7 @@ Aménagement intérieur locale commercial Ste Rose'
             'surface' => '["12 m2","4 m2","6 m2","10 m2"]',
             'diagram' => 'allimages/1634442113allimages.jpg',
             'price' => 'à partir de 38000',
+            'total' => '100',
             'details' => 'Votre villa Noëline et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc. La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
         Offers::create([
@@ -195,6 +196,7 @@ Aménagement intérieur locale commercial Ste Rose'
             'surface' => '["13 m2","9 m2","4 m2","6 m2","14 m2","10 m2","18 m2","60 m2"]',
             'diagram' => 'allimages/1634442351allimages.jpg',
             'price' => 'à partir de 38000',
+            'total' => '100',
             'details' => 'Votre villa Kendlyne et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc.
 La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
@@ -206,6 +208,7 @@ La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa s
             'surface' => '["S\u00e9jour","Cuisine","Salle de bain","Wc","Chambre principal","Chambre enfant","v\u00e9renda"]',
             'diagram' => 'allimages/1634471110allimages.jpg',
             'price' => 'à partir de 38000',
+            'total' => '100',
             'details' => 'Votre villa Kannel et son espace nuit, une magnifique suite parentale ouverte sur la piscine avec dressing et sa salle deau complète avec wc. Une deuxième chambre utilisée comme bureau avec une salle deau attenante et wc. La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa salle deau complète et wc . Vous pourrez aménager une quatrième chambre et espace de jeux pour les enfants ou recevoir la famille.'
         ]);
     }

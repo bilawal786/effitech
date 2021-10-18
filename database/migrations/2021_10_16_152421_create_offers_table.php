@@ -23,6 +23,7 @@ class CreateOffersTable extends Migration
             $table->longText('surface');
             $table->string('diagram');
             $table->string('price');
+            $table->string('total');
             $table->timestamps();
         });
     }

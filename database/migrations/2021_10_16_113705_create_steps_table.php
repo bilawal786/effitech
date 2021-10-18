@@ -17,8 +17,13 @@ class CreateStepsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('site_id');
             $table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade');
+            $table->integer('contractor_id');
+            $table->integer('supervisor_id');
+            $table->integer('contractor_status')->default(0); // contractor validate done or not
+            $table->integer('supervisor_status')->default(0); // supervisor validate done or not
             $table->string('title');
             $table->longtext('details');
+            $table->longtext('gallery');
             $table->string('start_date');
             $table->string('end_date');
             $table->integer('work_status')->default('0');

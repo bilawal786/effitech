@@ -58,6 +58,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/site/view/{id}', 'Admin\SiteController@viewSite')->name('site.view');
     Route::post('/site/store', 'Admin\SiteController@storeSite')->name('site.store');
     Route::post('/site/step/store', 'Admin\SiteController@stepSiteStore')->name('site.steps.store');
+    Route::get('/step/status/{id}/{status}', 'Admin\SiteController@stepStatus')->name('step.status');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');

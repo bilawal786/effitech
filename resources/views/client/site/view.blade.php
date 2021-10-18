@@ -18,8 +18,8 @@
                                         <b>Nom</b>: {{$site->client->lname}}<br>
                                         <b>Email</b>: {{$site->client->email}}<br>
                                         <b>Telephone</b>: {{$site->client->phone}}<br>
-                                        <b>Client Taper</b>: {{$site->client->type}}<br>
-                                        <b>Address</b>: {{$site->client->address}}<br>
+                                        <b>Statue Client</b>: {{$site->client->type}}<br>
+                                        <b>Adresse</b>: {{$site->client->address}}<br>
                                     @else
                                         <b>Supreme</b>
                                     @endif
@@ -40,8 +40,6 @@
                                     <b>Id</b>: {{$site->id}}<br>
                                     <b>Titre</b>: {{$site->title}}<br>
                                     <b>Créé à</b>: {{$site->created_at}}<br>
-                                    <b>Catégorie</b>: {{$site->category->name}}<br>
-                                    <b>Sous-catégorie</b>: {{$site->subcategory->name}}<br>
                                     <b>Description</b>: {{$site->details}}<br>
                                 </p>
                             </div>
@@ -74,11 +72,45 @@
                                         <div class="col">
                                             <div class="card border-primary shadow radius-15">
                                                 <div class="card-body">
-                                                    <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}</div>
-                                                    <h3 class="card-title text-primary">{{$step->title}}</h3>
-                                                    <p class="card-text">{{$step->details}}</p>
-                                                    <p class="card-text "><span class="badge badge-pill badge-primary">Start Date: {{$step->start_date}}</span> <span class="badge badge-pill badge-success">End Date: {{$step->end_date}}</span></p>
-                                                </div>
+                                                    <div class="profile-tab">
+                                                        <div class="custom-tab-1">
+                                                            <ul class="nav nav-tabs">
+                                                                <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link show active">Des détails</a>
+                                                                </li>
+                                                                <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">Photos</a>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="tab-content">
+                                                                <div id="my-posts" class="tab-pane fade active show">
+                                                                    <br>
+                                                                    <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}</div>
+                                                                    <h3 class="card-title text-primary">{{$step->title}}</h3>
+                                                                    <p class="card-text">{{$step->details}}</p>
+                                                                    <p class="card-text ">
+                                                                        <span class="badge badge-pill badge-warning">Statut:
+                                                                            @if($step->work_status == 0)
+                                                                                En cours
+                                                                            @else
+                                                                                Compléter
+                                                                            @endif</span>
+                                                                        <span class="badge badge-pill badge-primary">Date de début: {{$step->start_date}}</span>
+                                                                        <span class="badge badge-pill badge-success">Date de fin: {{$step->end_date}}</span></p>
+
+                                                                </div>
+                                                                <div id="about-me" class="tab-pane fade">
+                                                                    <div class="row">
+                                                                        @foreach(json_decode($step->gallery, true) as $key => $images )
+                                                                            <div class="col-md-4">
+                                                                                <img style="width: 100%" src="{{asset('photos/'.$images)}}" alt="">
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Modal -->
+                                                    </div>
+                                                  </div>
                                             </div>
                                         </div>
                                     </div>

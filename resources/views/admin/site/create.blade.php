@@ -40,25 +40,6 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                    <div class="input-group">
-                                        <select onchange="categorychange(this)" name="category_id" class="form-control" id="">
-                                            <option value="">Sélectionnez une catégorie</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                    <div class="input-group">
-                                        <select  name="subcategory_id" class="form-control subcategory" id="">
-
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-md-12">
                                     <label for="inputLastName1" class="form-label">Details</label>
                                     <div class="input-group">

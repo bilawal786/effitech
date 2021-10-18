@@ -55,7 +55,7 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="">Entrez la Nom & Surface</label>
+                                            <label for="">Entrez le Nom & Surface</label>
                                             <div class="sizequantity">
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -79,7 +79,12 @@
                                             <a  onclick="removerow()" class="btn btn-danger btn-sm" >Supprimer</a>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="">Total</label>
+                                        <input class="form-control mb-3" type="text" value="{{$offer->total}}" name="total">
+                                    </div>
                                 </div>
+
                                 <div class="row mt-4">
                                     <div class="col-md-3">
                                         <button class="btn btn-primary">Sauvegarder</button>
@@ -109,9 +114,7 @@
                 '                                            </div>');
         }
         function removerow(){
-            if($('.sizequantity .row').length>1) {//remove all except one
                 $('.sizequantity .row:last').remove();
-            }
         }
     </script>
 @endsection

@@ -54,8 +54,6 @@
                                     <b>Id</b>: {{$site->id}}<br>
                                    <b>Titre</b>: {{$site->title}}<br>
                                     <b>Créé à</b>: {{$site->created_at}}<br>
-                                    <b>Catégorie</b>: {{$site->category->name}}<br>
-                                    <b>Sous-catégorie</b>: {{$site->subcategory->name}}<br>
                                     <b>Description</b>: {{$site->details}}<br>
                                 </p>
                             </div>
@@ -88,10 +86,59 @@
                                     <div class="col">
                                         <div class="card border-primary shadow radius-15">
                                             <div class="card-body">
-                                                <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}</div>
+                                                <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}
+                                                    <br>
+                                                    @if($step->work_status == 0)
+                                                        <a href="{{route('step.status', ['id' => $step->id, 'status' => '1'])}}"><button class="btn btn-primary btn-sm btn-block">Valider</button></a>
+                                                    @endif
+                                                </div>
                                                 <h3 class="card-title text-primary">{{$step->title}}</h3>
                                                 <p class="card-text">{{$step->details}}</p>
-                                                <p class="card-text "><span class="badge bg-primary">Start Date: {{$step->start_date}}</span> <span class="badge bg-success">End Date: {{$step->end_date}}</span></p>
+                                                <p class="card-text ">
+                                                    <span class="badge bg-warning">Statut:
+                                                    @if($step->work_status == 0)
+                                                            En cours
+                                                        @else
+                                                            Compléter
+                                                        @endif
+                                                    </span>
+                                                    <span class="badge bg-primary">Date de début: {{$step->start_date}}</span>
+                                                    <span class="badge bg-success">Date de fin: {{$step->end_date}}</span></p>
+                                                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t2_details" data-bs-toggle="collapse">Afficher les photos ▼</button>
+                                                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-target="#t3_details" data-bs-toggle="collapse">Travail Attribuer à ▼</button>
+                                                <div class="collapse border" id="t2_details">
+                                                   <div class="row">
+                                                       @foreach(json_decode($step->gallery, true) as $key => $images )
+                                                       <div class="col-md-4">
+                                                           <img style="width: 100%" src="{{asset('photos/'.$images)}}" alt="">
+                                                       </div>
+                                                       @endforeach
+                                                   </div>
+                                                </div>
+                                                <div class="collapse border" id="t3_details">
+                                                    <div class="p-2 text-monospace">
+                                                        <div>
+                                                            Sous-traitant: {{$step->subcontractor->fname}} {{$step->subcontractor->lname}}
+                                                            <span class="badge bg-warning">Travail Statut:
+                                                                @if($step->contractor_status == 0)
+                                                                    En cours
+                                                                @else
+                                                                    Compléter
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            Superviseur de travail: {{$step->supervisor->fname}} {{$step->supervisor->lname}}
+                                                            <span class="badge bg-warning">Travail Statut:
+                                                                @if($step->supervisor_status == 0)
+                                                                    En cours
+                                                                @else
+                                                                    Compléter
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -145,6 +192,43 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="title"><b>Sélectionnez le sous-traitant</b><span class="text-danger">*</span></label>
+                                <br>
+                                <div class="mb-3">
+                                    <select name="contractor_id" class="single-select form-control" required>
+                                        <option value="">Sélectionnez le sous-traitant</option>
+                                        @foreach($subcontractor as $sub)
+                                            <option value="{{$sub->id}}">{{$sub->fname}} {{$sub->lname}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Sélectionnez le superviseur de travail</b><span class="text-danger">*</span></label>
+                                <br>
+                                <div class="mb-3">
+                                    <select name="supervisor_id" class="single-select form-control" required>
+                                        <option value="">Sélectionnez le superviseur de travail</option>
+                                        @foreach($supervisor as $sup)
+                                            <option value="{{$sup->id}}">{{$sup->fname}} {{$sup->lname}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="title"><b>Photos</b><span class="text-danger">*</span></label>
+                                <br>
+                                <div class="mb-3">
+                                    <input type="file" name="gallery[]" multiple class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="title"><b>Details</b><span class="text-danger">*</span></label>
                                 <br>
                                 <div class="mb-3">
@@ -166,6 +250,15 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
 
+        $(document).ready(function() {
+            $(".single-select").select2({
+                dropdownParent: $("#exampleModal1")
+            });
+        });
+    </script>
 @endsection
 

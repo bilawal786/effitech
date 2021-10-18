@@ -19,7 +19,7 @@ class ClientController extends Controller
         return view('admin.client.index', compact('users'));
     }
     public function particular(){
-        $users = User::where('type', 'Particular')->where('role', '1')->get();
+        $users = User::where('type', 'Particulier')->where('role', '1')->get();
         return view('admin.client.index', compact('users'));
     }
     public function store(Request $request){

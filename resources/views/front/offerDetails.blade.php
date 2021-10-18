@@ -70,6 +70,10 @@
                                 @endforeach
                             </td>
                         </tr>
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td><b>{{$offer->total}}</b></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

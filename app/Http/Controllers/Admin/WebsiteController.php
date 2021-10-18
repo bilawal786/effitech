@@ -261,6 +261,7 @@ class WebsiteController extends Controller
         $offer->price = $request->price;
         $offer->title = $request->title;
         $offer->details = $request->details;
+        $offer->total = $request->total;
         if ($request->hasfile('photo')) {
             $image2 = $request->file('photo');
             $name2 = time() . 'allimages' . '.' . $image2->getClientOriginalExtension();

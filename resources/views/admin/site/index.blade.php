@@ -15,8 +15,6 @@
                                 <th>Id</th>
                                 <th>Chantier</th>
                                 <th>CLient Nom</th>
-                                <th>Catégorie</th>
-                                <th>Sous catégorie</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -26,9 +24,6 @@
                                     <td>{{$row->id}}</td>
                                     <td>{{$row->title}}</td>
                                     <td>{{$row->client->fname}} {{$row->client->lname}}</td>
-                                    <td>{{empty($row->category->name) ? 'Supprimé' : $row->category->name}}</td>
-                                    <td>{{empty($row->subcategory->name) ? 'Supprimé' : $row->subcategory->name}}</td>
-
                                     <td>
                                         <a href="{{route('site.view', ['id' => $row->id])}}"> <button class="btn btn-success btn-sm">Vue</button></a>
                                     </td>
