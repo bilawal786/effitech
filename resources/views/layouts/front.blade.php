@@ -555,6 +555,7 @@ $gs = App\Content::find(1);
                             <li><a href="{{route('front.gallery')}}">Gallerie</a></li>
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
                             <li><a href="{{route('front.about')}}">À propos de nous</a></li>
+                            <li><a target="_blank" href="{{route('front.pdf')}}">Notre catalogue</a></li>
                             @guest
                             <li><a href="{{route('login')}}">Connexion client</a></li>
                             @endguest

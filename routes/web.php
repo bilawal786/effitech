@@ -18,6 +18,7 @@ Route::get('/admin/login', 'Front\FrontendController@admin')->name('admin.login'
 Route::get('/provider/login', 'Front\FrontendController@provider')->name('provider.login');
 Route::get('/contact', 'Front\FrontendController@contact')->name('front.contact');
 Route::get('/about', 'Front\FrontendController@about')->name('front.about');
+Route::get('/catalogue', 'Front\FrontendController@pdf')->name('front.pdf');
 Route::get('/renovation', 'Front\FrontendController@renovation')->name('front.renovation');
 Route::get('/construction', 'Front\FrontendController@construction')->name('front.construction');
 Route::get('/offers', 'Front\FrontendController@offers')->name('front.offers');

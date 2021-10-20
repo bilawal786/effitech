@@ -33,6 +33,10 @@ class FrontendController extends Controller
         $gs = Content::find(1);
         return view('front.about', compact('gs'));
     }
+    public function pdf(){
+        $gs = Content::find(1);
+        return view('front.pdf', compact('gs'));
+    }
     public function gallery(){
         $gallery = Gallery::all();
         return view('front.gallery', compact('gallery'));

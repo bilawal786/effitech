@@ -109,7 +109,9 @@
                    <h1>Prix: {{$offer->price}} €</h1>
                     <br>
                     <br>
-                    <button  data-toggle="modal" data-target="#myModal" class="btn btn-primary">Je Suis Intéressé</button>
+                    <div style="text-align: center; margin-top: 20px">
+                        <button style="font-size: 30px" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Je Suis Intéressé</button>
+                    </div>
                 </div>
 
                 <div class="col-md-6">
@@ -121,7 +123,7 @@
                         </h3>
 
                         <p>
-                          {{$offer->details}}
+                          {!! $offer->details !!}
                         </p>
 
                     </div>

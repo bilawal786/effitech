@@ -51,10 +51,6 @@
                                         <label for="">Prix</label>
                                         <input class="form-control mb-3" type="text" value="{{$offer->price}}" name="price">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="">Details</label>
-                                        <textarea name="details" class="form-control" id="" cols="30" rows="5">{{$offer->details}}</textarea>
-                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-8">
@@ -86,6 +82,12 @@
                                     <div class="col-md-6">
                                         <label for="">Total</label>
                                         <input class="form-control mb-3" type="text" value="{{$offer->total}}" name="total">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="">Details</label>
+                                        <textarea name="details" class="form-control" id="mytextarea">{{$offer->details}}</textarea>
                                     </div>
                                 </div>
 

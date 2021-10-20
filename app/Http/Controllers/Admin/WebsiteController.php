@@ -322,6 +322,13 @@ class WebsiteController extends Controller
     public function aboutUpdate(Request $request){
         $about = Content::find(1);
         $about->about = $request->about;
+        if ($request->hasfile('pdf')) {
+            $image3 = $request->file('pdf');
+            $name3 = time() . 'pdf' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'pdf/';
+            $image3->move($destinationPath, $name3);
+            $about->pdf = 'pdf/' . $name3;
+        }
         $about->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',

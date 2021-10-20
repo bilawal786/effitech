@@ -24,9 +24,12 @@
                         <div class="card-body">
                             <h6 class="mb-0 text-uppercase">À propos de nous</h6>
                             <hr/>
-                            <form action="{{route('about.update')}}" method="post">
+                            <form action="{{route('about.update')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data" >
                                 @csrf
                                 <textarea name="about" id="mytextarea">{{$about->about}}</textarea>
+                                <br>
+                                <label for="">Notre catalogue </label>
+                                <input type="file" name="pdf" class="form-control" accept="application/pdf">
                                 <br>
                                 <button class="btn btn-primary">Sauvegarder</button>
                             </form>

@@ -57,6 +57,7 @@ class CreateContentsTable extends Migration
             $table->string('instagram');
 
             $table->longText('about');
+            $table->longText('pdf')->nullable();
             $table->timestamps();
         });
     }
