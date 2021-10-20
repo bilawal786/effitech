@@ -44,6 +44,10 @@
                                         <input class="form-control mb-3" type="file" name="diagram">
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Bannière</label>
+                                        <input class="form-control mb-3" type="file" name="banner">
+                                    </div>
+                                    <div class="col-md-6">
                                         <label for="">Prix</label>
                                         <input class="form-control mb-3" type="text" value="{{$offer->price}}" name="price">
                                     </div>

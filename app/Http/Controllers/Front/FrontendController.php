@@ -9,7 +9,9 @@ use App\Http\Controllers\Controller;
 use App\Offers;
 use App\Page;
 use App\Problem;
+use App\Queries;
 use App\Site;
+use App\Steps;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +28,10 @@ class FrontendController extends Controller
     public function index(){
         $gs = Content::find(1);
         return view('front.index', compact('gs'));
+    }
+    public function about(){
+        $gs = Content::find(1);
+        return view('front.about', compact('gs'));
     }
     public function gallery(){
         $gallery = Gallery::all();
@@ -62,7 +68,14 @@ class FrontendController extends Controller
         return view('client.dashboard', compact('sites', 'problems'));
     }
     public function providerDashboard(){
-        return view('provider.dashboard');
+        if (Auth::user()->role == 2){
+            $sitenew = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 0)->get();
+            $sitecomplete = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 1)->get();
+        }elseif (Auth::user()->role == 3){
+            $sitenew = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 0)->get();
+            $sitecomplete = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 1)->get();
+        }
+        return view('provider.dashboard', compact('sitenew', 'sitecomplete'));
     }
     public function profileupdate(Request $request){
         $id = Auth::user();
@@ -102,6 +115,18 @@ class FrontendController extends Controller
         $user->update();
         Session::flash('message', 'Sauvegarde réussie!');
 
+        return redirect()->back();
+    }
+    public function query(Request $request){
+        $query = new Queries();
+        $query->name = $request->name;
+        $query->email = $request->email;
+        $query->phone = $request->phone;
+        $query->message = $request->message;
+        $query->offer = $request->offer;
+        $query->service = $request->service;
+        $query->save();
+        Session::flash('message', 'Vos coordonnées sont soumises avec succès. Nous vous contacterons bientôt.');
         return redirect()->back();
     }
 }

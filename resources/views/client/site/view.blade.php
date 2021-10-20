@@ -75,13 +75,15 @@
                                                     <div class="profile-tab">
                                                         <div class="custom-tab-1">
                                                             <ul class="nav nav-tabs">
-                                                                <li class="nav-item"><a href="#my-posts" data-toggle="tab" class="nav-link show active">Des détails</a>
+                                                                <li class="nav-item"><a href="#my-posts{{$step->id}}" data-toggle="tab" class="nav-link show active">Des détails</a>
                                                                 </li>
-                                                                <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">Photos</a>
+                                                                <li class="nav-item"><a href="#about-me{{$step->id}}" data-toggle="tab" class="nav-link">Photos</a>
+                                                                </li>
+                                                                <li class="nav-item"><a href="#work{{$step->id}}" data-toggle="tab" class="nav-link">Travail Attribuer à</a>
                                                                 </li>
                                                             </ul>
                                                             <div class="tab-content">
-                                                                <div id="my-posts" class="tab-pane fade active show">
+                                                                <div id="my-posts{{$step->id}}" class="tab-pane fade active show">
                                                                     <br>
                                                                     <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}</div>
                                                                     <h3 class="card-title text-primary">{{$step->title}}</h3>
@@ -97,13 +99,39 @@
                                                                         <span class="badge badge-pill badge-success">Date de fin: {{$step->end_date}}</span></p>
 
                                                                 </div>
-                                                                <div id="about-me" class="tab-pane fade">
+                                                                <div id="about-me{{$step->id}}" class="tab-pane fade">
                                                                     <div class="row">
                                                                         @foreach(json_decode($step->gallery, true) as $key => $images )
                                                                             <div class="col-md-4">
                                                                                 <img style="width: 100%" src="{{asset('photos/'.$images)}}" alt="">
                                                                             </div>
                                                                         @endforeach
+                                                                    </div>
+                                                                </div>
+                                                                <div id="work{{$step->id}}" class="tab-pane fade">
+                                                                    <br>
+                                                                    <div class="row">
+                                                                        <div>
+                                                                            Sous-traitant: {{$step->subcontractor->fname}} {{$step->subcontractor->lname}}
+                                                                            <span class="badge badge-pill badge-warning">Travail Statut:
+                                                                                @if($step->contractor_status == 0)
+                                                                                    En cours
+                                                                                @else
+                                                                                    Compléter
+                                                                                @endif
+                                                                            </span>
+                                                                        </div>
+                                                                        <div>
+                                                                            <br>
+                                                                            Superviseur de travail: {{$step->supervisor->fname}} {{$step->supervisor->lname}}
+                                                                            <span class="badge badge-pill badge-warning">Travail Statut:
+                                                                                @if($step->supervisor_status == 0)
+                                                                                    En cours
+                                                                                @else
+                                                                                    Compléter
+                                                                                @endif
+                                                                            </span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>

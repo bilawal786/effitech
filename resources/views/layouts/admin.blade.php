@@ -76,6 +76,10 @@
                     </li>
                     <li> <a href="{{route('general.offers')}}"><i class="bx bx-right-arrow-alt"></i>Offres</a>
                     </li>
+                    <li> <a href="{{route('general.queries')}}"><i class="bx bx-right-arrow-alt"></i>Requêtes</a>
+                    </li>
+                    <li> <a href="{{route('general.about')}}"><i class="bx bx-right-arrow-alt"></i>À propos de nous</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -142,16 +146,12 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-atom' ></i>
                     </div>
-                    <div class="menu-title">Commerciaux</div>
+                    <div class="menu-title">Superviseur de travail</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un commercial</a>
+                    <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un Superviseur de travail</a>
                     </li>
-                    <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous commercial</a>
-                    </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Factures</a>
-                    </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Plaquette des prix pdf</a>
+                    <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Superviseur de travail</a>
                     </li>
                 </ul>
             </li>
@@ -159,14 +159,12 @@
                 <a href="javascript:;" class="has-arrow">
                     <div class="parent-icon"><i class='bx bx-video-recording' ></i>
                     </div>
-                    <div class="menu-title">Conducteur de Travaux</div>
+                    <div class="menu-title">Propriétaire d'entreprise</div>
                 </a>
                 <ul>
-                    <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Conducteur de Travaux</a>
+                    <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Propriétaire d'entreprise</a>
                     </li>
-                    <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Conducteur</a>
-                    </li>
-                    <li> <a href="#"><i class="bx bx-right-arrow-alt"></i>Factures</a>
+                    <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Propriétaire d'entreprise</a>
                     </li>
                 </ul>
             </li>
@@ -371,6 +369,13 @@
             },
         });
     }
+</script>
+<script src='https://cdn.tiny.cloud/1/vdqx2klew412up5bcbpwivg1th6nrh3murc6maz8bukgos4v/tinymce/5/tinymce.min.js' referrerpolicy="origin">
+</script>
+<script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
 </script>
 @yield('script')
 <script>

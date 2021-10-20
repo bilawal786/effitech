@@ -17,6 +17,7 @@ Route::get('/', 'Front\FrontendController@index')->name('front.index');
 Route::get('/admin/login', 'Front\FrontendController@admin')->name('admin.login');
 Route::get('/provider/login', 'Front\FrontendController@provider')->name('provider.login');
 Route::get('/contact', 'Front\FrontendController@contact')->name('front.contact');
+Route::get('/about', 'Front\FrontendController@about')->name('front.about');
 Route::get('/renovation', 'Front\FrontendController@renovation')->name('front.renovation');
 Route::get('/construction', 'Front\FrontendController@construction')->name('front.construction');
 Route::get('/offers', 'Front\FrontendController@offers')->name('front.offers');
@@ -26,6 +27,7 @@ Route::get('/gallery/view/{id}', 'Front\FrontendController@galleryView')->name('
 
 Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->name('fetchsubcategory');
 Route::post('/profileupdate', 'Front\FrontendController@profileupdate')->name('profileupdate');
+Route::post('/query/submit', 'Front\FrontendController@query')->name('query.submit');
 
 Auth::routes();
 //Admin routes
@@ -35,6 +37,8 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::prefix('admin')->group(function () {
 
     Route::get('/general/gallery/delete/{id}', 'Admin\WebsiteController@gallerydelete')->name('gallery.delete');
+    Route::get('/general/queries', 'Admin\WebsiteController@queries')->name('general.queries');
+    Route::get('/general/about', 'Admin\WebsiteController@about')->name('general.about');
     Route::get('/general/gallery', 'Admin\WebsiteController@gallery')->name('general.gallery');
     Route::get('/general/offers', 'Admin\WebsiteController@offers')->name('general.offers');
     Route::get('/general/edit/{id}', 'Admin\WebsiteController@offeredit')->name('offer.edit');
@@ -52,6 +56,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::post('/renovation/store', 'Admin\WebsiteController@renovationStore')->name('renovation.store');
     Route::post('/settings/store', 'Admin\WebsiteController@settingsStore')->name('settings.store');
     Route::post('/gallery/store', 'Admin\WebsiteController@galleryStore')->name('gallery.store');
+    Route::post('/about/update', 'Admin\WebsiteController@aboutUpdate')->name('about.update');
 
     Route::get('/site/create', 'Admin\SiteController@createSite')->name('site.create');
     Route::get('/site/index', 'Admin\SiteController@indexSite')->name('site.index');
@@ -113,9 +118,16 @@ Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
     Route::prefix('provider')->group(function () {
         Route::get('/dashboard', 'Front\FrontendController@providerDashboard')->name('provider.dashboard');
 
+        Route::get('/site/index', 'Provider\ProviderController@sites')->name('provider.site.index');
+        Route::get('/site/complete', 'Provider\ProviderController@sitescomplete')->name('provider.site.complete');
+        Route::get('/site/view/{id}', 'Provider\ProviderController@siteView')->name('provider.site.view');
+        Route::get('/step/status/{id}', 'Provider\ProviderController@siteStatus')->name('provider.step.status');
+
         Route::get('/problems/assign', 'Provider\ProviderController@assignProblems')->name('provider.problems.assign');
         Route::get('/problems/complete', 'Provider\ProviderController@completeProblems')->name('provider.problems.complete');
         Route::get('/problem/view/{id}', 'Provider\ProviderController@problemView')->name('provider.problem.view');
         Route::get('/problem/status/{id}', 'Provider\ProviderController@problemStatus')->name('provider.problem.status');
+
+        Route::get('/profile', 'Provider\ProviderController@profile')->name('provider.profile');
     });
 });

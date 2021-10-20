@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Provider;
 
 use App\Http\Controllers\Controller;
 use App\Problem;
+use App\Site;
+use App\Steps;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,5 +46,39 @@ class ProviderController extends Controller
         }
         $problem->update();
         return redirect()->back();
+    }
+    public function siteStatus($id){
+        $step = Steps::find($id);
+        if (Auth::user()->role == 2){
+            $step->contractor_status = 1;
+        }elseif (Auth::user()->role == 3){
+            $step->supervisor_status = 1;
+        }
+        $step->update();
+        return redirect()->back();
+    }
+    public function sites(){
+        if (Auth::user()->role == 2){
+            $site = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 0)->get();
+        }elseif (Auth::user()->role == 3){
+            $site = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 0)->get();
+        }
+        return view('provider.sites', compact('site'));
+    }
+    public function sitescomplete(){
+        if (Auth::user()->role == 2){
+            $site = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 1)->get();
+        }elseif (Auth::user()->role == 3){
+            $site = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 1)->get();
+        }
+        return view('provider.sites', compact('site'));
+    }
+    public function siteView($id){
+        $step = Steps::find($id);
+        return view('provider.siteView', compact('step'));
+    }
+    public function profile(){
+        $user = Auth::user();
+        return view('provider.profile', compact('user'));
     }
 }

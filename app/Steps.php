@@ -14,4 +14,8 @@ class Steps extends Model
     {
         return $this->belongsTo(User::class, 'supervisor_id');
     }
+    public function site()
+    {
+        return $this->belongsTo(Site::class, 'site_id');
+    }
 }

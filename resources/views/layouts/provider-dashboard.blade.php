@@ -87,64 +87,12 @@
                                     </div>
                                 </div>
                             </a>
-                            <a href="#">
-                                <div class="header-notif">
-                                    <div class="notif-image">
-                                  <span class="notification-badge bg-primary text-white">
-                                    <i class="fas fa-bolt"></i>
-                                  </span>
-                                    </div>
-                                    <div class="notif-text">
-                                        <p class="bold-notif-text">faucibus dolor in commodo lectus mattis</p>
-                                        <small>18:00</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="header-notif">
-                                    <div class="notif-image">
-                                  <span class="notification-badge bg-success text-white">
-                                    <i class="fas fa-at"></i>
-                                  </span>
-                                    </div>
-                                    <div class="notif-text">
-                                        <p>faucibus dolor in commodo lectus mattis</p>
-                                        <small>yesterday</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="header-notif">
-                                    <div class="notif-image">
-                                  <span class="notification-badge">
-                                    <img src="../../assets/images/avatars/profile-image.png" alt="">
-                                  </span>
-                                    </div>
-                                    <div class="notif-text">
-                                        <p>faucibus dolor in commodo lectus mattis</p>
-                                        <small>yesterday</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#">
-                                <div class="header-notif">
-                                    <div class="notif-image">
-                                  <span class="notification-badge">
-                                    <img src="../../assets/images/avatars/profile-image.png" alt="">
-                                  </span>
-                                    </div>
-                                    <div class="notif-text">
-                                        <p>faucibus dolor in commodo lectus mattis</p>
-                                        <small>yesterday</small>
-                                    </div>
-                                </div>
-                            </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link profile-dropdown" href="#" id="profileDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset(Auth::user()->image)}}" alt=""></a>
                         <div class="dropdown-menu dropdown-menu-end profile-drop-menu" aria-labelledby="profileDropDown">
-                            <a class="dropdown-item" href="#"><i data-feather="user"></i>Profi</a>
+                            <a class="dropdown-item" href="{{route('provider.profile')}}"><i data-feather="user"></i>Profi</a>
                             <a href="{{route('logout')}}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                                class="dropdown-item">
@@ -170,6 +118,12 @@
             </li>
             <li class="sidebar-title">
                 Apps
+            </li>
+            <li>
+                <a href="{{route('provider.site.index')}}"><i data-feather="message-circle"></i>Étapes Nouvelles</a>
+            </li>
+            <li>
+                <a href="{{route('provider.site.complete')}}"><i data-feather="layers"></i>Étapes complètes</a>
             </li>
             <li>
                 <a href="{{route('provider.problems.assign')}}"><i data-feather="inbox"></i>Nouveau Problèmes</a>

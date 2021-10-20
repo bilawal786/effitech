@@ -1,8 +1,7 @@
-@extends('layouts.client-dashboard')
+@extends('layouts.provider-dashboard')
 @section('content')
-    <div class="content-body">
-        <!-- row -->
-        <div class="container-fluid">
+    <div class="page-content">
+        <div class="main-wrapper">
             <div class="row">
                 <div class="col-md-12">
                     @if(Session::has('message'))
@@ -102,5 +101,6 @@
                 </div>
             </div>
         </div>
+
     </div>
 @endsection

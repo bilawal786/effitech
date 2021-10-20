@@ -119,6 +119,7 @@ class UserSeeder extends Seeder
             'logo' => 'allimages/1634337266allimages.png',
             'facebook' => 'www.facebook.com',
             'instagram' => 'www.instagram.com',
+            'about' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
         ]);
         Page::create([
             'h1' => 'Notre vision',
@@ -179,6 +180,7 @@ Aménagement intérieur locale commercial Ste Rose'
         ]);
         Offers::create([
             'title' => 'Noëline',
+            'banner' => 'allimages/1634442160allimages.jpg',
             'photo' => 'allimages/1634442160allimages.jpg',
             'gallery' => '["1634442192photos.DESSIN.jpg"]',
             'nom' => '["S\u00e9jour","Wc","Salle de bain","Chambre"]',
@@ -190,6 +192,7 @@ Aménagement intérieur locale commercial Ste Rose'
         ]);
         Offers::create([
             'title' => 'Kendlyne',
+            'banner' => 'allimages/1634442471allimages.jpg',
             'photo' => 'allimages/1634442471allimages.jpg',
             'gallery' => '["1634442429photos.DESSIN.jpg","1634442429photos.PLAN.jpg","1634442429photos.PRINCIPALE.jpg","1634442429photos.PRINCIPALEO2.jpg","1634442429photos.PRINCIPALEO3.jpg"]',
             'nom' => '["Sejour","Cuisine","Wc","Salle de bain","Chambre principale","Chambre enfant","V\u00e9randa","TOTAL"]',
@@ -202,6 +205,7 @@ La mezzanine abrite un troisième espace nuit avec une chambre, un salon et sa s
         ]);
         Offers::create([
             'title' => 'Kannel',
+            'banner' => 'allimages/1634471175allimages.jpg',
             'photo' => 'allimages/1634471175allimages.jpg',
             'gallery' => '["1634471211photos.DESSIN.jpg","1634471211photos.PLAN.jpg","1634471211photos.PRINCIPALE.jpg","1634471211photos.PRINCIPALE02.jpg","1634471211photos.PRINCIPALE03.jpg"]',
             'nom' => '["S\u00e9jour","Cuisine","Salle de bain","Wc","Chambre principal","Chambre enfant","v\u00e9renda"]',

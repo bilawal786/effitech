@@ -50,29 +50,28 @@
                         <h3>Envoyez-nous un message
                             <span class="tiny-border"></span>
                         </h3>
-                        <form name="contactForm" id='contact_form' method="post" >
+                        <form  name="contactForm"   method="post" action="{{route('query.submit')}}">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div id='name_error' class='error'>S'il vous plaît entrez votre nom.</div>
+                                    @if(Session::has('message'))
+                                    <div style="display: block" class='success'> {{ Session::get('message') }}</div>
+                                    @endif
                                     <div>
                                         <input type='text' name='name' id='name' class="form-control" placeholder="Nom">
                                     </div>
-
-                                    <div id='email_error' class='error'>Veuillez entrer votre identifiant e-mail valide.</div>
+                                        <br>
                                     <div>
                                         <input type='text' name='email' id='email' class="form-control" placeholder="Email">
                                     </div>
-
-                                    <div id='phone_error' class='error'>Veuillez entrer votre numéro de téléphone.</div>
+                                        <br>
                                     <div>
                                         <input type='text' name='phone' id='phone' class="form-control" placeholder="Téléphone">
                                     </div>
                                     <br>
-
-                                    <div id='phone_error' class='error'>Veuillez sélectionner les servicesv.</div>
                                     <div>
 
-                                        <select class="form-control" name="select-service">
+                                        <select class="form-control" name="service">
                                             <option>Sélectionnez le service</option>
                                          @foreach($categories as $row)
                                                 <option value="{{$row->name}}">{{$row->name}}</option>
@@ -84,13 +83,13 @@
                                     <div>
                                         <textarea name='message' id='message' class="form-control" placeholder="Message"></textarea>
                                     </div>
+                                        <br>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div id='submit'>
-                                        <input type='submit' id='send_message' value='Soumettre le formulaire' class="btn btn-line">
+                                        <input type='submit' value='Soumettre le formulaire' class="btn btn-primary">
                                     </div>
-                                    <div id='mail_success' class='success'>Your message has been sent successfully.</div>
                                     <div id='mail_fail' class='error'>Sorry, error occured this time sending your message.</div>
                                 </div>
                             </div>

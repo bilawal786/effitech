@@ -17,6 +17,7 @@ class CreateOffersTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('photo');
+            $table->string('banner');
             $table->longText('gallery');
             $table->longText('details');
             $table->longText('nom');

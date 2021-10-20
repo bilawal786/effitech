@@ -36,8 +36,8 @@
                                     <td>{{empty($row->subcategory->name) ? 'Supprimé' : $row->subcategory->name}}</td>
 
                                     <td>
-                                        <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
-                                        </button>
+<!--                                        <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
+                                        </button>-->
                                         <button type="button" class="btn btn-danger btn-sm"><i class="bx bx-box me-0"></i>
                                         </button>
                                     </td>

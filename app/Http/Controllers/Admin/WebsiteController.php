@@ -7,6 +7,7 @@ use App\Gallery;
 use App\Http\Controllers\Controller;
 use App\Offers;
 use App\Page;
+use App\Queries;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -269,6 +270,13 @@ class WebsiteController extends Controller
             $image2->move($destinationPath, $name2);
             $offer->photo = 'allimages/' . $name2;
         }
+        if ($request->hasfile('banner')) {
+            $image3 = $request->file('banner');
+            $name3 = time() . 'allimages' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image3->move($destinationPath, $name3);
+            $offer->banner = 'allimages/' . $name3;
+        }
         if($request->hasfile('gallery')){
             foreach($request->file('gallery') as $image)
             {
@@ -297,6 +305,24 @@ class WebsiteController extends Controller
             $offer->diagram = 'allimages/' . $name3;
         }
         $offer->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function queries(){
+        $queries = Queries::orderBy('id', 'DESC')->get();
+        return view('admin.settings.queries', compact('queries'));
+    }
+    public function about(){
+        $about = Content::find(1);
+        return view('admin.settings.about', compact('about'));
+    }
+    public function aboutUpdate(Request $request){
+        $about = Content::find(1);
+        $about->about = $request->about;
+        $about->update();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'

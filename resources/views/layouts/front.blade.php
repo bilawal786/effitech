@@ -439,6 +439,13 @@ $gs = App\Content::find(1);
         .container .col-md-3 {
             margin-bottom: 0px;
         }
+        #content {
+            width: 100%;
+            background: #fff;
+            padding: 30px 0 90px 0;
+            padding-bottom: 90px;
+            z-index: 100;
+        }
     </style>
 </head>
 <div id='whatsapp-chat' class='hide'>
@@ -547,6 +554,7 @@ $gs = App\Content::find(1);
                             <li><a href="{{route('front.offers')}}">Nos Offres</a></li>
                             <li><a href="{{route('front.gallery')}}">Gallerie</a></li>
                             <li><a href="{{route('front.index')}}#explore-1">Témoignage</a></li>
+                            <li><a href="{{route('front.about')}}">À propos de nous</a></li>
                             @guest
                             <li><a href="{{route('login')}}">Connexion client</a></li>
                             @endguest

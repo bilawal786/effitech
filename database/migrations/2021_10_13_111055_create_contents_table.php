@@ -55,6 +55,8 @@ class CreateContentsTable extends Migration
             $table->string('email');
             $table->string('facebook');
             $table->string('instagram');
+
+            $table->longText('about');
             $table->timestamps();
         });
     }

@@ -250,6 +250,12 @@
         <div class="deznav-scroll">
             <ul class="metismenu" id="menu">
                 <li>
+                    <a class="ai-icon" href="{{route('client.dashboard')}}" aria-expanded="false">
+                        <i class="flaticon-381-home"></i>
+                        <span class="nav-text">Tableau de bord</span>
+                    </a>
+                </li>
+                <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-television"></i>
                         <span class="nav-text">Chantier</span>
@@ -268,7 +274,7 @@
                         <li><a href="{{route('problem.index')}}">Afficher tous les problèmes</a></li>
                     </ul>
                 </li>
-                <li>
+<!--                <li>
                     <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                         <i class="flaticon-381-notepad"></i>
                         <span class="nav-text">Factures</span>
@@ -276,7 +282,7 @@
                     <ul aria-expanded="false">
                         <li><a href="#">Toutes les factures</a></li>
                     </ul>
-                </li>
+                </li>-->
 
             </ul>
         </div>
