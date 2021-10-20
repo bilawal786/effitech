@@ -110,7 +110,7 @@
                     <br>
                     <br>
                     <div style="text-align: center; margin-top: 20px">
-                        <button style="font-size: 30px" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Je Suis Intéressé</button>
+                        <button style="font-size: 30px" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Je suis Intéressé</button>
                     </div>
                 </div>
 
