@@ -17,6 +17,7 @@ class CreateSitesTable extends Migration
             $table->id();
             $table->string('title');
             $table->integer('client_id');
+            $table->string('type')->nullable();
             $table->longText('details')->nullable();
             $table->string('duration')->nullable();
             $table->timestamps();

@@ -70,7 +70,7 @@
                             </form>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+<!--                    <li class="nav-item dropdown">
                         <a class="nav-link notifications-dropdown" href="#" id="notificationsDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false">3</a>
                         <div class="dropdown-menu dropdown-menu-end notif-drop-menu" aria-labelledby="notificationsDropDown">
                             <h6 class="dropdown-header">Notifications</h6>
@@ -88,7 +88,7 @@
                                 </div>
                             </a>
                         </div>
-                    </li>
+                    </li>-->
                     <li class="nav-item dropdown">
                         <a class="nav-link profile-dropdown" href="#" id="profileDropDown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset(Auth::user()->image)}}" alt=""></a>
                         <div class="dropdown-menu dropdown-menu-end profile-drop-menu" aria-labelledby="profileDropDown">
@@ -119,22 +119,19 @@
             <li class="sidebar-title">
                 Apps
             </li>
-            <li>
-                <a href="{{route('provider.site.index')}}"><i data-feather="message-circle"></i>Étapes Nouvelles</a>
-            </li>
-            <li>
-                <a href="{{route('provider.site.complete')}}"><i data-feather="layers"></i>Étapes complètes</a>
-            </li>
-            <li>
-                <a href="{{route('provider.problems.assign')}}"><i data-feather="inbox"></i>Nouveau Problèmes</a>
-            </li>
-            <li>
-                <a href="{{route('provider.problems.complete')}}"><i data-feather="user"></i>Problèmes complets</a>
-            </li>
-            @if(Auth::user()->role == 2)
-
-            @elseif(Auth::user()->role == 3)
-
+            @if(Auth::user()->role == 2 || Auth::user()->role == 3)
+                <li>
+                    <a href="{{route('provider.site.index')}}"><i data-feather="message-circle"></i>Étapes Nouvelles</a>
+                </li>
+                <li>
+                    <a href="{{route('provider.site.complete')}}"><i data-feather="layers"></i>Étapes complètes</a>
+                </li>
+                <li>
+                    <a href="{{route('provider.problems.assign')}}"><i data-feather="inbox"></i>Nouveau Problèmes</a>
+                </li>
+                <li>
+                    <a href="{{route('provider.problems.complete')}}"><i data-feather="user"></i>Problèmes complets</a>
+                </li>
             @elseif(Auth::user()->role == 4)
 
             @endif

@@ -5,18 +5,13 @@
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                 <div class="breadcrumb-title pe-3">Clients</div>
-<!--                <div class="ms-auto">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary">Settings</button>
-                        <button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                            <a class="dropdown-item" href="javascript:;">Another action</a>
-                            <a class="dropdown-item" href="javascript:;">Something else here</a>
-                            <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                        </div>
-                    </div>
-                </div>-->
+               <div class="ms-auto">
+                       @if(Str::contains(request()->url(), 'particular'))
+                           <a href="{{route('export.part')}}"> <button type="button" class="btn btn-primary btn-sm">Exporter les clients</button></a>
+                       @else
+                           <a href="{{route('export.pro')}}"> <button type="button" class="btn btn-primary btn-sm">Exporter les clients</button></a>
+                       @endif
+               </div>
             </div>
             <div class="card">
                 <div class="card-body">
@@ -24,12 +19,12 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Prénom</th>
                                 <th>Nom</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
                                 <th>Adresse</th>
-                                <th>Siret</th>
                                 <th>Type</th>
                                 <th>Action</th>
                             </tr>
@@ -37,12 +32,12 @@
                             <tbody>
                             @foreach($users as $row)
                             <tr>
+                                <td>{{$row->id}}</td>
                                 <td>{{$row->fname}}</td>
                                 <td>{{$row->lname}}</td>
                                 <td>{{$row->phone}}</td>
                                 <td>{{$row->email}}</td>
                                 <td>{{$row->address}}</td>
-                                <td>{{$row->siret}}</td>
                                 <td>
                                     <span class="badge bg-primary">{{$row->type}}</span>
                                 </td>

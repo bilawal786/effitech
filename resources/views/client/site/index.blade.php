@@ -17,6 +17,7 @@
                                         <th>Id</th>
                                         <th>Chantier</th>
                                         <th>CLient Nom</th>
+                                        <th>Taper</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -26,6 +27,7 @@
                                             <td>{{$row->id}}</td>
                                             <td>{{$row->title}}</td>
                                             <td>{{$row->client->fname}} {{$row->client->lname}}</td>
+                                            <td>{{$row->type}}</td>
                                             <td>
                                                 <a href="{{route('client.site.view', ['id' => $row->id])}}"> <button class="btn btn-success btn-sm">Vue</button></a>
                                             </td>

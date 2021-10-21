@@ -16,8 +16,9 @@
                                 <th>Email</th>
                                 <th>Telephone</th>
                                 <th>Service</th>
-                                <th>Offer</th>
+                                <th>Offre</th>
                                 <th>Message</th>
+                                <th>Date</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -29,6 +30,7 @@
                                     <td>{{$off->service}}</td>
                                     <td>{{$off->offer}}</td>
                                     <td>{{$off->message}}</td>
+                                    <td>{{$off->created_at->format('y-m-d')}}</td>
                                 </tr>
                             @endforeach
                             </tbody>

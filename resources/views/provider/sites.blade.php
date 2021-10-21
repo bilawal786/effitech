@@ -11,6 +11,7 @@
                                 <thead>
                                 <tr>
                                     <th>Chaniter</th>
+                                    <th>Taper</th>
                                     <th>Client</th>
                                     <th>Statut</th>
                                     <th>Action</th>
@@ -20,6 +21,7 @@
                                 @foreach($site as $row)
                                     <tr>
                                         <td>{{$row->site->title}}</td>
+                                        <td>{{$row->site->type}}</td>
                                         <td>{{$row->site->client->fname}} {{$row->site->client->lname}}</td>
                                         <td>
                                             @if (Auth::user()->role == 2)

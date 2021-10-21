@@ -23,6 +23,7 @@ class SiteController extends Controller
         $site = new Site();
         $site->title = $request->title;
         $site->client_id = $request->client_id;
+        $site->type = $request->type;
         $site->details = $request->details;
         $site->save();
         $notification = array(

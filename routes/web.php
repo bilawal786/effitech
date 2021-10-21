@@ -66,6 +66,12 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::post('/site/step/store', 'Admin\SiteController@stepSiteStore')->name('site.steps.store');
     Route::get('/step/status/{id}/{status}', 'Admin\SiteController@stepStatus')->name('step.status');
 
+    Route::get('/admin/profile', 'Admin\ClientController@profile')->name('admin.profile');
+
+    Route::get('/export/part', 'Admin\ClientController@exportPart')->name('export.part');
+    Route::get('/export/pro', 'Admin\ClientController@exportPro')->name('export.pro');
+    Route::get('/export/site', 'Admin\ClientController@exportSite')->name('export.site');
+
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
     Route::post('/client/store', 'Admin\ClientController@store')->name('client.store');

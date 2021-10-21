@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Category;
+use App\Exports\PartUsersExport;
+use App\Exports\ProUsersExport;
+use App\Exports\RenovationExport;
 use App\Http\Controllers\Controller;
 use App\Problem;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Maatwebsite\Excel\Facades\Excel;
 class ClientController extends Controller
 {
     public function create(){
@@ -114,5 +118,18 @@ class ClientController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
+    }
+    public function exportPart(){
+        return Excel::download(new PartUsersExport, 'Clients Particuliers.xlsx');
+    }
+    public function exportPro(){
+        return Excel::download(new ProUsersExport(), 'Clients Professionnel.xlsx');
+    }
+    public function exportSite(){
+        return Excel::download(new RenovationExport(), 'Tout Chantier.xlsx');
+    }
+    public function profile(){
+        $user = Auth::user();
+        return view('admin.profile', compact('user'));
     }
 }

@@ -63,18 +63,6 @@
                                         <input type="text" name="password" class="form-control border-start-0" required id="inputChoosePassword" value="12345678" />
                                     </div>
                                 </div>
-                                <div class="col-6">
-                                    <label for="inputChoosePassword" class="form-label">Societe</label>
-                                    <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
-                                        <input type="text" name="company" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Societe" />
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <label for="inputChoosePassword" class="form-label">Siret</label>
-                                    <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
-                                        <input type="number" name="siret" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Siret" />
-                                    </div>
-                                </div>
                                 <input type="hidden" name="role" value="1">
                                 <div class="col-12">
                                     <label for="inputChoosePassword" class="form-label">Taper</label>

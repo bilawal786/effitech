@@ -40,6 +40,14 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="col-md-6">
+                                    <label for="">Taper</label>
+                                    <select name="type" class="single-select form-control" required>
+                                        <option value="">Sélectionnez le Taper</option>
+                                        <option value="Construction">Construction</option>
+                                        <option value="Rénovation">Rénovation</option>
+                                    </select>
+                                </div>
                                 <div class="col-md-12">
                                     <label for="inputLastName1" class="form-label">Details</label>
                                     <div class="input-group">

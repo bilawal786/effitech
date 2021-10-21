@@ -3,6 +3,7 @@
     <div class="page-content">
         <div class="main-wrapper">
             <div class="row">
+                @if(Auth::user()->role == 2 || Auth::user()->role == 3)
                 <div class="col-md-6">
                     <div class="card stat-widget">
                         <div class="card-body">
@@ -27,6 +28,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </div>
 

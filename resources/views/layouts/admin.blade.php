@@ -53,121 +53,121 @@
         <!--navigation-->
         <ul class="metismenu" id="menu">
             @if(Auth::user()->role == 0)
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home'></i>
-                    </div>
-                    <div class="menu-title">Réglages généraux</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('general.slider')}}"><i class="bx bx-right-arrow-alt"></i>Carrousel</a>
+                <li>
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class='bx bx-home'></i>
+                            </div>
+                            <div class="menu-title">Clients</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{route('client.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Clients</a>
+                            </li>
+                            <li> <a href="{{route('client.professional')}}"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
+                            </li>
+                            <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
+                            </li>
+                            <li> <a href="{{route('admin.problems.index')}}"><i class="bx bx-right-arrow-alt"></i>Nouveaux problèmes</a>
+                            </li>
+                            <li> <a href="{{route('admin.problems.quote')}}"><i class="bx bx-right-arrow-alt"></i>Envoyer des devis</a>
+                            </li>
+                            <li> <a href="{{route('admin.problems.accept')}}"><i class="bx bx-right-arrow-alt"></i>Devis acceptés</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li> <a href="{{route('general.services')}}"><i class="bx bx-right-arrow-alt"></i>Services</a>
+                <li>
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class='bx bx-home'></i>
+                            </div>
+                            <div class="menu-title">Chantier</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{route('site.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Nouveau</a>
+                            </li>
+                            <li> <a href="{{route('site.index')}}"><i class="bx bx-right-arrow-alt"></i>Tout chantier</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignage</a>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-home'></i>
+                        </div>
+                        <div class="menu-title">Catégories</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('category.index')}}"><i class="bx bx-right-arrow-alt"></i>Catégorie principale</a>
+                        </li>
+                        <li> <a href="{{route('subcategory.index')}}"><i class="bx bx-right-arrow-alt"></i>Sous-catégorie</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-command' ></i>
+                        </div>
+                        <div class="menu-title">Sous Traitant</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('traitant.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Sous Traitant</a>
+                        </li>
+                        <li> <a href="{{route('traitant.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Traitant</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-atom' ></i>
+                        </div>
+                        <div class="menu-title">CONDUCTEUR DE TRAVAUX</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un CONDUCTEUR DE TRAVAUX</a>
+                        </li>
+                        <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les CONDUCTEUR DE TRAVAUX</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-video-recording' ></i>
+                        </div>
+                        <div class="menu-title">COMMERCIAL</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter COMMERCIAL</a>
+                        </li>
+                        <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les COMMERCIAL</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon"><i class='bx bx-home'></i>
+                            </div>
+                            <div class="menu-title">Réglages généraux</div>
+                        </a>
+                        <ul>
+                            <li> <a href="{{route('general.slider')}}"><i class="bx bx-right-arrow-alt"></i>Carrousel</a>
+                            </li>
+                            <li> <a href="{{route('general.services')}}"><i class="bx bx-right-arrow-alt"></i>Services</a>
+                            </li>
+                            <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignage</a>
+                            </li>
+                            <li> <a href="{{route('general.construction')}}"><i class="bx bx-right-arrow-alt"></i>Construction</a>
+                            </li>
+                            <li> <a href="{{route('general.renovation')}}"><i class="bx bx-right-arrow-alt"></i>Rénovation</a>
+                            </li>
+                            <li> <a href="{{route('general.settings')}}"><i class="bx bx-right-arrow-alt"></i>Réglages</a>
+                            </li>
+                            <li> <a href="{{route('general.gallery')}}"><i class="bx bx-right-arrow-alt"></i>Gallerie</a>
+                            </li>
+                            <li> <a href="{{route('general.offers')}}"><i class="bx bx-right-arrow-alt"></i>Offres</a>
+                            </li>
+                            <li> <a href="{{route('general.queries')}}"><i class="bx bx-right-arrow-alt"></i>Requêtes</a>
+                            </li>
+                            <li> <a href="{{route('general.about')}}"><i class="bx bx-right-arrow-alt"></i>À propos de nous</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li> <a href="{{route('general.construction')}}"><i class="bx bx-right-arrow-alt"></i>Construction</a>
-                    </li>
-                    <li> <a href="{{route('general.renovation')}}"><i class="bx bx-right-arrow-alt"></i>Rénovation</a>
-                    </li>
-                    <li> <a href="{{route('general.settings')}}"><i class="bx bx-right-arrow-alt"></i>Réglages</a>
-                    </li>
-                    <li> <a href="{{route('general.gallery')}}"><i class="bx bx-right-arrow-alt"></i>Gallerie</a>
-                    </li>
-                    <li> <a href="{{route('general.offers')}}"><i class="bx bx-right-arrow-alt"></i>Offres</a>
-                    </li>
-                    <li> <a href="{{route('general.queries')}}"><i class="bx bx-right-arrow-alt"></i>Requêtes</a>
-                    </li>
-                    <li> <a href="{{route('general.about')}}"><i class="bx bx-right-arrow-alt"></i>À propos de nous</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home'></i>
-                    </div>
-                    <div class="menu-title">Catégories</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('category.index')}}"><i class="bx bx-right-arrow-alt"></i>Catégorie principale</a>
-                    </li>
-                    <li> <a href="{{route('subcategory.index')}}"><i class="bx bx-right-arrow-alt"></i>Sous-catégorie</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home'></i>
-                    </div>
-                    <div class="menu-title">Clients</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('client.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Clients</a>
-                    </li>
-                    <li> <a href="{{route('client.professional')}}"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
-                    </li>
-                    <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
-                    </li>
-                    <li> <a href="{{route('admin.problems.index')}}"><i class="bx bx-right-arrow-alt"></i>Nouveaux problèmes</a>
-                    </li>
-                    <li> <a href="{{route('admin.problems.quote')}}"><i class="bx bx-right-arrow-alt"></i>Envoyer des devis</a>
-                    </li>
-                    <li> <a href="{{route('admin.problems.accept')}}"><i class="bx bx-right-arrow-alt"></i>Devis acceptés</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-home'></i>
-                    </div>
-                    <div class="menu-title">Chantier</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('site.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Nouveau</a>
-                    </li>
-                    <li> <a href="{{route('site.index')}}"><i class="bx bx-right-arrow-alt"></i>Tout chantier</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-command' ></i>
-                    </div>
-                    <div class="menu-title">Sous Traitant</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('traitant.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Sous Traitant</a>
-                    </li>
-                    <li> <a href="{{route('traitant.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Sous Traitant</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-atom' ></i>
-                    </div>
-                    <div class="menu-title">Superviseur de travail</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un Superviseur de travail</a>
-                    </li>
-                    <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Superviseur de travail</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:;" class="has-arrow">
-                    <div class="parent-icon"><i class='bx bx-video-recording' ></i>
-                    </div>
-                    <div class="menu-title">Propriétaire d'entreprise</div>
-                </a>
-                <ul>
-                    <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Propriétaire d'entreprise</a>
-                    </li>
-                    <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Propriétaire d'entreprise</a>
-                    </li>
-                </ul>
-            </li>
             @endif
         </ul>
         <!--end navigation-->
@@ -204,9 +204,7 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-user"></i><span>Profil</span></a>
-                        </li>
-                        <li><a class="dropdown-item" href="javascript:;"><i class="bx bx-cog"></i><span>Mot de passe</span></a>
+                        <li><a class="dropdown-item" href="{{route('admin.profile')}}"><i class="bx bx-user"></i><span>Profil</span></a>
                         </li>
                         <li>
                             <div class="dropdown-divider mb-0"></div>

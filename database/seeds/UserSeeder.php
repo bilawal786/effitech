@@ -35,7 +35,8 @@ class UserSeeder extends Seeder
             'address' => 'Guadeloupe',
             'password' => Hash::make('12345678'),
             'image' => 'local/avatar.jpg',
-            'siret' => '12345678'
+            'siret' => '12345678',
+            'type' => 'Particulier'
         ]);
         User::create([
             'fname' => 'Traitant',

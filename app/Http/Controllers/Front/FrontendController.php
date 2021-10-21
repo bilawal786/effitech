@@ -75,11 +75,13 @@ class FrontendController extends Controller
         if (Auth::user()->role == 2){
             $sitenew = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 0)->get();
             $sitecomplete = Steps::where('contractor_id', Auth::user()->id)->where('contractor_status', 1)->get();
+            return view('provider.dashboard', compact('sitenew', 'sitecomplete'));
         }elseif (Auth::user()->role == 3){
             $sitenew = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 0)->get();
             $sitecomplete = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 1)->get();
+            return view('provider.dashboard', compact('sitenew', 'sitecomplete'));
         }
-        return view('provider.dashboard', compact('sitenew', 'sitecomplete'));
+        return view('provider.dashboard');
     }
     public function profileupdate(Request $request){
         $id = Auth::user();
@@ -130,7 +132,7 @@ class FrontendController extends Controller
         $query->offer = $request->offer;
         $query->service = $request->service;
         $query->save();
-        Session::flash('message', 'Vos coordonnées sont soumises avec succès. Nous vous contacterons bientôt.');
+        Session::flash('message', 'Votre demande à bien été enregistré , nous prendrons contact avec vous très rapidement.');
         return redirect()->back();
     }
 }
