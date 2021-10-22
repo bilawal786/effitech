@@ -121,7 +121,7 @@
             </li>
             @if(Auth::user()->role == 2 || Auth::user()->role == 3)
                 <li>
-                    <a href="{{route('provider.site.index')}}"><i data-feather="message-circle"></i>Étapes Nouvelles</a>
+                    <a href="{{route('provider.site.index')}}"><i data-feather="message-circle"></i>Chantier</a>
                 </li>
                 <li>
                     <a href="{{route('provider.site.complete')}}"><i data-feather="layers"></i>Étapes complètes</a>

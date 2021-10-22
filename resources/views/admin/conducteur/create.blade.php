@@ -4,7 +4,7 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Conducteur de Travaux</div>
+                <div class="breadcrumb-title pe-3">COMMERCIAL</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
@@ -25,7 +25,7 @@
                             <div class="card-title d-flex align-items-center">
                                 <div><i class="bx bxs-user me-1 font-22 text-danger"></i>
                                 </div>
-                                <h5 class="mb-0 text-danger">Ajouter un nouveau Conducteur de Travaux</h5>
+                                <h5 class="mb-0 text-danger">COMMERCIAL</h5>
                             </div>
                             @error('email')
                             <strong>Le couriel a déja été pris en compte.</strong>
@@ -33,25 +33,6 @@
                             <hr>
                             <form action="{{route('client.store')}}" method="post" accept-charset="UTF-8" enctype="multipart/form-data" class="row g-3">
                                 @csrf
-                                <div class="col-md-6">
-                                    <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                    <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <select onchange="categorychange(this)" name="category_id" class="form-control" id="">
-                                            <option value="">Sélectionnez une catégorie</option>
-                                            @foreach($categories as $cat)
-                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                    <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>
-                                        <select  name="subcategory_id" class="form-control subcategory" id="">
-
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-md-6">
                                     <label for="inputLastName1" class="form-label">Prénom</label>
                                     <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-user'></i></span>

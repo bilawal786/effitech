@@ -69,11 +69,23 @@
                                     <div class="input-group">
                                         <select name="type" class="form-control" id="" required>
                                             <option>Sélectionnez le type de client</option>
-                                            <option value="Professionnel">Professionnel</option>
-                                            <option value="Particulier">Particulier</option>
+                                            <option class="pro" value="Professionnel">Professionnel</option>
+                                            <option class="part" value="Particulier">Particulier</option>
                                         </select>
                                     </div>
                                 </div>
+                                    <div class="col-6 mydiv" style="display: none">
+                                        <label for="inputChoosePassword" class="form-label">Societe</label>
+                                        <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
+                                            <input type="text" name="company" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Societe" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6 mydiv" style="display: none">
+                                        <label for="inputChoosePassword" class="form-label">Siret</label>
+                                        <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
+                                            <input type="number" name="siret" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Siret" />
+                                        </div>
+                                    </div>
                                 <div class="col-12">
                                     <label for="inputAddress3" class="form-label">Adresse</label>
                                     <textarea required name="address" class="form-control" id="inputAddress3" placeholder="Adresse" rows="3"></textarea>
@@ -92,3 +104,13 @@
         </div>
     </div>
     @endsection
+@section('script')
+    <script>
+        $( ".pro" ).click(function() {
+            $( ".mydiv" ).show();
+        });
+        $( ".part" ).click(function() {
+            $( ".mydiv").hide();
+        });
+    </script>
+@endsection

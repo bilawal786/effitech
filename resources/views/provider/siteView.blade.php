@@ -3,26 +3,6 @@
     <div class="page-content">
         <div class="main-wrapper">
             <div class="row">
-                <div class="col-md-4">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <div>
-                                    <h5 class="card-title">Détails du client</h5>
-                                    <hr>
-                                </div>
-                                <p class="card-text">
-                                        <b>Prenom</b>: {{$step->site->client->fname}}<br>
-                                        <b>Nom</b>: {{$step->site->client->lname}}<br>
-                                        <b>Email</b>: {{$step->site->client->email}}<br>
-                                        <b>Telephone</b>: {{$step->site->client->phone}}<br>
-                                        <b>Statue Client</b>: {{$step->site->client->type}}<br>
-                                        <b>Adresse</b>: {{$step->site->client->address}}<br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-8">
                     <div class="col">
                         <div class="card">
@@ -66,7 +46,7 @@
                                         <div class="col">
                                             <div class="card border-primary shadow radius-15">
                                                 <div class="card-body">
-                                                    <div class="float-end text-primary">{{$step->created_at->format('d-m-y H:ma')}}</div>
+                                                    <div class="float-end text-primary">{{$step->created_at->format('d-m-y')}}</div>
                                                     <h3 class="card-title text-primary">{{$step->title}}</h3>
                                                     <p class="card-text">{{$step->details}}</p>
                                                     <p class="card-text ">
@@ -85,8 +65,15 @@
                                                     <div class="row">
                                                         <div class="col-md-8">
                                                             <div>
-                                                                Sous-traitant: {{$step->subcontractor->fname}} {{$step->subcontractor->lname}}
-                                                                <span class="badge bg-warning">Travail Statut:
+                                                               <b>Sous-traitant</b>  <br>
+                                                                Nom: {{$step->subcontractor->fname}} {{$step->subcontractor->lname}}
+                                                                <br>
+                                                                Email: {{$step->subcontractor->email}}<br>
+                                                                Phone: {{$step->subcontractor->phone}}<br>
+                                                                Adresse: {{$step->subcontractor->address}}<br>
+                                                                Société: {{$step->subcontractor->company}}<br>
+                                                                Statut de travail:
+                                                                <span class="badge bg-warning">
                                                                                 @if($step->contractor_status == 0)
                                                                         En cours
                                                                     @else
@@ -96,8 +83,15 @@
                                                             </div>
                                                             <div>
                                                                 <br>
-                                                                Superviseur de travail: {{$step->supervisor->fname}} {{$step->supervisor->lname}}
-                                                                <span class="badge bg-warning">Travail Statut:
+                                                                <b> Superviseur de travail</b>  <br>
+                                                               Nom: {{$step->supervisor->fname}} {{$step->supervisor->lname}}
+                                                                <br>
+                                                                Email: {{$step->supervisor->email}}<br>
+                                                                Phone: {{$step->supervisor->phone}}<br>
+                                                                Adresse: {{$step->supervisor->address}}<br>
+                                                                Société: {{$step->supervisor->company}}<br>
+                                                                Statut de travail:
+                                                                <span class="badge bg-warning">
                                                                                 @if($step->supervisor_status == 0)
                                                                         En cours
                                                                     @else
@@ -109,11 +103,11 @@
                                                        <div class="col-md-4">
                                                            @if(Auth::user()->role == 2)
                                                                @if($step->contractor_status == 0)
-                                                               <a href="{{route('provider.step.status', ['id' => $step->id])}}"><button class="btn btn-primary">Validate</button></a>
+                                                               <a href="{{route('provider.step.status', ['id' => $step->id])}}"><button class="btn btn-primary">Valider</button></a>
                                                                @endif
                                                            @elseif(Auth::user()->role == 3)
                                                                @if($step->supervisor_status == 0)
-                                                                   <a href="{{route('provider.step.status', ['id' => $step->id])}}"><button class="btn btn-primary">Validate</button></a>
+                                                                   <a href="{{route('provider.step.status', ['id' => $step->id])}}"><button class="btn btn-primary">Valider</button></a>
                                                                @endif
                                                            @endif
                                                        </div>

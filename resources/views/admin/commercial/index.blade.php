@@ -18,8 +18,6 @@
                                 <th>Email</th>
                                 <th>Adresse</th>
                                 <th>Siret</th>
-                                <th>Catégorie</th>
-                                <th>Sous catégorie</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -32,9 +30,6 @@
                                     <td>{{$row->email}}</td>
                                     <td>{{$row->address}}</td>
                                     <td>{{$row->siret}}</td>
-                                    <td>{{empty($row->category->name) ? 'Supprimé' : $row->category->name}}</td>
-                                    <td>{{empty($row->subcategory->name) ? 'Supprimé' : $row->subcategory->name}}</td>
-
                                     <td>
 <!--                                        <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
                                         </button>-->

@@ -79,8 +79,8 @@
                                                                 </li>
                                                                 <li class="nav-item"><a href="#about-me{{$step->id}}" data-toggle="tab" class="nav-link">Photos</a>
                                                                 </li>
-                                                                <li class="nav-item"><a href="#work{{$step->id}}" data-toggle="tab" class="nav-link">Travail Attribuer à</a>
-                                                                </li>
+<!--                                                                <li class="nav-item"><a href="#work{{$step->id}}" data-toggle="tab" class="nav-link">Travail Attribuer à</a>
+                                                                </li>-->
                                                             </ul>
                                                             <div class="tab-content">
                                                                 <div id="my-posts{{$step->id}}" class="tab-pane fade active show">
@@ -108,7 +108,7 @@
                                                                         @endforeach
                                                                     </div>
                                                                 </div>
-                                                                <div id="work{{$step->id}}" class="tab-pane fade">
+<!--                                                                <div id="work{{$step->id}}" class="tab-pane fade">
                                                                     <br>
                                                                     <div class="row">
                                                                         <div>
@@ -133,7 +133,7 @@
                                                                             </span>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div>-->
                                                             </div>
                                                         </div>
                                                         <!-- Modal -->
