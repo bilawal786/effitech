@@ -28,6 +28,19 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="col-md-6">
+                    <div class="card stat-widget">
+                        <div class="card-body">
+                            <h5 class="card-title">Afficher les clients</h5>
+                            <h2>{{$clients->count()}}</h2>
+                            <p>Afficher les clients</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-info progress-bar-striped" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 @endif
             </div>
         </div>

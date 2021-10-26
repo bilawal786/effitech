@@ -29,6 +29,7 @@ Route::get('/gallery/view/{id}', 'Front\FrontendController@galleryView')->name('
 Route::post('/fetchsubcategory', 'Admin\CategoryController@fetchsubcategory')->name('fetchsubcategory');
 Route::post('/profileupdate', 'Front\FrontendController@profileupdate')->name('profileupdate');
 Route::post('/query/submit', 'Front\FrontendController@query')->name('query.submit');
+Route::post('/client/store', 'Admin\ClientController@store')->name('client.store');
 
 Auth::routes();
 //Admin routes
@@ -73,9 +74,10 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/export/site', 'Admin\ClientController@exportSite')->name('export.site');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
+    Route::get('/client/view/{id}', 'Admin\ClientController@viewClient')->name('client.view');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
-    Route::post('/client/store', 'Admin\ClientController@store')->name('client.store');
     Route::get('/client/particular', 'Admin\ClientController@particular')->name('client.particular');
+    Route::post('/client/quote/store', 'Admin\ClientController@clientquotestore')->name('client.quote.store');
 
     Route::get('/traitant/create', 'Admin\ClientController@traitantCreate')->name('traitant.create');
     Route::get('/traitant/index', 'Admin\ClientController@traitantIndex')->name('traitant.index');
@@ -116,6 +118,9 @@ Route::group(['middleware' => ['auth', 'web', 'client']], function() {
 
         Route::get('/client/profile', 'Client\ClientController@profile')->name('client.profile');
 
+        Route::get('/quotes/index', 'Client\ClientController@quotes')->name('client.quotes.index');
+        Route::get('/quotes/status/{id}/{status}', 'Client\ClientController@quoteStatus')->name('client.quote.status');
+
         Route::get('/site/index', 'Client\ClientController@sites')->name('client.site.index');
         Route::get('/site/view/{id}', 'Client\ClientController@siteView')->name('client.site.view');
     });
@@ -136,5 +141,8 @@ Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
         Route::get('/problem/status/{id}', 'Provider\ProviderController@problemStatus')->name('provider.problem.status');
 
         Route::get('/profile', 'Provider\ProviderController@profile')->name('provider.profile');
+
+        Route::get('/owner/create/client', 'Provider\ProviderController@OwnerCreateClient')->name('owner.create.client');
+        Route::get('/owner/create/index', 'Provider\ProviderController@OwnerCreateIndex')->name('owner.create.index');
     });
 });

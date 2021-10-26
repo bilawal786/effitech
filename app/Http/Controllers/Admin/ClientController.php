@@ -8,11 +8,13 @@ use App\Exports\ProUsersExport;
 use App\Exports\RenovationExport;
 use App\Http\Controllers\Controller;
 use App\Problem;
+use App\Quote;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
+use Session;
 class ClientController extends Controller
 {
     public function create(){
@@ -32,6 +34,7 @@ class ClientController extends Controller
         ]);
 
         $user = new User();
+        $user->c_id = Auth::user()->id;
         $user->fname = $request->fname;
         $user->lname = $request->lname;
         $user->email = $request->email;
@@ -45,13 +48,32 @@ class ClientController extends Controller
         $user->subcategory_id = $request->subcategory_id;
         $user->password = Hash::make($request->password);
         $user->save();
+        Session::flash('message', 'Les détails du nouveau client sont enregistrés avec succès');
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
-
+    public function viewClient($id){
+        $client = User::find($id);
+        return view('admin.client.view', compact('client'));
+    }
+    public function clientquotestore(Request $request){
+        $quote = new Quote();
+        $quote->client_id = $request->client_id;
+        $quote->title = $request->title;
+        $quote->price = $request->price;
+        $quote->start_date = $request->start_date;
+        $quote->end_date = $request->end_date;
+        $quote->details = $request->details;
+        $quote->save();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
     public function traitantCreate(){
         $categories = Category::all();
         return view('admin.traitant.create', compact('categories'));

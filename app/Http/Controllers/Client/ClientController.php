@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Problem;
+use App\Quote;
 use App\Site;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,5 +64,16 @@ class ClientController extends Controller
     public function profile(){
         $user = Auth::user();
         return view('client.profile', compact('user'));
+    }
+    public function quotes(){
+        $quotes = Quote::where('client_id', Auth::user()->id)->get();
+        return view('client.quote.index', compact('quotes'));
+    }
+    public function quoteStatus($id, $status){
+        $quotes = Quote::find($id);
+        $quotes->status = $status;
+        $quotes->update();
+        Session::flash('message', 'Mise à jour du statut réussie');
+        return redirect()->back();
     }
 }

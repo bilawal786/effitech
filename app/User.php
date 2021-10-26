@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
         return $this->belongsTo(SubCategory::class, 'subcategory_id');
     }
+    public function creater()
+    {
+        return $this->belongsTo(User::class, 'c_id');
+    }
+    public function quotes()
+    {
+        return $this->hasMany(Quote::class, 'client_id')->orderBy('id', 'DESC');
+    }
 }

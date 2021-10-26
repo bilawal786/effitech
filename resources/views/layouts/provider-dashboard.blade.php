@@ -133,16 +133,14 @@
                     <a href="{{route('provider.problems.complete')}}"><i data-feather="user"></i>Problèmes complets</a>
                 </li>
             @elseif(Auth::user()->role == 4)
-
+                <li>
+                    <a href="{{route('owner.create.client')}}"><i data-feather="user"></i>Ajouter client</a>
+                </li>
+                <li>
+                    <a href="{{route('owner.create.index')}}"><i data-feather="inbox"></i>Afficher les clients</a>
+                </li>
             @endif
-<!--            <li>
-                <a href="calendar.html"><i data-feather="calendar"></i>Calendar</a>
-            </li>
-            <li>
-                <a href="social.html"><i data-feather="user"></i>Social</a>
-            </li><li>
-                <a href="file-manager.html"><i data-feather="message-circle"></i>File Manager</a>
-            </li>-->
+
 
         </ul>
     </div>
@@ -180,5 +178,6 @@
         x[slideIndex-1].style.display = "block";
     }
 </script>
+@yield('script')
 </body>
 </html>

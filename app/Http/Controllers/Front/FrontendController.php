@@ -80,6 +80,9 @@ class FrontendController extends Controller
             $sitenew = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 0)->get();
             $sitecomplete = Steps::where('supervisor_id', Auth::user()->id)->where('supervisor_status', 1)->get();
             return view('provider.dashboard', compact('sitenew', 'sitecomplete'));
+        }elseif (Auth::user()->role == 4){
+            $clients = User::where('c_id', Auth::user()->id)->get();
+           return view('provider.dashboard', compact('clients'));
         }
         return view('provider.dashboard');
     }

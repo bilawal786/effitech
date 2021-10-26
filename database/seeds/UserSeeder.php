@@ -36,7 +36,8 @@ class UserSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'image' => 'local/avatar.jpg',
             'siret' => '12345678',
-            'type' => 'Particulier'
+            'type' => 'Particulier',
+            'c_id' => '1'
         ]);
         User::create([
             'fname' => 'Traitant',
@@ -50,9 +51,9 @@ class UserSeeder extends Seeder
             'siret' => '12345678'
         ]);
         User::create([
-            'fname' => 'Commercial',
+            'fname' => 'Conducteur',
             'lname' => '',
-            'email' => 'commercial@gmail.com',
+            'email' => 'conducteur@gmail.com',
             'role' => '3',
             'phone' => '00000000',
             'address' => 'Guadeloupe',
@@ -61,9 +62,9 @@ class UserSeeder extends Seeder
             'siret' => '12345678'
         ]);
         User::create([
-            'fname' => 'Conducteur',
+            'fname' => 'Commercial',
             'lname' => '',
-            'email' => 'conducteur@gmail.com',
+            'email' => 'commercial@gmail.com',
             'role' => '4',
             'phone' => '00000000',
             'address' => 'Guadeloupe',

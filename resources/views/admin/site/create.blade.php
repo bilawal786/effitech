@@ -43,7 +43,7 @@
                                 <div class="col-md-6">
                                     <label for="">Taper</label>
                                     <select name="type" class="single-select form-control" required>
-                                        <option value="">Sélectionnez le Taper</option>
+                                        <option value="">Sélectionnez le Project</option>
                                         <option value="Construction">Construction</option>
                                         <option value="Rénovation">Rénovation</option>
                                     </select>

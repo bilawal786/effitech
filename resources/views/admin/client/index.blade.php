@@ -26,6 +26,7 @@
                                 <th>Email</th>
                                 <th>Adresse</th>
                                 <th>Type</th>
+                                <th>Créé par</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -41,11 +42,10 @@
                                 <td>
                                     <span class="badge bg-primary">{{$row->type}}</span>
                                 </td>
+                                <td>{{$row->creater->fname}} {{$row->creater->lname}}</td>
                                 <td>
-<!--                                    <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
-                                    </button>-->
-                                    <button type="button" class="btn btn-danger btn-sm"><i class="bx bx-box me-0"></i>
-                                    </button>
+                                    <a href="{{route('client.view', ['id' => $row->id])}}"><button type="button" class="btn btn-success btn-sm">Vue
+                                    </button></a>
                                 </td>
                             </tr>
                             @endforeach

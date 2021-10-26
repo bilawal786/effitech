@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Problem;
 use App\Site;
 use App\Steps;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,5 +81,12 @@ class ProviderController extends Controller
     public function profile(){
         $user = Auth::user();
         return view('provider.profile', compact('user'));
+    }
+    public function OwnerCreateClient(){
+        return view('provider.owner.client.create');
+    }
+    public function OwnerCreateIndex(){
+        $clients = User::where('c_id', Auth::user()->id)->get();
+        return view('provider.owner.client.index', compact('clients'));
     }
 }

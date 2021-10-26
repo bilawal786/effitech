@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('siret')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
+            $table->integer('c_id')->nullable();
             $table->string('image')->default('local/avatar.jpg');
             $table->rememberToken();
             $table->timestamps();

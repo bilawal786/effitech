@@ -77,13 +77,13 @@
                                     <div class="col-6 mydiv" style="display: none">
                                         <label for="inputChoosePassword" class="form-label">Societe</label>
                                         <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
-                                            <input type="text" name="company" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Societe" />
+                                            <input type="text" name="company" class="form-control border-start-0" id="inputChoosePassword" placeholder="Societe" />
                                         </div>
                                     </div>
-                                    <div class="col-6 mydiv" style="display: none">
+                                    <div class="col-6 mydiv1" style="display: none">
                                         <label for="inputChoosePassword" class="form-label">Siret</label>
                                         <div class="input-group"> <span class="input-group-text bg-transparent"><i class='bx bxs-lock-open' ></i></span>
-                                            <input type="number" name="siret" class="form-control border-start-0" required id="inputChoosePassword" placeholder="Siret" />
+                                            <input type="number" name="siret" class="form-control border-start-0" id="inputChoosePassword" placeholder="Siret" />
                                         </div>
                                     </div>
                                 <div class="col-12">
@@ -108,9 +108,11 @@
     <script>
         $( ".pro" ).click(function() {
             $( ".mydiv" ).show();
+            $( ".mydiv1" ).show();
         });
         $( ".part" ).click(function() {
             $( ".mydiv").hide();
+            $( ".mydiv1").hide();
         });
     </script>
 @endsection
