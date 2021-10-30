@@ -90,7 +90,11 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
 
     Route::get('/category/index', 'Admin\CategoryController@index')->name('category.index');
     Route::get('/category/delete/{id}', 'Admin\CategoryController@delete')->name('category.delete');
+    Route::get('/category/edit/{id}', 'Admin\CategoryController@edit')->name('category.edit');
     Route::post('/category/store', 'Admin\CategoryController@store')->name('category.store');
+    Route::post('/category/update/{id}', 'Admin\CategoryController@update')->name('category.update');
+
+    Route::get('/filter/contractor/{id}', 'Admin\CategoryController@filterContractor')->name('filter.contractor');
 
     Route::get('/subcategory/index', 'Admin\CategoryController@subcategoryindex')->name('subcategory.index');
     Route::get('/subcategory/delete/{id}', 'Admin\CategoryController@subcategorydelete')->name('subcategory.delete');
@@ -144,5 +148,8 @@ Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
 
         Route::get('/owner/create/client', 'Provider\ProviderController@OwnerCreateClient')->name('owner.create.client');
         Route::get('/owner/create/index', 'Provider\ProviderController@OwnerCreateIndex')->name('owner.create.index');
+        Route::get('/owner/project/index', 'Provider\ProviderController@OwnerProjectIndex')->name('owner.project.index');
+        Route::get('/owner/client/status/{id}', 'Provider\ProviderController@OwnerClientStatus')->name('owner.client.status');
+        Route::get('/owner/site/view/{id}', 'Provider\ProviderController@OwnerSiteView')->name('owner.site.view');
     });
 });

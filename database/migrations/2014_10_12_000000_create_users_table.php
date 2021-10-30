@@ -26,8 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('type')->nullable();
             $table->string('company')->nullable();
             $table->string('siret')->nullable();
+            $table->string('construction_type')->nullable();
+            $table->longText('notes')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('subcategory_id')->nullable();
+            $table->integer('status')->default(1);
             $table->integer('c_id')->nullable();
             $table->string('image')->default('local/avatar.jpg');
             $table->rememberToken();

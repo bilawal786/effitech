@@ -60,7 +60,7 @@
                                     <div class="col-12">
                                         <label for="inputChoosePassword" class="form-label">Taper</label>
                                         <div class="input-group">
-                                            <select name="type" class="form-control" id="" required>
+                                            <select name="type" class="form-control" id="selectclient" required>
                                                 <option value="Particulier">Sélectionnez le type de client</option>
                                                 <option class="pro" value="Professionnel">Professionnel</option>
                                                 <option class="part" value="Particulier">Particulier</option>
@@ -83,6 +83,39 @@
                                         <label for="inputAddress3" class="form-label">Adresse</label>
                                         <textarea required name="address" class="form-control" id="inputAddress3" placeholder="Adresse" rows="3"></textarea>
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
+                                        <div class="input-group">
+                                            <select onchange="categorychange(this)" name="category_id" class="form-control" id="">
+                                                <option value="">Sélectionnez une catégorie</option>
+                                                @foreach($categories as $cat)
+                                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
+                                        <div class="input-group">
+                                            <select  name="subcategory_id" class="form-control subcategory" id="">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="inputLastName1" class="form-label">Taper</label>
+                                        <div class="input-group">
+                                            <select  name="construction_type" class="form-control" id="">
+                                                <option value="">Sélectionnez le Project</option>
+                                                <option value="Construction">Construction</option>
+                                                <option value="Rénovation">Rénovation</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="inputAddress3" class="form-label">Description</label>
+                                        <textarea required name="notes" class="form-control" id="inputAddress3" placeholder="Description" rows="5"></textarea>
+                                    </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-danger px-5">Sauvegarder</button>
                                     </div>
@@ -98,13 +131,14 @@
 @endsection
 @section('script')
     <script>
-        $( ".pro" ).click(function() {
-            $( ".mydiv" ).show();
-            $( ".mydiv1" ).show();
-        });
-        $( ".part" ).click(function() {
-            $( ".mydiv").hide();
-            $( ".mydiv1").hide();
+        $('#selectclient').on('change', function() {
+            if(this.value == "Professionnel"){
+                $( ".mydiv" ).show();
+                $( ".mydiv1" ).show();
+            }else{
+                $( ".mydiv").hide();
+                $( ".mydiv1").hide();
+            }
         });
     </script>
 @endsection

@@ -21,11 +21,11 @@ class ClientController extends Controller
         return view('admin.client.create');
     }
     public function professional(){
-        $users = User::where('type', 'Professionnel')->where('role', '1')->get();
+        $users = User::where('type', 'Professionnel')->where('role', '1')->where('status', 1)->get();
         return view('admin.client.index', compact('users'));
     }
     public function particular(){
-        $users = User::where('type', 'Particulier')->where('role', '1')->get();
+        $users = User::where('type', 'Particulier')->where('role', '1')->where('status', 1)->get();
         return view('admin.client.index', compact('users'));
     }
     public function store(Request $request){
@@ -44,6 +44,11 @@ class ClientController extends Controller
         $user->company = $request->company;
         $user->siret = $request->siret;
         $user->role = $request->role;
+        $user->construction_type = $request->construction_type;
+        $user->notes = $request->notes;
+        if (Auth::user()->role == 4){
+            $user->status = 2;
+        }
         $user->category_id = $request->category_id;
         $user->subcategory_id = $request->subcategory_id;
         $user->password = Hash::make($request->password);
@@ -79,8 +84,9 @@ class ClientController extends Controller
         return view('admin.traitant.create', compact('categories'));
     }
     public function traitantIndex(){
+        $categories = Category::all();
         $users = User::where('role', '2')->get();
-        return view('admin.traitant.index', compact('users'));
+        return view('admin.traitant.index', compact('users', 'categories'));
     }
     public function commercialCreate(){
         $categories = Category::all();

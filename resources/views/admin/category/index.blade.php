@@ -30,6 +30,8 @@
                                     <td>
                                         <a id="delete" href="{{route('category.delete', ['id' => $cat->id])}}"> <button  type="button" class="btn btn-danger btn-sm"><i class="bx bx-box me-0"></i>
                                         </button></a>
+                                        <a  href="{{route('category.edit', ['id' => $cat->id])}}"> <button  type="button" class="btn btn-primary btn-sm"><i class="bx bx-pen me-0"></i>
+                                        </button></a>
                                     </td>
                                 </tr>
                             @endforeach

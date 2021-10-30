@@ -23,7 +23,7 @@
     <!-- Theme Styles -->
     <link href="{{asset('provider/assets/css/main.min.css')}}" rel="stylesheet">
     <link href="{{asset('provider/assets/css/custom.css')}}" rel="stylesheet">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -139,6 +139,9 @@
                 <li>
                     <a href="{{route('owner.create.index')}}"><i data-feather="inbox"></i>Afficher les clients</a>
                 </li>
+                <li>
+                    <a href="{{route('owner.project.index')}}"><i data-feather="inbox"></i>Projects</a>
+                </li>
             @endif
 
 
@@ -176,6 +179,28 @@
             x[i].style.display = "none";
         }
         x[slideIndex-1].style.display = "block";
+    }
+</script>
+<script>
+    function categorychange(elem){
+        $('.subcategory').html('<option value="">Sélectionnez une sous-catégorie</option>');
+        event.preventDefault();
+        let id = elem.value;
+        let _token   = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            url: "{{route('fetchsubcategory')}}",
+            type:"POST",
+            data:{
+                id:id,
+                _token: _token
+            },
+            success:function(response){
+                $.each(response, function(i, item) {
+                    $('.subcategory').append('<option value="'+item.id+'">'+item.name+'</option>');
+                });
+            },
+        });
     }
 </script>
 @yield('script')

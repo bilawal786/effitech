@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Provider;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Problem;
 use App\Site;
@@ -9,7 +10,7 @@ use App\Steps;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Session;
 class ProviderController extends Controller
 {
     public function assignProblems(){
@@ -83,10 +84,27 @@ class ProviderController extends Controller
         return view('provider.profile', compact('user'));
     }
     public function OwnerCreateClient(){
-        return view('provider.owner.client.create');
+        $categories = Category::all();
+        return view('provider.owner.client.create', compact('categories'));
     }
     public function OwnerCreateIndex(){
         $clients = User::where('c_id', Auth::user()->id)->get();
         return view('provider.owner.client.index', compact('clients'));
+    }
+    public function OwnerProjectIndex(){
+        $project = User::where('c_id', Auth::user()->id)->pluck('id');
+        $sites = Site::whereIn('client_id', $project)->get();
+        return view('provider.owner.project.index', compact('sites'));
+    }
+    public function OwnerClientStatus($id){
+        $user = User::find($id);
+        $user->status = 1;
+        $user->update();
+        Session::flash('message', 'Réussite de la mise à jour du statut');
+        return redirect()->back();
+    }
+    public function OwnerSiteView($id){
+        $site = Site::find($id);
+        return view('provider.owner.project.view', compact('site'));
     }
 }

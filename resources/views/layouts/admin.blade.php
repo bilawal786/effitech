@@ -117,12 +117,12 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-atom' ></i>
                         </div>
-                        <div class="menu-title">CONDUCTEUR DE TRAVAUX</div>
+                        <div class="menu-title">Conducteur De Travaux</div>
                     </a>
                     <ul>
-                        <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un CONDUCTEUR DE TRAVAUX</a>
+                        <li> <a href="{{route('commercial.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter un Conducteur De Travaux</a>
                         </li>
-                        <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les CONDUCTEUR DE TRAVAUX</a>
+                        <li> <a href="{{route('commercial.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Conducteur De Travaux</a>
                         </li>
                     </ul>
                 </li>
@@ -130,12 +130,12 @@
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class='bx bx-video-recording' ></i>
                         </div>
-                        <div class="menu-title">COMMERCIAL</div>
+                        <div class="menu-title">Commerciaux</div>
                     </a>
                     <ul>
-                        <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter COMMERCIAL</a>
+                        <li> <a href="{{route('conducteur.create')}}"><i class="bx bx-right-arrow-alt"></i>Ajouter Commerciaux</a>
                         </li>
-                        <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les COMMERCIAL</a>
+                        <li> <a href="{{route('conducteur.index')}}"><i class="bx bx-right-arrow-alt"></i>Tous les Commerciaux</a>
                         </li>
                     </ul>
                 </li>
@@ -150,7 +150,7 @@
                             </li>
                             <li> <a href="{{route('general.services')}}"><i class="bx bx-right-arrow-alt"></i>Services</a>
                             </li>
-                            <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignage</a>
+                            <li> <a href="{{route('general.testimonial')}}"><i class="bx bx-right-arrow-alt"></i>Témoignages</a>
                             </li>
                             <li> <a href="{{route('general.construction')}}"><i class="bx bx-right-arrow-alt"></i>Construction</a>
                             </li>

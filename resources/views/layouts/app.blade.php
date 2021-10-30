@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{asset('front/assets/css/dark-theme.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/assets/css/semi-dark.css')}}"/>
     <link rel="stylesheet" href="{{asset('front/assets/css/header-colors.css')}}"/>
-    <title>Synadmin – Bootstrap5 Admin Template</title>
+    <title>Connexion</title>
 </head>
 @yield('content')
 

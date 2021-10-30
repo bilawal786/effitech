@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\SubCategory;
+use App\User;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -29,6 +30,20 @@ class CategoryController extends Controller
         $notification = array(
             'messege' => 'Supreme!',
             'alert-type' => 'error'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function edit($id){
+        $category = Category::find($id);
+        return view('admin.category.edit', compact('category'));
+    }
+    public function update(Request $request, $id){
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);
     }
@@ -60,5 +75,10 @@ class CategoryController extends Controller
     public function fetchsubcategory(Request $request){
         $subcategories = SubCategory::where('category_id', '=', $request->id)->get();
         return response()->json($subcategories);
+    }
+    public function filterContractor($id){
+        $categories = Category::all();
+        $users = User::where('role', '2')->where('category_id', $id)->get();
+        return view('admin.traitant.index', compact('users', 'categories'));
     }
 }

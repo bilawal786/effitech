@@ -32,9 +32,12 @@
                                         <b>Email</b>: {{$client->email}}<br>
                                         <b>Telephone</b>: {{$client->phone}}<br>
                                         <b>Client Taper</b>: {{$client->type}}<br>
-                                        <b>Address</b>: {{$client->address}}<br>
+                                        <b>Adresse</b>: {{$client->address}}<br>
                                         <b>Créé par</b>: {{$client->creater->fname}} {{$client->creater->lname}}<br>
                                         <b>Créé à</b>: {{$client->created_at->format('d-m-y')}}<br>
+                                        <b>Catégorie</b>: {{empty($client->category->name) ? 'Supprimé' : $client->category->name}}<br>
+                                        <b>Sous catégorie</b>: {{empty($client->subcategory->name) ? 'Supprimé' : $client->subcategory->name}}<br>
+                                        <b>Description</b>: {{$client->notes}}<br>
                                 </p>
                             </div>
                         </div>

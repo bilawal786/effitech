@@ -67,7 +67,7 @@
                                 <div class="col-12">
                                     <label for="inputChoosePassword" class="form-label">Taper</label>
                                     <div class="input-group">
-                                        <select name="type" class="form-control" id="" required>
+                                        <select name="type" class="form-control" id="selectclient" required>
                                             <option>Sélectionnez le type de client</option>
                                             <option class="pro" value="Professionnel">Professionnel</option>
                                             <option class="part" value="Particulier">Particulier</option>
@@ -106,13 +106,14 @@
     @endsection
 @section('script')
     <script>
-        $( ".pro" ).click(function() {
-            $( ".mydiv" ).show();
-            $( ".mydiv1" ).show();
-        });
-        $( ".part" ).click(function() {
-            $( ".mydiv").hide();
-            $( ".mydiv1").hide();
+        $('#selectclient').on('change', function() {
+            if(this.value == "Professionnel"){
+                $( ".mydiv" ).show();
+                $( ".mydiv1" ).show();
+            }else{
+                $( ".mydiv").hide();
+                $( ".mydiv1").hide();
+            }
         });
     </script>
 @endsection
