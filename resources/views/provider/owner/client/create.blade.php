@@ -83,39 +83,6 @@
                                         <label for="inputAddress3" class="form-label">Adresse</label>
                                         <textarea required name="address" class="form-control" id="inputAddress3" placeholder="Adresse" rows="3"></textarea>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                        <div class="input-group">
-                                            <select onchange="categorychange(this)" name="category_id" class="form-control" id="">
-                                                <option value="">Sélectionnez une catégorie</option>
-                                                @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}">{{$cat->name}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputLastName1" class="form-label">Choisir une catégorie</label>
-                                        <div class="input-group">
-                                            <select  name="subcategory_id" class="form-control subcategory" id="">
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputLastName1" class="form-label">Taper</label>
-                                        <div class="input-group">
-                                            <select  name="construction_type" class="form-control" id="">
-                                                <option value="">Sélectionnez le Project</option>
-                                                <option value="Construction">Construction</option>
-                                                <option value="Rénovation">Rénovation</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <label for="inputAddress3" class="form-label">Description</label>
-                                        <textarea required name="notes" class="form-control" id="inputAddress3" placeholder="Description" rows="5"></textarea>
-                                    </div>
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-danger px-5">Sauvegarder</button>
                                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Provider;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Needs;
 use App\Problem;
 use App\Site;
 use App\Steps;
@@ -98,7 +99,7 @@ class ProviderController extends Controller
     }
     public function OwnerClientStatus($id){
         $user = User::find($id);
-        $user->status = 1;
+        $user->status = 3;
         $user->update();
         Session::flash('message', 'Réussite de la mise à jour du statut');
         return redirect()->back();
@@ -106,5 +107,26 @@ class ProviderController extends Controller
     public function OwnerSiteView($id){
         $site = Site::find($id);
         return view('provider.owner.project.view', compact('site'));
+    }
+    public function OwnerClientNeeds(){
+        $needs = Needs::where('provider_id', Auth::user()->id)->get();
+        return view('provider.owner.needs.index', compact('needs'));
+    }
+    public function OwnerNeedCreate(){
+        $clients = User::where('c_id', Auth::user()->id)->get();
+        $categories = Category::all();
+        return view('provider.owner.needs.create', compact('categories', 'clients'));
+    }
+    public function OwnerNeedStore(Request $request){
+        $need = new Needs();
+        $need->provider_id = Auth::user()->id;
+        $need->client_id = $request->client_id;
+        $need->category_id = $request->category_id;
+        $need->subcategory_id = $request->subcategory_id;
+        $need->construction_type = $request->construction_type;
+        $need->notes = $request->notes;
+        $need->save();
+        Session::flash('message', 'Enregistrer avec succès');
+        return redirect()->back();
     }
 }

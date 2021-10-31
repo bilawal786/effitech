@@ -68,6 +68,8 @@
                             </li>
                             <li> <a href="{{route('admin.problems.index')}}"><i class="bx bx-right-arrow-alt"></i>Nouveaux problèmes</a>
                             </li>
+                            <li> <a href="{{route('admin.client.saleperson')}}"><i class="bx bx-right-arrow-alt"></i>Clients en Etudes</a>
+                            </li>
 <!--                            <li> <a href="{{route('admin.problems.quote')}}"><i class="bx bx-right-arrow-alt"></i>Envoyer des devis</a>
                             </li>
                             <li> <a href="{{route('admin.problems.accept')}}"><i class="bx bx-right-arrow-alt"></i>Devis acceptés</a>

@@ -14,41 +14,28 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Tous mes clients</h5>
+                            <h5 class="card-title">Clients Besoins <a href="{{route('owner.need.create')}}"><button class="btn btn-primary btn-sm float-right" >Ajouter un nouveau</button></a> </h5>
+
                             <table id="zero-conf" class="display" style="width:100%">
                                 <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Prénom</th>
-                                    <th>Nom</th>
-                                    <th>Telephone</th>
-                                    <th>Email</th>
-                                    <th>Adresse</th>
+                                    <th>Client Nom</th>
+                                    <th>Catégorie</th>
+                                    <th>Sous catégorie</th>
                                     <th>Taper</th>
-                                    <th>Créé par</th>
-                                    <th>Statut</th>
+                                    <th>Besoin</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($clients as $row)
+                                @foreach($needs as $row)
                                     <tr>
                                         <td>{{$row->id}}</td>
-                                        <td>{{$row->fname}}</td>
-                                        <td>{{$row->lname}}</td>
-                                        <td>{{$row->phone}}</td>
-                                        <td>{{$row->email}}</td>
-                                        <td>{{$row->address}}</td>
-                                        <td>
-                                            <span class="badge bg-primary">{{$row->type}}</span>
-                                        </td>
-                                        <td>{{$row->creater->fname}} {{$row->creater->lname}}</td>
-                                        <td>
-                                            @if($row->status == 2)
-                                            <a href="{{route('owner.client.status', ['id' => $row->id])}}"><button class="btn btn-success">Valider</button></a>
-                                            @else
-                                            Complete
-                                                @endif
-                                        </td>
+                                        <td>{{$row->client->fname}} {{$row->client->lname}}</td>
+                                        <td>{{empty($row->category->name) ? 'Supprimé' : $row->category->name}}</td>
+                                        <td>{{empty($row->subcategory->name) ? 'Supprimé' : $row->subcategory->name}}</td>
+                                        <td>{{$row->construction_type}}</td>
+                                        <td>{{$row->notes}}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

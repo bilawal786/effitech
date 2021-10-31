@@ -74,6 +74,7 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/export/site', 'Admin\ClientController@exportSite')->name('export.site');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
+    Route::get('/client/salesperson', 'Admin\ClientController@salesperson')->name('admin.client.saleperson');
     Route::get('/client/view/{id}', 'Admin\ClientController@viewClient')->name('client.view');
     Route::get('/client/professional', 'Admin\ClientController@professional')->name('client.professional');
     Route::get('/client/particular', 'Admin\ClientController@particular')->name('client.particular');
@@ -151,5 +152,9 @@ Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
         Route::get('/owner/project/index', 'Provider\ProviderController@OwnerProjectIndex')->name('owner.project.index');
         Route::get('/owner/client/status/{id}', 'Provider\ProviderController@OwnerClientStatus')->name('owner.client.status');
         Route::get('/owner/site/view/{id}', 'Provider\ProviderController@OwnerSiteView')->name('owner.site.view');
+
+        Route::get('/owner/client/needs', 'Provider\ProviderController@OwnerClientNeeds')->name('owner.client.needs');
+        Route::get('/owner/need/create', 'Provider\ProviderController@OwnerNeedCreate')->name('owner.need.create');
+        Route::post('/owner/need/store', 'Provider\ProviderController@OwnerNeedStore')->name('owner.need.store');
     });
 });

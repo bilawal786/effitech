@@ -42,6 +42,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="card-title">Besoins des clients</h5>
+                                    <hr>
+                                </div>
+                                @foreach($client->needs as $need)
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <hr>
+                                            <p class="card-text">
+                                                <b>Id</b>: {{$need->id}}<br>
+                                                <b>Catégorie</b>: {{empty($need->category->name) ? 'Supprimé' : $need->category->name}}<br>
+                                                <b>Sous catégorie</b>: {{empty($need->subcategory->name) ? 'Supprimé' : $need->subcategory->name}}<br>
+                                                <b>Taper</b>: {{$need->construction_type}}<br>
+                                                <b>Besoin</b>: {{$need->notes}}<br>
+                                            </p>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="row">

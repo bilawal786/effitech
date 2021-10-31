@@ -142,6 +142,9 @@
                 <li>
                     <a href="{{route('owner.project.index')}}"><i data-feather="inbox"></i>Projects</a>
                 </li>
+                <li>
+                    <a href="{{route('owner.client.needs')}}"><i data-feather="inbox"></i>Client Besoins</a>
+                </li>
             @endif
 
 

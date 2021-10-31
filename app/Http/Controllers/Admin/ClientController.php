@@ -160,4 +160,8 @@ class ClientController extends Controller
         $user = Auth::user();
         return view('admin.profile', compact('user'));
     }
+    public function salesperson(){
+        $users = User::where('role', '1')->where('status', 3)->get();
+        return view('admin.client.index', compact('users'));
+    }
 }
