@@ -52,7 +52,7 @@
                                     <th>Adresse</th>
                                     <th>Taper</th>
                                     <th>Créé par</th>
-                                    @if($link == route('owner.client.needs'))
+                                    @if(Str::contains(request()->url(), 'my'))
                                         <th>Statut</th>
                                         <th>Vue</th>
                                         <th>Valider</th>
