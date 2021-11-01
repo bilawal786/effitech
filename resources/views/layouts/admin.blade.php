@@ -64,7 +64,7 @@
                             </li>
                             <li> <a href="{{route('client.professional')}}"><i class="bx bx-right-arrow-alt"></i>Professionel</a>
                             </li>
-                            <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particuler</a>
+                            <li> <a href="{{route('client.particular')}}"><i class="bx bx-right-arrow-alt"></i>Particulier</a>
                             </li>
                             <li> <a href="{{route('admin.problems.index')}}"><i class="bx bx-right-arrow-alt"></i>Nouveaux problèmes</a>
                             </li>
