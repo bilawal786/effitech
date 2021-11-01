@@ -305,8 +305,7 @@
                 "oAria": {
                     "sSortAscending": ": Trier par ordre croissant", "sSortDescending": ": Trier par ordre décroissant"
                 }
-            },
-            "responsive": true, "lengthChange": true, "autoWidth": false,
+            }
         });
     } );
 </script>

@@ -24,7 +24,6 @@
                                 <th>Nom</th>
                                 <th>Telephone</th>
                                 <th>Email</th>
-                                <th>Adresse</th>
                                 <th>Type</th>
                                 <th>Créé par</th>
                                 <th>Action</th>
@@ -42,7 +41,6 @@
                                 <td>{{$row->lname}}</td>
                                 <td>{{$row->phone}}</td>
                                 <td>{{$row->email}}</td>
-                                <td>{{$row->address}}</td>
                                 <td>
                                     <span class="badge bg-primary">{{$row->type}}</span>
                                 </td>
@@ -51,6 +49,7 @@
                                     <a href="{{route('client.view', ['id' => $row->id])}}"><button type="button" class="btn btn-success btn-sm">Vue
                                     </button></a>
                                 </td>
+                                @if(Str::contains(request()->url(), 'your'))
                                 <td>
                                     @if($row->status == 2)
                                         En cours
@@ -64,6 +63,7 @@
                                     <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">J'accepte</button></a>
                                     <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '4'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
                                 </td>
+                                @endif
                             </tr>
                             @endforeach
                             </tbody>
