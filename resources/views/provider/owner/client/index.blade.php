@@ -35,11 +35,12 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            @if($link == route('owner.client.needs'))
-                            <h5 class="card-title">Clients Besoins <a href="{{route('owner.need.create')}}"><button class="btn btn-primary btn-sm float-right" >Ajouter un nouveau</button></a> </h5>
+                            @if(Str::contains(request()->url(), 'my'))
+                                <h5 class="card-title">Clients Besoins <a href="{{route('owner.need.create')}}"><button class="btn btn-primary btn-sm float-right" >Ajouter un nouveau</button></a> </h5>
                             @else
                                 <h5 class="card-title">Tous mes clients</h5>
                             @endif
+
                             <table id="zero-conf" class="display" style="width:100%">
                                 <thead>
                                 <tr>
@@ -71,7 +72,7 @@
                                             <span class="badge bg-primary">{{$row->type}}</span>
                                         </td>
                                         <td>{{$row->creater->fname}} {{$row->creater->lname}}</td>
-                                        @if($link == route('owner.client.needs'))
+                                        @if(Str::contains(request()->url(), 'my'))
                                             <td>
                                                 @if($row->status == 2)
                                                     En cours

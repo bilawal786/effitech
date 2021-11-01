@@ -156,7 +156,7 @@ Route::group(['middleware' => ['auth', 'web', 'provider']], function() {
         Route::get('/owner/site/view/{id}', 'Provider\ProviderController@OwnerSiteView')->name('owner.site.view');
         Route::get('/owner/client/view/{id}', 'Provider\ProviderController@OwnerClientView')->name('owner.client.view');
 
-        Route::get('/owner/client/needs', 'Provider\ProviderController@OwnerClientNeeds')->name('owner.client.needs');
+        Route::get('/owner/my/client/needs', 'Provider\ProviderController@OwnerClientNeeds')->name('owner.client.needs');
         Route::get('/owner/need/create', 'Provider\ProviderController@OwnerNeedCreate')->name('owner.need.create');
         Route::post('/owner/need/store', 'Provider\ProviderController@OwnerNeedStore')->name('owner.need.store');
     });
