@@ -55,7 +55,7 @@
                                     @if(Str::contains(request()->url(), 'my'))
                                         <th>Statut</th>
                                         <th>Vue</th>
-                                        <th>Valider</th>
+{{--                                        <th>Valider</th>--}}
                                     @endif
                                 </tr>
                                 </thead>
@@ -82,10 +82,10 @@
                                                     Rejeter
                                                 @endif
                                             </td>
-                                            <td>
+                                           {{-- <td>
                                                 <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">J'accepte</button></a>
                                                 <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '4'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
-                                            </td>
+                                            </td>--}}
                                             <td>
                                                 <a href="{{route('owner.client.view', ['id' => $row->id])}}"><button class="btn btn-success btn-sm">Vue</button></a>
                                             </td>

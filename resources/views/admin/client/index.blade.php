@@ -28,6 +28,10 @@
                                 <th>Type</th>
                                 <th>Créé par</th>
                                 <th>Action</th>
+                                @if(Str::contains(request()->url(), 'your'))
+                                    <th>Statut</th>
+                                    <th>Valider</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -46,6 +50,19 @@
                                 <td>
                                     <a href="{{route('client.view', ['id' => $row->id])}}"><button type="button" class="btn btn-success btn-sm">Vue
                                     </button></a>
+                                </td>
+                                <td>
+                                    @if($row->status == 2)
+                                        En cours
+                                    @elseif($row->status == 3)
+                                        J'accepte
+                                    @else
+                                        Rejeter
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">J'accepte</button></a>
+                                    <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '4'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
                                 </td>
                             </tr>
                             @endforeach
