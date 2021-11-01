@@ -1,5 +1,26 @@
 @extends('layouts.provider-dashboard')
 @section('content')
+    @php
+
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+        {
+          $link = "https";
+        }
+        else
+        {
+          $link = "http";
+
+          // Here append the common URL characters.
+          $link .= "://";
+
+          // Append the host(domain name, ip) to the URL.
+          $link .= $_SERVER['HTTP_HOST'];
+
+          // Append the requested resource location to the URL
+          $link .= $_SERVER['REQUEST_URI'];
+        }
+
+    @endphp
     <div class="page-content">
         <div class="main-wrapper">
             <div class="row">
@@ -14,7 +35,11 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Tous mes clients</h5>
+                            @if($link == route('owner.client.needs'))
+                            <h5 class="card-title">Clients Besoins <a href="{{route('owner.need.create')}}"><button class="btn btn-primary btn-sm float-right" >Ajouter un nouveau</button></a> </h5>
+                            @else
+                                <h5 class="card-title">Tous mes clients</h5>
+                            @endif
                             <table id="zero-conf" class="display" style="width:100%">
                                 <thead>
                                 <tr>
@@ -26,7 +51,11 @@
                                     <th>Adresse</th>
                                     <th>Taper</th>
                                     <th>Créé par</th>
-                                    <th>Statut</th>
+                                    @if($link == route('owner.client.needs'))
+                                        <th>Statut</th>
+                                        <th>Vue</th>
+                                        <th>Valider</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -42,13 +71,25 @@
                                             <span class="badge bg-primary">{{$row->type}}</span>
                                         </td>
                                         <td>{{$row->creater->fname}} {{$row->creater->lname}}</td>
-                                        <td>
-                                            @if($row->status == 2)
-                                            <a href="{{route('owner.client.status', ['id' => $row->id])}}"><button class="btn btn-success">Valider</button></a>
-                                            @else
-                                            Complete
+                                        @if($link == route('owner.client.needs'))
+                                            <td>
+                                                @if($row->status == 2)
+                                                    En cours
+                                                @elseif($row->status == 3)
+                                                    J'accepte
+                                                @else
+                                                    Rejeter
                                                 @endif
-                                        </td>
+                                            </td>
+                                            <td>
+                                                <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">J'accepte</button></a>
+                                                <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '4'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
+                                            </td>
+                                            <td>
+                                                <a href="{{route('owner.client.view', ['id' => $row->id])}}"><button class="btn btn-success btn-sm">Vue</button></a>
+                                            </td>
+                                        @endif
+
                                     </tr>
                                 @endforeach
                                 </tbody>

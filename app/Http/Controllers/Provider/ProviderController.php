@@ -97,9 +97,9 @@ class ProviderController extends Controller
         $sites = Site::whereIn('client_id', $project)->get();
         return view('provider.owner.project.index', compact('sites'));
     }
-    public function OwnerClientStatus($id){
+    public function OwnerClientStatus($id, $status){
         $user = User::find($id);
-        $user->status = 3;
+        $user->status = $status;
         $user->update();
         Session::flash('message', 'Réussite de la mise à jour du statut');
         return redirect()->back();
@@ -109,8 +109,10 @@ class ProviderController extends Controller
         return view('provider.owner.project.view', compact('site'));
     }
     public function OwnerClientNeeds(){
-        $needs = Needs::where('provider_id', Auth::user()->id)->get();
-        return view('provider.owner.needs.index', compact('needs'));
+        $clients = User::where('c_id', Auth::user()->id)->get();
+        return view('provider.owner.client.index', compact('clients'));
+       /* $needs = Needs::where('provider_id', Auth::user()->id)->get();
+        return view('provider.owner.needs.index', compact('needs'));*/
     }
     public function OwnerNeedCreate(){
         $clients = User::where('c_id', Auth::user()->id)->get();
@@ -128,5 +130,9 @@ class ProviderController extends Controller
         $need->save();
         Session::flash('message', 'Enregistrer avec succès');
         return redirect()->back();
+    }
+    public function OwnerClientView($id){
+        $client = User::find($id);
+        return view('provider.owner.client.view', compact('client'));
     }
 }
