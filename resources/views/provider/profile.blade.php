@@ -24,7 +24,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Preom</label>
+                                                <label for="">Prénom</label>
                                                 <input type="text" class="form-control" name="fname" value="{{$user->fname}}">
                                             </div>
                                         </div>
@@ -42,13 +42,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Telephone</label>
+                                                <label for="">Téléphone</label>
                                                 <input type="text" class="form-control" name="phone" value="{{$user->phone}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Adderese</label>
+                                                <label for="">Adresse</label>
                                                 <input type="text" class="form-control" name="address" value="{{$user->address}}">
                                             </div>
                                         </div>
