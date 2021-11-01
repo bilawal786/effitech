@@ -77,7 +77,7 @@
                                                 @if($row->status == 2)
                                                     En cours
                                                 @elseif($row->status == 3)
-                                                    J'accepte
+                                                    Accepter
                                                 @else
                                                     Rejeter
                                                 @endif

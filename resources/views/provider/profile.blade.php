@@ -25,25 +25,25 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Prénom</label>
-                                                <input type="text" class="form-control" name="fname" value="{{$user->fname}}">
+                                                <input type="text" class="form-control" required name="fname" value="{{$user->fname}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Nom</label>
-                                                <input type="text" class="form-control" name="lname" value="{{$user->lname}}">
+                                                <input type="text" class="form-control" required name="lname" value="{{$user->lname}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Email</label>
-                                                <input type="text" class="form-control" readonly value="{{$user->email}}">
+                                                <input type="text" class="form-control"  readonly value="{{$user->email}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="">Téléphone</label>
-                                                <input type="text" class="form-control" name="phone" value="{{$user->phone}}">
+                                                <input type="text" class="form-control" required name="phone" value="{{$user->phone}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">

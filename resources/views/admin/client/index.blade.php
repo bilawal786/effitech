@@ -54,13 +54,13 @@
                                     @if($row->status == 2)
                                         En cours
                                     @elseif($row->status == 3)
-                                        J'accepte
+                                        Accepter
                                     @else
                                         Rejeter
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">J'accepte</button></a>
+                                    <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '3'])}}"><button class="btn btn-primary btn-sm">Accepter</button></a>
                                     <a href="{{route('owner.client.status', ['id' => $row->id, 'status' => '4'])}}"><button class="btn btn-danger btn-sm">Rejeter</button></a>
                                 </td>
                                 @endif

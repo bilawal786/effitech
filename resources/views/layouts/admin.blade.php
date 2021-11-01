@@ -70,7 +70,7 @@
                             </li>
                             <li> <a href="{{route('admin.client.saleperson')}}"><i class="bx bx-right-arrow-alt"></i>Clients en Etudes (En cours)</a>
                             </li>
-                            <li> <a href="{{route('admin.client.saleperson3')}}"><i class="bx bx-right-arrow-alt"></i>Clients en Etudes (J'accepte)</a>
+                            <li> <a href="{{route('admin.client.saleperson3')}}"><i class="bx bx-right-arrow-alt"></i>Clients en Etudes (Accepter)</a>
                             </li>
                             <li> <a href="{{route('admin.client.saleperson4')}}"><i class="bx bx-right-arrow-alt"></i>Clients en Etudes (Rejeter)</a>
                             </li>
