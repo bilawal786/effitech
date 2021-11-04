@@ -253,6 +253,9 @@ class WebsiteController extends Controller
         $offers = Offers::all();
         return view('admin.settings.offers.index', compact('offers'));
     }
+    public function offersCreate(){
+        return view('admin.settings.offers.create');
+    }
     public function offeredit($id){
         $offer = Offers::find($id);
         return view('admin.settings.offers.edit', compact('offer'));
@@ -305,6 +308,60 @@ class WebsiteController extends Controller
             $offer->diagram = 'allimages/' . $name3;
         }
         $offer->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function offerstore(Request $request){
+        $offer = new Offers();
+        $offer->price = $request->price;
+        $offer->title = $request->title;
+        $offer->details = $request->details;
+        $offer->total = $request->total;
+        if ($request->hasfile('photo')) {
+            $image2 = $request->file('photo');
+            $name2 = time() . 'allimages' . '.' . $image2->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image2->move($destinationPath, $name2);
+            $offer->photo = 'allimages/' . $name2;
+        }
+        if ($request->hasfile('banner')) {
+            $image3 = $request->file('banner');
+            $name3 = time() . 'allimages' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image3->move($destinationPath, $name3);
+            $offer->banner = 'allimages/' . $name3;
+        }
+        if($request->hasfile('gallery')){
+            foreach($request->file('gallery') as $image)
+            {
+                $name = time().'photos'.'.'.$image->getClientOriginalName();
+                $destinationPath ='photos/';
+                $image->move($destinationPath, $name);
+                $data9[] = $name;
+                $offer->gallery = json_encode($data9);
+            }
+        }
+            foreach($request->nom as $nom)
+            {
+                $data[] = $nom;
+                $offer->nom = json_encode($data);
+            }
+            foreach($request->surface as $surface)
+            {
+                $data2[] = $surface;
+                $offer->surface = json_encode($data2);
+            }
+        if ($request->hasfile('diagram')) {
+            $image3 = $request->file('diagram');
+            $name3 = time() . 'allimages' . '.' . $image3->getClientOriginalExtension();
+            $destinationPath = 'allimages/';
+            $image3->move($destinationPath, $name3);
+            $offer->diagram = 'allimages/' . $name3;
+        }
+        $offer->save();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'

@@ -5,6 +5,9 @@
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                 <div class="breadcrumb-title pe-3">Offresr</div>
+                <div class="ms-auto">
+                    <a href="{{route('general.offer.create')}}"> <button type="button" class="btn btn-primary btn-sm">Ajouter un nouveau</button></a>
+                </div>
             </div>
             <div class="card">
                 <div class="card-body">

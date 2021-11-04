@@ -43,9 +43,11 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/general/queries', 'Admin\WebsiteController@queries')->name('general.queries');
     Route::get('/general/about', 'Admin\WebsiteController@about')->name('general.about');
     Route::get('/general/gallery', 'Admin\WebsiteController@gallery')->name('general.gallery');
+    Route::get('/general/offers/create', 'Admin\WebsiteController@offersCreate')->name('general.offer.create');
     Route::get('/general/offers', 'Admin\WebsiteController@offers')->name('general.offers');
     Route::get('/general/edit/{id}', 'Admin\WebsiteController@offeredit')->name('offer.edit');
     Route::post('/general/update/{id}', 'Admin\WebsiteController@offerUpdate')->name('offer.update');
+    Route::post('/general/store', 'Admin\WebsiteController@offerstore')->name('offer.store');
     Route::get('/general/construction', 'Admin\WebsiteController@construction')->name('general.construction');
     Route::get('/general/settings', 'Admin\WebsiteController@settings')->name('general.settings');
     Route::get('/general/renovation', 'Admin\WebsiteController@renovation')->name('general.renovation');

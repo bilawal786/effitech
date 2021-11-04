@@ -17,7 +17,7 @@
                     </figure>
 
                     <h3>{{$row->title}}</h3>
-                    {{$row->details}}
+                    {!! $row->details !!}
                     <br>
                     <a href="{{route('offer.details', ['id' => $row->id])}}" class="read_more mt10">Lire la suite <i class="fa fa-chevron-right id-color"></i></a>
 
