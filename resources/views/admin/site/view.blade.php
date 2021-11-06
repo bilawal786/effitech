@@ -223,7 +223,7 @@
                                 <label for="title"><b>Photos</b><span class="text-danger">*</span></label>
                                 <br>
                                 <div class="mb-3">
-                                    <input type="file" name="gallery[]" multiple class="form-control">
+                                    <input type="file" name="gallery[]" required multiple class="form-control">
                                 </div>
                             </div>
                         </div>
