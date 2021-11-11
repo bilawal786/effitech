@@ -264,6 +264,8 @@
 <script src="{{asset('front/assets/plugins/highcharts/js/accessibility.js')}}"></script>
 <script src="{{asset('front/assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
 <script src="{{asset('front/assets/js/index2.js')}}"></script>
+<script src="{{asset('front/assets/js/index.js')}}"></script>
+<script src="{{asset('front/assets/js/app.js')}}"></script>
 <!--app JS-->
 <script src="{{asset('front/assets/plugins/select2/js/select2.min.js')}}"></script>
 <script src="{{asset('front/assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
@@ -282,7 +284,6 @@
         allowClear: Boolean($(this).data('allow-clear')),
     });
 </script>
-<script src="{{asset('front/assets/js/app.js')}}"></script>
 <script>
     $(document).ready(function() {
         $('#example').DataTable({

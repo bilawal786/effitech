@@ -31,10 +31,10 @@
                                     <td>{{$row->address}}</td>
                                     <td>{{$row->siret}}</td>
                                     <td>
-<!--                                        <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
-                                        </button>-->
-                                        <button type="button" class="btn btn-danger btn-sm"><i class="bx bx-box me-0"></i>
-                                        </button>
+                                        <a href="{{route('client.edit', ['id' => $row->id])}}">
+                                            <button type="button" class="btn btn-primary btn-sm"><i class="lni lni-pencil me-0"></i>
+                                            </button>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

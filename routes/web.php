@@ -69,6 +69,9 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::post('/site/store', 'Admin\SiteController@storeSite')->name('site.store');
     Route::post('/site/step/store', 'Admin\SiteController@stepSiteStore')->name('site.steps.store');
     Route::get('/step/status/{id}/{status}', 'Admin\SiteController@stepStatus')->name('step.status');
+    Route::get('/step/edit/{id}', 'Admin\SiteController@stepEdit')->name('step.edit');
+    Route::get('/step/delete/{id}', 'Admin\SiteController@stepDelete')->name('step.delete');
+    Route::post('/step/update/{id}', 'Admin\SiteController@stepUpdate')->name('step.update');
 
     Route::get('/admin/profile', 'Admin\ClientController@profile')->name('admin.profile');
 
@@ -77,6 +80,8 @@ Route::group(['middleware' => ['auth', 'web', 'role']], function() {
     Route::get('/export/site', 'Admin\ClientController@exportSite')->name('export.site');
 
     Route::get('/client/create', 'Admin\ClientController@create')->name('client.create');
+    Route::get('/client/edit/{id}', 'Admin\ClientController@edit')->name('client.edit');
+    Route::post('/client/update/{id}', 'Admin\ClientController@update')->name('client.update');
     Route::get('/client/your/salesperson', 'Admin\ClientController@salesperson')->name('admin.client.saleperson');
     Route::get('/client/your/salesperson3', 'Admin\ClientController@salesperson3')->name('admin.client.saleperson3');
     Route::get('/client/your/salesperson4', 'Admin\ClientController@salesperson4')->name('admin.client.saleperson4');

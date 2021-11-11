@@ -64,10 +64,50 @@ class SiteController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function stepUpdate(Request $request, $id){
+        $step = Steps::find($id);
+        $step->title = $request->title;
+        $step->start_date = $request->start_date;
+        $step->end_date = $request->end_date;
+        $step->details = $request->details;
+        $step->contractor_id = $request->contractor_id;
+        $step->supervisor_id = $request->supervisor_id;
+        if($request->hasfile('gallery')){
+            foreach($request->file('gallery') as $image)
+            {
+                $name = time().'photos'.'.'.$image->getClientOriginalName();
+                $destinationPath ='photos/';
+                $image->move($destinationPath, $name);
+                $data9[] = $name;
+                $step->gallery = json_encode($data9);
+            }
+        }
+        $step->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
     public function stepStatus($id, $status){
         $step = Steps::find($id);
         $step->work_status = $status;
         $step->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function stepEdit($id){
+        $subcontractor = User::where('role', 2)->get();
+        $supervisor = User::where('role', 3)->get();
+        $step = Steps::find($id);
+        return view('admin.site.stepEdit', compact('step', 'supervisor', 'subcontractor'));
+    }
+    public function stepDelete($id){
+        $step = Steps::find($id);
+        $step->delete();
         $notification = array(
             'messege' => 'Sauvegarde réussie!',
             'alert-type' => 'success'
