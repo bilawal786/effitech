@@ -91,6 +91,10 @@
                                                     @if($step->work_status == 0)
                                                         <a href="{{route('step.status', ['id' => $step->id, 'status' => '1'])}}"><button class="btn btn-primary btn-sm btn-block">Valider</button></a>
                                                     @endif
+                                                    <br>
+                                                    <a href="{{route('step.edit', ['id' => $step->id])}}"><button class="btn btn-success btn-sm btn-block">Éditer</button></a>
+                                                    <br>
+                                                    <a id="delete" href="{{route('step.delete', ['id' => $step->id])}}"><button class="btn btn-danger btn-sm btn-block">Suprême</button></a>
                                                 </div>
                                                 <h3 class="card-title text-primary">{{$step->title}}</h3>
                                                 <p class="card-text">{{$step->details}}</p>

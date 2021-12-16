@@ -60,6 +60,26 @@ class ClientController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+    public function update(Request $request, $id){
+        $user = User::find($id);
+        $user->fname = $request->fname;
+        $user->lname = $request->lname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->company = $request->company;
+        $user->siret = $request->siret;
+
+        $user->update();
+        $notification = array(
+            'messege' => 'Sauvegarde réussie!',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);
+    }
+    public function edit($id){
+        $client = User::find($id);
+        return view('admin.client.edit', compact('client'));
+    }
     public function viewClient($id){
         $client = User::find($id);
         return view('admin.client.view', compact('client'));
